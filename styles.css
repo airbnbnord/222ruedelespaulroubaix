@@ -236,10 +236,6 @@ button {
   box-shadow: 0 12px 28px rgba(20, 20, 20, 0.1);
 }
 
-.side-nav {
-  display: none;
-}
-
 .side-nav button {
   width: 34px;
   height: 34px;
@@ -2109,6 +2105,17 @@ html[data-theme="dark"] .stay-step-number.is-active {
 
 .home-intro-copy strong {
   color: var(--ink);
+}
+
+.home-scroll-note {
+  width: fit-content;
+  padding: 8px 14px;
+  border: 1px solid rgba(111, 127, 77, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+  color: var(--navy);
+  font-size: clamp(0.72rem, 0.95vw, 0.84rem);
+  font-weight: 760;
 }
 
 .home-contact {
@@ -9143,7 +9150,7 @@ html[data-theme="dark"] .stay-around-item em {
 .stay-departure-rail {
   position: relative;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   justify-items: center;
   align-items: center;
 }
@@ -9176,7 +9183,7 @@ html[data-theme="dark"] .stay-around-item em {
 
 .stay-departure-icons {
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   justify-items: center;
   align-items: center;
   padding: 2px 0;
@@ -9194,7 +9201,7 @@ html[data-theme="dark"] .stay-around-item em {
   border-left: 1px solid rgba(31, 36, 34, 0.22);
   padding-left: 22px;
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   align-items: center;
 }
 
@@ -9213,6 +9220,26 @@ html[data-theme="dark"] .stay-around-item em {
   font-size: clamp(0.84rem, 1.02vw, 0.98rem);
   font-weight: 820;
   line-height: 1.08;
+}
+
+.stay-departure-wish-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stay-departure-wish-button:hover,
+.stay-departure-wish-button:focus-visible {
+  color: var(--navy);
+  outline: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .stay-departure-list p {
@@ -9524,7 +9551,7 @@ html[data-theme="dark"] .stay-departure-table {
   .stay-journey-nav {
     --stay-step-size: 30px;
     --stay-step-gap: 4px;
-    --stay-nav-height: calc((var(--stay-step-size) * 4) + (var(--stay-step-gap) * 3) + 10px);
+    --stay-nav-height: calc((var(--stay-step-size) * 5) + (var(--stay-step-gap) * 4) + 10px);
     top: calc(50vh - (var(--stay-nav-height) / 2));
     width: 40px;
     height: var(--stay-nav-height);
@@ -9755,7 +9782,7 @@ html[data-theme="dark"] .stay-departure-table {
   .stay-journey-nav {
     --stay-step-size: 26px;
     --stay-step-gap: 3px;
-    --stay-nav-height: calc((var(--stay-step-size) * 4) + (var(--stay-step-gap) * 3) + 10px);
+    --stay-nav-height: calc((var(--stay-step-size) * 5) + (var(--stay-step-gap) * 4) + 10px);
     top: calc(50vh - (var(--stay-nav-height) / 2));
     width: 36px;
     height: var(--stay-nav-height);
@@ -12967,7 +12994,7 @@ html[data-theme="dark"] .city-guide-combo {
   grid-template-columns: minmax(0, 13fr) minmax(0, 24fr) minmax(0, 30fr) minmax(0, 24fr) minmax(0, 13fr);
   grid-template-rows: minmax(0, 1fr) 2cm;
   column-gap: 0.5cm;
-  row-gap: 1.5cm;
+  row-gap: 0.5cm;
 }
 
 .discover-blank-card {
@@ -13010,8 +13037,22 @@ html[data-theme="dark"] .city-guide-combo {
 .discover-blank-wide-slot {
   min-width: 0;
   min-height: 0;
+  position: relative;
   border-radius: 6px;
   background: rgba(111, 127, 77, 0.08);
+  overflow: visible;
+}
+
+.discover-blank-compass {
+  position: absolute;
+  left: clamp(8px, 0.8vw, 14px);
+  top: 50%;
+  width: clamp(48px, 4.8vw, 72px);
+  height: auto;
+  transform: translateY(-50%) rotate(-45deg);
+  transform-origin: 50% 50%;
+  filter: sepia(0.28) saturate(0.92) brightness(0.98) drop-shadow(0 6px 10px rgba(56, 39, 20, 0.16));
+  pointer-events: none;
 }
 
 .discover-blank-scroll {
@@ -13021,9 +13062,8 @@ html[data-theme="dark"] .city-guide-combo {
   z-index: 4;
   width: 75%;
   max-width: none;
-  height: clamp(42px, 5.2vh, 58px);
+  height: auto;
   transform: translateY(50%);
-  object-fit: fill;
   filter: sepia(0.78) saturate(0.82) hue-rotate(342deg) brightness(0.93) contrast(1.14) drop-shadow(0 8px 10px rgba(56, 39, 20, 0.24));
   opacity: 0.96;
   pointer-events: none;
@@ -13448,8 +13488,7 @@ html[data-theme="dark"] .city-guide-combo {
   }
 }
 
-/* Temporary: hide the internal page summary/navigation. */
-.side-nav {
+html[data-page="discover"] .side-nav {
   display: none;
 }
 

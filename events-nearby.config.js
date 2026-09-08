@@ -9,6 +9,7 @@ module.exports = {
   apiBaseUrl: "https://app.ticketmaster.com/discovery/v2/events.json",
   openAgendaApiBaseUrl: "https://api.openagenda.com/v2",
   cacheTtlMs: numberFromEnv("EVENTS_CACHE_TTL_HOURS", 6) * 60 * 60 * 1000,
+  providerTimeoutMs: numberFromEnv("EVENTS_PROVIDER_TIMEOUT_MS", 8000),
   refreshHours: [7, 12, 17],
   requestSize: numberFromEnv("EVENTS_REQUEST_SIZE", 50),
   defaultLocation: "Roubaix",

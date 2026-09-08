@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Ysabeau+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=discover-events-side-numbers-1">
+    <link rel="stylesheet" href="styles.css?v=discover-parchemin-asset-1">
   </head>
   <body>
     <main class="stage" aria-label="Frame photo du logement">
@@ -69,58 +69,6 @@
               </aside>
             </div>
 
-            <section class="second-section" id="welcome-explore" data-section="welcomeExplore" aria-label="Explorer le logement">
-              <div class="second-frame">
-                <figure class="mosaic-grid" aria-label="Emplacements photos du logement">
-                  <img class="grid-art" src="Assets/Grid.png" alt="Apercu des espaces du logement">
-                </figure>
-
-                <aside class="section-actions" aria-label="Acces rapides">
-                  <button class="section-action" type="button" data-page-target="home">
-                    <img src="Assets/Icon/La maison.svg" alt="">
-                    <strong data-i18n="houseAction">Profiter de la maison</strong>
-                  </button>
-                  <button class="section-action" type="button" data-page-target="discover">
-                    <img src="Assets/Icon/A découvrir.png" alt="">
-                    <strong data-i18n="discoverAction">Découvrir le quartier</strong>
-                  </button>
-                  <button class="section-action" type="button" data-page-target="stay">
-                    <img src="Assets/Icon/Your stay.svg" alt="">
-                    <strong data-i18n="stayAction">Tout savoir sur mon séjour</strong>
-                  </button>
-                </aside>
-              </div>
-            </section>
-
-            <section class="qr-section" id="welcome-qr" data-section="welcomeQr" aria-label="Acces mobile et souhaits">
-              <div class="qr-panel">
-                <div class="qr-mini-card">
-                  <div class="qr-copy">
-                    <p data-i18n="qrKicker">Want to have this outside ?</p>
-                    <h2 data-i18n="qrTitle">Scan the QR Code</h2>
-                  </div>
-                  <figure class="qr-card">
-                    <img src="Assets/qr-site.png" alt="QR code pour ouvrir le site">
-                  </figure>
-                </div>
-
-                <div class="wish-card">
-                  <div class="wish-content">
-                    <div class="wish-title">
-                      <strong data-i18n="wishTitleInline">Make one wish for your next stay</strong>
-                      <img src="Assets/Icon/;).svg" alt="">
-                    </div>
-                    <p data-i18n="wishSubtitle">Si tu reviens ici, qu'est-ce que tu aimerais avoir en plus ou en moins ?</p>
-                    <button class="wish-open" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button>
-                  </div>
-                  <div class="footer-line" aria-hidden="true"></div>
-                  <p class="copyright">© 2026 - TLSL</p>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="page-content" data-page="home" hidden>
             <section class="home-intro-module" id="home-blank" data-section="homeBlank" aria-label="Le logement">
               <div class="home-intro-card">
                 <figure class="home-intro-image">
@@ -135,6 +83,7 @@
                   </p>
                   <p data-i18n="homeBody">On espère que vous vous y sentirez bien et que vous apprécierez aussi découvrir cet endroit et ses alentours.</p>
                   <p data-i18n="homeEnjoy">Profitez bien, et n'hésitez pas à nous contacter si besoin !</p>
+                  <p class="home-scroll-note" data-i18n="homeScrollNote">Scroll down to discover more about the house.</p>
                   <div class="home-contact" aria-label="Coordonnees">
                     <a href="tel:+33767986660">+33 7 67 98 66 60</a>
                     <span aria-hidden="true">|</span>
@@ -481,6 +430,7 @@
                     <span>3</span>
                     <span>4</span>
                     <span>5</span>
+                    <span>6</span>
                   </div>
 
                   <div class="stay-departure-icons" aria-hidden="true">
@@ -489,6 +439,7 @@
                     <img src="Assets/Icon/recycle-bin.svg" alt="">
                     <img src="Assets/Icon/Review.svg" alt="">
                     <img src="Assets/Icon/boite a clé.svg" alt="">
+                    <img src="Assets/Icon/;).svg" alt="">
                   </div>
 
                   <div class="stay-departure-list">
@@ -512,6 +463,10 @@
                       <h3 data-i18n="stayLineDepartureStep5Title">Lock &amp; keys</h3>
                       <p data-i18n="stayLineDepartureStep5Text">Close the door &amp; window, return the key, and scramble the code</p>
                     </article>
+                    <article>
+                      <h3><button class="stay-departure-wish-button" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button></h3>
+                      <p data-i18n="wishSubtitle">If you come back here, what would you like to have more or less of?</p>
+                    </article>
                   </div>
                 </section>
 
@@ -526,6 +481,7 @@
 
                 <p class="stay-departure-safe" data-i18n="stayLineDepartureSafe">Safe Travels ! We hope to host you again soon ♡</p>
               </article>
+
             </section>
           </div>
           <div class="page-content" data-page="discover" hidden>
@@ -605,12 +561,23 @@
             <section class="discover-blank-page" id="discover-blank" data-section="discoverBlank" aria-label="Page blanche">
               <div class="discover-blank-grid" aria-hidden="true">
                 <div class="discover-blank-card discover-blank-card-a">
-                  <img class="discover-blank-scroll" src="Assets/Icon/parchemin-ancien.png" alt="">
+                  <div class="discover-focus-copy">
+                    <span class="discover-focus-line" id="discoverFocusLine">_____</span>
+                    <h3 id="discoverFocusTitle">ROUBAIX</h3>
+                    <p id="discoverFocusSubtitle">Art · Textile heritage · Creative city</p>
+                  </div>
+                  <img class="discover-blank-scroll" src="Assets/Icon/Parchemin.png" alt="">
+                  <div class="discover-focus-best">
+                    <strong>Best for</strong>
+                    <div class="discover-focus-tags" id="discoverFocusTags"></div>
+                  </div>
                 </div>
                 <div class="discover-blank-card discover-blank-card-b"></div>
                 <div class="discover-blank-card discover-blank-card-c"></div>
                 <div class="discover-blank-card discover-blank-card-wide">
-                  <div class="discover-blank-wide-slot"></div>
+                  <div class="discover-blank-wide-slot">
+                    <img class="discover-blank-compass" src="Assets/Icon/compass.png" alt="">
+                  </div>
                   <div class="discover-blank-wide-slot"></div>
                   <div class="discover-blank-wide-slot"></div>
                 </div>
@@ -628,10 +595,6 @@
         <button class="nav-item is-active" type="button" aria-current="page" data-page-target="welcome">
           <img src="Assets/Icon/Bienvenu.svg" alt="">
           <span data-i18n="navWelcome">Bienvenu</span>
-        </button>
-        <button class="nav-item" type="button" data-page-target="home">
-          <img src="Assets/Icon/La maison.svg" alt="">
-          <span data-i18n="navHome">Le logement</span>
         </button>
         <button class="nav-item" type="button" data-page-target="stay">
           <img src="Assets/Icon/Your stay.svg" alt="">
@@ -739,7 +702,7 @@
         }
       }
     </script>
-    <script src="script.js?v=home-model-side-7"></script>
+    <script src="script.js?v=stay-wish-step-6-1"></script>
     <script type="module" src="Assets/JS/home-model-viewer.js?v=home-model-side-7"></script>
   </body>
 </html>

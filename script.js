@@ -117,7 +117,7 @@ const copy = {
     sideDiscoverBlank: "Page blanche",
     qrKicker: "Tu veux l'avoir dehors ?",
     qrTitle: "Scanne le QR Code",
-    wishTitleInline: "Fais un vœu pour ton prochain séjour",
+    wishTitleInline: "Un vœu pour la prochaine fois ?",
     wishSubtitle: "Si tu reviens ici, qu'est-ce que tu aimerais avoir en plus ou en moins ?",
     wishButton: "Faire un vœu",
     modalTitle: "Faire un vœu",
@@ -138,6 +138,7 @@ const copy = {
     homeLeadText: " pensé ce logement pour que vous puissiez profiter d'un séjour simple, confortable et agréable.",
     homeBody: "On espère que vous vous y sentirez bien et que vous apprécierez aussi découvrir cet endroit et ses alentours.",
     homeEnjoy: "Profitez bien, et n'hésitez pas à nous contacter si besoin !",
+    homeScrollNote: "Faites défiler pour découvrir davantage la maison.",
     homeModelTitle: "Spin to explore",
     homeModelText: "222 rue Delespaul - 59xxxx - Roubaix",
     surfaceTotal: "Surface totale",
@@ -439,8 +440,6 @@ const copy = {
     stayLineDepartureStep5Text: "Fermez porte et fenêtre, remettez la clé et mélangez le code",
     sideStayFraming: "Framing",
     sideWelcomeHero: "Accueil",
-    sideWelcomeExplore: "Explorer",
-    sideWelcomeQr: "QR code",
     sideHomeCover: "Maison",
     sideHomeEquipment: "Équipements"
   },
@@ -476,7 +475,7 @@ const copy = {
     sideDiscoverBlank: "Blank page",
     qrKicker: "Want to have this outside ?",
     qrTitle: "Scan the QR Code",
-    wishTitleInline: "Make one wish for your next stay",
+    wishTitleInline: "One wish for next time?",
     wishSubtitle: "If you come back here, what would you like to have more or less of?",
     wishButton: "Make a wish",
     modalTitle: "Make one wish",
@@ -497,6 +496,7 @@ const copy = {
     homeLeadText: " designed this home so you can enjoy a simple, comfortable and pleasant stay.",
     homeBody: "We hope you feel at home here and enjoy discovering this place and its surroundings.",
     homeEnjoy: "Enjoy your stay, and feel free to contact us if needed!",
+    homeScrollNote: "Scroll down to discover more about the house.",
     homeModelTitle: "Spin to explore",
     homeModelText: "222 rue Delespaul - 59xxxx - Roubaix",
     surfaceTotal: "Total area",
@@ -798,8 +798,6 @@ const copy = {
     stayLineDepartureStep5Text: "Close the door & window, return the key, and scramble the code",
     sideStayFraming: "Framing",
     sideWelcomeHero: "Welcome",
-    sideWelcomeExplore: "Explore",
-    sideWelcomeQr: "QR code",
     sideHomeCover: "Home",
     sideHomeEquipment: "Equipment"
   }
@@ -848,10 +846,6 @@ const equipmentCatalog = {
 const pageSections = {
   welcome: [
     { id: "welcome-hero", key: "sideWelcomeHero", icon: "Assets/Icon/Bienvenu.svg" },
-    { id: "welcome-explore", key: "sideWelcomeExplore", icon: "Assets/Icon/Shortcut.svg" },
-    { id: "welcome-qr", key: "sideWelcomeQr", icon: "Assets/Icon/qr.svg" }
-  ],
-  home: [
     { id: "home-blank", key: "sideHomeCover", icon: "Assets/Icon/La maison.svg" },
     { id: "home-model", key: "homeModelTitle", icon: "Assets/Icon/eye.svg" },
     { id: "home-equipment", key: "sideHomeEquipment", icon: "Assets/Icon/snap.svg" }
@@ -1454,7 +1448,7 @@ function updateNavIndicator() {
 }
 
 function setActivePage(page) {
-  const targetPage = document.querySelector(`.page-content[data-page="${page}"]`) ? page : "home";
+  const targetPage = document.querySelector(`.page-content[data-page="${page}"]`) ? page : "welcome";
   activePage = targetPage;
   root.dataset.page = targetPage;
 
@@ -1729,12 +1723,11 @@ function eventPlaceLabel(event) {
 }
 
 function eventsFromPayload(payload) {
-  const lille = (payload?.events?.lille || []).slice(0, 2);
-  const belgium = (payload?.events?.belgium || []).slice(0, 1);
-  return [
-    ...lille.map((event) => ({ event, group: "lille" })),
-    ...belgium.map((event) => ({ event, group: "belgium" }))
-  ].slice(0, 3);
+  const lille = (payload?.events?.lille || []).map((event) => ({ event, group: "lille" }));
+  const belgium = (payload?.events?.belgium || []).map((event) => ({ event, group: "belgium" }));
+  const preferred = [...lille.slice(0, 2), ...belgium.slice(0, 1)];
+  const fallback = [...lille.slice(2), ...belgium.slice(1)];
+  return [...preferred, ...fallback].slice(0, 3);
 }
 
 function activeEvents() {

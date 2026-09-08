@@ -7,7 +7,8 @@ const path = require("node:path");
 const { URL } = require("node:url");
 
 const rootDir = __dirname;
-const runtimeDir = process.env.AIRBNB_LIVRET_RUNTIME_DIR || path.join(rootDir, ".runtime");
+const runtimeDir = process.env.AIRBNB_LIVRET_RUNTIME_DIR
+  || path.join(process.env.LOCALAPPDATA || rootDir, "AirbnbLivret-4174");
 let config;
 
 function ensureConfig() {
@@ -126,6 +127,20 @@ function openAgendaUrl(agenda, params = {}) {
   url.searchParams.set("status[]", "1");
   Object.entries(params).forEach(([key, value]) => url.searchParams.set(key, String(value)));
   return url;
+}
+
+async function fetchWithTimeout(url, options = {}) {
+  const timeoutMs = config.providerTimeoutMs || 8000;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } catch (error) {
+    if (error.name === "AbortError") throw new Error(`Provider request timed out after ${timeoutMs}ms`);
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function locationKeyFromUrl(url) {
@@ -513,7 +528,9 @@ function enrichCachedEvents(payload, locationKey) {
 function isUpcomingCachedEvent(event) {
   const rawDate = String(event?.date || "");
   const date = new Date(rawDate);
-  if (/^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+  const eventDateKey = rawDate.slice(0, 10);
+  const todayKey = new Date().toISOString().slice(0, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(rawDate) || eventDateKey === todayKey) {
     date.setHours(23, 59, 59, 999);
   }
   return Number.isFinite(date.getTime()) && date.getTime() >= Date.now();
@@ -534,7 +551,7 @@ function dedupe(events) {
 }
 
 async function fetchTicketmasterEvents(params, group, count, location) {
-  const response = await fetch(ticketmasterUrl(params));
+  const response = await fetchWithTimeout(ticketmasterUrl(params));
   if (!response.ok) throw new Error(`Ticketmaster ${group} request failed with ${response.status}`);
   const data = await response.json();
   const events = data?._embedded?.events || [];
@@ -551,7 +568,7 @@ async function fetchOpenAgendaEvents(group, location) {
   if (!config.openAgenda.enabled || !process.env.OPENAGENDA_API_KEY) return [];
   const agendas = group === "lille" ? config.openAgenda.lilleAgendas : [];
   const batches = await Promise.allSettled(agendas.map(async (agenda) => {
-    const response = await fetch(openAgendaUrl(agenda), {
+    const response = await fetchWithTimeout(openAgendaUrl(agenda), {
       headers: { key: process.env.OPENAGENDA_API_KEY }
     });
     if (!response.ok) throw new Error(`OpenAgenda ${agenda.slug} request failed with ${response.status}`);
@@ -585,11 +602,17 @@ async function fetchFreshEvents(previousCache, locationKey) {
     unit: "km"
   };
   const belgiumParams = { countryCode: config.belgium.countryCode };
-  const [ticketmasterLille, ticketmasterBelgium, openAgendaLille] = await Promise.all([
+  const providerResults = await Promise.allSettled([
     process.env.TICKETMASTER_API_KEY ? fetchTicketmasterEvents(lilleParams, "lille", config.lille.count, location) : Promise.resolve([]),
     process.env.TICKETMASTER_API_KEY ? fetchTicketmasterEvents(belgiumParams, "belgium", config.belgium.count, location) : Promise.resolve([]),
     fetchOpenAgendaEvents("lille", location)
   ]);
+  providerResults
+    .filter((result) => result.status === "rejected")
+    .forEach((result) => console.warn("[events] Provider refresh failed:", result.reason?.message || result.reason));
+  const [ticketmasterLille, ticketmasterBelgium, openAgendaLille] = providerResults.map((result) => (
+    result.status === "fulfilled" ? result.value : []
+  ));
   const previous = previousCache?.events || {};
   const composedEvents = composeEventsBySource({
     openAgendaLille,
@@ -629,7 +652,11 @@ async function getEventsNearby(locationKey) {
   try {
     const payload = await fetchFreshEvents(cache, locationKey);
     if (payload.events.lille.length || payload.events.belgium.length) {
-      await writeCache(locationKey, payload);
+      try {
+        await writeCache(locationKey, payload);
+      } catch (error) {
+        console.warn("[events] Cache write failed:", error.message);
+      }
       return { ...payload, fromCache: false };
     }
     return cache ? { ...enrichCachedEvents(cache, locationKey), fromCache: true, warning: "empty_ticketmaster_response" } : enrichCachedEvents(emptyEvents("empty_ticketmaster_response"), locationKey);
