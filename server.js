@@ -10,6 +10,11 @@ const rootDir = __dirname;
 const runtimeDir = process.env.AIRBNB_LIVRET_RUNTIME_DIR || path.join(rootDir, ".runtime");
 let config;
 
+function ensureConfig() {
+  if (!config) config = require("./events-nearby.config.js");
+  return config;
+}
+
 function configuredPort() {
   const explicitArg = process.argv.find((arg) => arg.startsWith("--port="));
   const explicitPort = explicitArg ? Number(explicitArg.slice("--port=".length)) : NaN;
@@ -606,11 +611,13 @@ async function fetchFreshEvents(previousCache, locationKey) {
 
 async function getEventsNearby(locationKey) {
   await loadDotEnv();
+  ensureConfig();
   const slot = refreshSlot();
   const cache = await readCache(locationKey);
   const shouldRepairOpenAgenda = needsOpenAgendaRefresh(cache);
-  if (isCurrentRefreshSlot(cache, slot) && !shouldRepairOpenAgenda) return { ...enrichCachedEvents(cache, locationKey), fromCache: true };
-  if (!shouldRepairOpenAgenda && !slot.isRefreshHour && !hasMissedScheduledRefresh(cache)) {
+  const forceRefresh = process.env.EVENTS_FORCE_REFRESH === "1";
+  if (!forceRefresh && isCurrentRefreshSlot(cache, slot) && !shouldRepairOpenAgenda) return { ...enrichCachedEvents(cache, locationKey), fromCache: true };
+  if (!forceRefresh && !shouldRepairOpenAgenda && !slot.isRefreshHour && !hasMissedScheduledRefresh(cache)) {
     return cache
       ? { ...enrichCachedEvents(cache, locationKey), fromCache: true, nextRefreshAt: nextRefreshIso() }
       : enrichCachedEvents(emptyEvents("waiting_for_refresh_window"), locationKey);
@@ -702,7 +709,7 @@ async function handleRequest(request, response) {
 
 async function main() {
   await loadDotEnv();
-  config = require("./events-nearby.config.js");
+  ensureConfig();
   const port = configuredPort();
   const server = http.createServer((request, response) => {
     handleRequest(request, response).catch((error) => {
@@ -727,8 +734,15 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  getEventsNearby,
+  ensureConfig
+};
 

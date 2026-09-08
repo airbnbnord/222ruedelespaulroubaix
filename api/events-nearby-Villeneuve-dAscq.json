@@ -1,0 +1,23 @@
+{
+  "updatedAt": null,
+  "ttlMs": 21600000,
+  "refreshSlot": null,
+  "nextRefreshAt": "2026-09-09T05:00:00.000Z",
+  "source": "unavailable",
+  "warning": "missing_api_keys",
+  "fromCache": false,
+  "location": {
+    "key": "Villeneuve-dAscq",
+    "label": {
+      "fr": "Villeneuve-d'Ascq",
+      "en": "Villeneuve-d'Ascq"
+    },
+    "country": "FR",
+    "latitude": 50.6233,
+    "longitude": 3.1443
+  },
+  "events": {
+    "lille": [],
+    "belgium": []
+  }
+}

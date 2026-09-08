@@ -1319,6 +1319,7 @@ function setSharedLocation(locationKey) {
   storePreference(storageKeys.location, selectedLocation);
   renderCityGuide();
   updateWeather();
+  updateEventsNearby();
 }
 
 function restoreFrameScroll(scrollTop) {
@@ -1879,7 +1880,16 @@ async function updateEventsNearby() {
   eventsNearbyStatus.textContent = copy[lang].eventsLoading;
 
   try {
-    const response = await fetch("/api/events-nearby", { cache: "no-store" });
+    const apiUrl = `api/events-nearby?location=${encodeURIComponent(selectedLocation)}`;
+    let response = await fetch(apiUrl, { cache: "no-store" });
+    if (!response.ok) {
+      const indexResponse = await fetch("api/events-nearby.json", { cache: "no-store" });
+      if (!indexResponse.ok) throw new Error("Events request failed");
+      const indexPayload = await indexResponse.json();
+      const staticFile = indexPayload.locations?.[selectedLocation] || indexPayload.locations?.[indexPayload.defaultLocation];
+      if (!staticFile) throw new Error("Events static cache missing");
+      response = await fetch(`api/${staticFile}`, { cache: "no-store" });
+    }
     if (!response.ok) throw new Error("Events request failed");
     eventsNearbyPayload = await response.json();
     renderEventsNearby(eventsNearbyPayload);

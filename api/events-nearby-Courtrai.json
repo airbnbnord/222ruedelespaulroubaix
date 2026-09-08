@@ -1,0 +1,23 @@
+{
+  "updatedAt": null,
+  "ttlMs": 21600000,
+  "refreshSlot": null,
+  "nextRefreshAt": "2026-09-09T05:00:00.000Z",
+  "source": "unavailable",
+  "warning": "missing_api_keys",
+  "fromCache": false,
+  "location": {
+    "key": "Courtrai",
+    "label": {
+      "fr": "Courtrai",
+      "en": "Kortrijk"
+    },
+    "country": "BE",
+    "latitude": 50.828,
+    "longitude": 3.2649
+  },
+  "events": {
+    "lille": [],
+    "belgium": []
+  }
+}

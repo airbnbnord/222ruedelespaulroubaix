@@ -1,0 +1,16 @@
+{
+  "updatedAt": "2026-09-08T19:30:23.086Z",
+  "defaultLocation": "Roubaix",
+  "locations": {
+    "Lille": "events-nearby-Lille.json",
+    "Roubaix": "events-nearby-Roubaix.json",
+    "Villeneuve-dAscq": "events-nearby-Villeneuve-dAscq.json",
+    "Dunkerque": "events-nearby-Dunkerque.json",
+    "Bergues": "events-nearby-Bergues.json",
+    "Bruges": "events-nearby-Bruges.json",
+    "Gand": "events-nearby-Gand.json",
+    "Bruxelles": "events-nearby-Bruxelles.json",
+    "Courtrai": "events-nearby-Courtrai.json",
+    "Tournai": "events-nearby-Tournai.json"
+  }
+}

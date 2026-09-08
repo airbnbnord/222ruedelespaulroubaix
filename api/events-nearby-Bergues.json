@@ -1,0 +1,23 @@
+{
+  "updatedAt": null,
+  "ttlMs": 21600000,
+  "refreshSlot": null,
+  "nextRefreshAt": "2026-09-09T05:00:00.000Z",
+  "source": "unavailable",
+  "warning": "missing_api_keys",
+  "fromCache": false,
+  "location": {
+    "key": "Bergues",
+    "label": {
+      "fr": "Bergues",
+      "en": "Bergues"
+    },
+    "country": "FR",
+    "latitude": 50.9688,
+    "longitude": 2.4324
+  },
+  "events": {
+    "lille": [],
+    "belgium": []
+  }
+}
