@@ -92,6 +92,7 @@ const copy = {
     icon: "EN",
     loading: "Meteo en direct...",
     fallback: "Meteo temporairement indisponible",
+    weatherCached: "Dernière météo disponible, prochain rafraîchissement automatique.",
     rangeHigh: "Haut",
     rangeLow: "Bas",
     houseAction: "Profiter de la maison",
@@ -450,6 +451,7 @@ const copy = {
     icon: "FR",
     loading: "Live weather...",
     fallback: "Weather temporarily unavailable",
+    weatherCached: "Last available weather, until the next automatic refresh.",
     rangeHigh: "High",
     rangeLow: "Low",
     houseAction: "Enjoy the house",
@@ -1655,17 +1657,11 @@ async function updateWeather() {
   if (!slot.isRefreshHour) {
     if (cached?.data) {
       renderForecast(cached.data);
-      weatherStatus.textContent = copy[lang].eventsCached;
-    } else {
-      weatherIcon.textContent = "☁";
-      weatherTemp.textContent = "--°";
-      weatherRange.textContent = `${copy[lang].rangeHigh}: --°  ${copy[lang].rangeLow}: --°`;
-      weatherStatus.textContent = copy[lang].eventsCached;
-      weatherDays.innerHTML = "";
+      weatherStatus.textContent = copy[lang].weatherCached;
+      clearTimeout(weatherRefreshTimer);
+      weatherRefreshTimer = setTimeout(updateWeather, msUntilNextDiscoverRefresh());
+      return;
     }
-    clearTimeout(weatherRefreshTimer);
-    weatherRefreshTimer = setTimeout(updateWeather, msUntilNextDiscoverRefresh());
-    return;
   }
   const params = new URLSearchParams({
     latitude: place.latitude,
