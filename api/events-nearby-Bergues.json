@@ -1,11 +1,9 @@
 {
-  "updatedAt": null,
+  "updatedAt": "2026-09-08T19:47:18.019Z",
   "ttlMs": 21600000,
-  "refreshSlot": null,
-  "nextRefreshAt": "2026-09-09T05:00:00.000Z",
-  "source": "unavailable",
-  "warning": "missing_api_keys",
-  "fromCache": false,
+  "refreshSlot": "2026-09-08T17:00",
+  "nextRefreshAt": "2026-09-09T07:00:00.000Z",
+  "source": "openagenda+ticketmaster",
   "location": {
     "key": "Bergues",
     "label": {
@@ -17,7 +15,67 @@
     "longitude": 2.4324
   },
   "events": {
-    "lille": [],
-    "belgium": []
-  }
+    "lille": [
+      {
+        "id": "openagenda-64212041",
+        "title": "Appel à projets Entrepreneurial Track #2",
+        "date": "2026-09-09T00:01:00+02:00",
+        "city": "",
+        "venue": "",
+        "image": "https://img.openagenda.com/main/d2ab526867e44bd383cbbc91c4b67f03.full.image.jpg",
+        "category": "Agenda officiel",
+        "url": "https://openagenda.com/metropole-europeenne-de-lille/events/appel-a-projets-entrepreneurial-track-2",
+        "country": "FR",
+        "badge": "Lille official",
+        "distanceFromLilleKm": null,
+        "source": "openagenda",
+        "priority": 827.9257223981482
+      },
+      {
+        "id": "rZ7SnyZ1A77sQk",
+        "title": "GUIHOME VOUS DETEND",
+        "date": "2026-09-26T18:00:00Z",
+        "city": "Hazebrouck",
+        "venue": "ESPACE FLANDRE-HAZEBROUCK",
+        "image": "https://s1.ticketm.net/dam/a/75d/15c5c1da-3d7e-4d27-a5c7-541687db275d_SOURCE",
+        "category": "Comedy",
+        "url": "https://www.ticketmaster.fr/fr/manifestation/guihome-vous-detend-billet/idmanif/629935/idtier/18864121",
+        "country": "FR",
+        "badge": "Bergues & Around",
+        "distanceFromLilleKm": 37.47413240349767,
+        "source": "ticketmaster"
+      },
+      {
+        "id": "ZkyMmBwZ1A7aSvo",
+        "title": "PATRICK BRUEL",
+        "date": "2026-10-17T18:00:00Z",
+        "city": "Longuenesse",
+        "venue": "SCENEO - LONGUENESSE",
+        "image": "https://s1.ticketm.net/dam/a/ff8/fe109b0f-3173-4326-996f-11484dd08ff8_SOURCE",
+        "category": "Chanson Francaise",
+        "url": "https://www.ticketmaster.fr/fr/manifestation/patrick-bruel-billet/idmanif/649508/idtier/18864121",
+        "country": "FR",
+        "badge": "Bergues & Around",
+        "distanceFromLilleKm": 57.16573276369718,
+        "source": "ticketmaster"
+      }
+    ],
+    "belgium": [
+      {
+        "id": "Z698xZG2Z1k_OvwA3",
+        "title": "Kengo Kuma. Architecture in dialogue",
+        "date": "2026-09-09",
+        "city": "La Hulpe",
+        "venue": "Fondation Folon",
+        "image": "https://s1.ticketm.net/dam/a/3e9/058c6c7b-af00-4621-b91d-9ccc22f4a3e9_SOURCE",
+        "category": "Fairs & Festivals",
+        "url": "https://www.ticketmaster.be/event/kengo-kuma-architecture-in-dialogue-tickets/660072152",
+        "country": "BE",
+        "badge": "Belgium",
+        "distanceFromLilleKm": 98.76201807537298,
+        "source": "ticketmaster"
+      }
+    ]
+  },
+  "fromCache": false
 }

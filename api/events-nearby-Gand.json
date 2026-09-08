@@ -1,11 +1,9 @@
 {
-  "updatedAt": null,
+  "updatedAt": "2026-09-08T19:47:19.334Z",
   "ttlMs": 21600000,
-  "refreshSlot": null,
-  "nextRefreshAt": "2026-09-09T05:00:00.000Z",
-  "source": "unavailable",
-  "warning": "missing_api_keys",
-  "fromCache": false,
+  "refreshSlot": "2026-09-08T17:00",
+  "nextRefreshAt": "2026-09-09T07:00:00.000Z",
+  "source": "openagenda+ticketmaster",
   "location": {
     "key": "Gand",
     "label": {
@@ -17,7 +15,67 @@
     "longitude": 3.7174
   },
   "events": {
-    "lille": [],
-    "belgium": []
-  }
+    "lille": [
+      {
+        "id": "openagenda-64212041",
+        "title": "Appel à projets Entrepreneurial Track #2",
+        "date": "2026-09-09T00:01:00+02:00",
+        "city": "",
+        "venue": "",
+        "image": "https://img.openagenda.com/main/d2ab526867e44bd383cbbc91c4b67f03.full.image.jpg",
+        "category": "Agenda officiel",
+        "url": "https://openagenda.com/metropole-europeenne-de-lille/events/appel-a-projets-entrepreneurial-track-2",
+        "country": "FR",
+        "badge": "Lille official",
+        "distanceFromLilleKm": null,
+        "source": "openagenda",
+        "priority": 827.9257345740741
+      },
+      {
+        "id": "Z698xZG2Z1kaIq08U",
+        "title": "Laura Tesoro in Koor",
+        "date": "2026-09-12T18:00:00Z",
+        "city": "Ghent",
+        "venue": "Capitole Gent",
+        "image": "https://s1.ticketm.net/dam/a/f95/553c5b88-a75b-40ce-8e85-bab9c53b6f95_SOURCE",
+        "category": "Other",
+        "url": "https://www.ticketmaster.be/event/laura-tesoro-in-koor-tickets/268764436",
+        "country": "BE",
+        "badge": "Gent & Around",
+        "distanceFromLilleKm": 66.45142728431475,
+        "source": "ticketmaster"
+      },
+      {
+        "id": "Z698xZG2Z16votoNvx",
+        "title": "Tubular Bells",
+        "date": "2026-09-20T18:00:00Z",
+        "city": "Ghent",
+        "venue": "Capitole Gent",
+        "image": "https://s1.ticketm.net/dam/a/12a/ef456c81-53f0-4497-99cf-c4bd0efad12a_SOURCE",
+        "category": "Theatre",
+        "url": "https://www.ticketmaster.be/event/tubular-bells-tickets/1469463062",
+        "country": "BE",
+        "badge": "Gent & Around",
+        "distanceFromLilleKm": 66.45142728431475,
+        "source": "ticketmaster"
+      }
+    ],
+    "belgium": [
+      {
+        "id": "Z698xZG2Z1k_OvwA3",
+        "title": "Kengo Kuma. Architecture in dialogue",
+        "date": "2026-09-09",
+        "city": "La Hulpe",
+        "venue": "Fondation Folon",
+        "image": "https://s1.ticketm.net/dam/a/3e9/058c6c7b-af00-4621-b91d-9ccc22f4a3e9_SOURCE",
+        "category": "Fairs & Festivals",
+        "url": "https://www.ticketmaster.be/event/kengo-kuma-architecture-in-dialogue-tickets/660072152",
+        "country": "BE",
+        "badge": "Belgium",
+        "distanceFromLilleKm": 98.76201807537298,
+        "source": "ticketmaster"
+      }
+    ]
+  },
+  "fromCache": false
 }
