@@ -2,6 +2,14 @@ name: Update events cache
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-events.yml"
+      - "scripts/generate-events-nearby-static.js"
+      - "server.js"
+      - "events-nearby.config.js"
   schedule:
     - cron: "20 6,11,16 * * *"
 
