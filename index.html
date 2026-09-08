@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Livret d'accueil Airbnb</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Ysabeau+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=discover-events-side-numbers-1">
+  </head>
+  <body>
+    <main class="stage" aria-label="Frame photo du logement">
+      <section class="hero-frame" aria-label="Salon du logement">
+        <div class="top-controls" aria-label="Options">
+          <button class="round-control" id="themeToggle" type="button" aria-label="Passer en theme sombre">
+            <img id="themeIcon" src="Assets/Icon/Moon.png" alt="">
+          </button>
+          <button class="round-control lang-control" id="langToggle" type="button" aria-label="Switch to English">
+            <span id="langIcon">EN</span>
+          </button>
+        </div>
+
+        <nav class="side-nav" id="sideNav" aria-label="Sections de la page"></nav>
+
+        <div class="frame-scroll">
+          <div class="page-content is-active" data-page="welcome">
+            <div class="hero-panel" id="welcome-hero" data-section="welcomeHero">
+              <img
+                class="hero-image"
+                src="Assets/Reference/airbnb-living-room-background.png"
+                alt="Salon du logement Airbnb"
+              >
+
+              <aside class="welcome-card">
+                <p id="welcomeText" aria-live="polite">Welcome to our nest</p>
+              </aside>
+
+              <aside class="weather-widget" aria-label="Meteo locale">
+                <div class="weather-head">
+                  <div class="weather-location">
+                    <span id="locationIcon" aria-hidden="true">⌖</span>
+                    <button class="weather-select" id="weatherSelect" type="button" aria-haspopup="listbox" aria-expanded="false">
+                      <span id="weatherSelected">Roubaix</span>
+                      <img src="Assets/Icon/caret-down.svg" alt="">
+                    </button>
+                    <div class="weather-menu" id="weatherMenu" role="listbox" aria-label="Choisir une localisation">
+                      <button type="button" role="option" data-location="Lille">FR · Lille</button>
+                      <button type="button" role="option" data-location="Roubaix" aria-selected="true">FR · Roubaix</button>
+                      <button type="button" role="option" data-location="Villeneuve-dAscq">FR · Villeneuve-d'Ascq</button>
+                      <button type="button" role="option" data-location="Dunkerque">FR · Dunkerque</button>
+                      <button type="button" role="option" data-location="Bergues">FR · Bergues</button>
+                      <button type="button" role="option" data-location="Bruges">BE · Bruges</button>
+                      <button type="button" role="option" data-location="Bruxelles">BE · Bruxelles</button>
+                      <button type="button" role="option" data-location="Courtrai">BE · Courtrai</button>
+                      <button type="button" role="option" data-location="Gand">BE · Gand</button>
+                      <button type="button" role="option" data-location="Tournai">BE · Tournai</button>
+                    </div>
+                  </div>
+                  <span class="weather-icon" id="weatherIcon" aria-hidden="true">☁</span>
+                </div>
+                <div class="weather-main">
+                  <strong id="weatherTemp">--°</strong>
+                  <span id="weatherRange">H: --° L: --°</span>
+                </div>
+                <p id="weatherStatus">Loading weather</p>
+                <div class="weather-days" id="weatherDays" aria-label="Previsions"></div>
+              </aside>
+            </div>
+
+            <section class="second-section" id="welcome-explore" data-section="welcomeExplore" aria-label="Explorer le logement">
+              <div class="second-frame">
+                <figure class="mosaic-grid" aria-label="Emplacements photos du logement">
+                  <img class="grid-art" src="Assets/Grid.png" alt="Apercu des espaces du logement">
+                </figure>
+
+                <aside class="section-actions" aria-label="Acces rapides">
+                  <button class="section-action" type="button" data-page-target="home">
+                    <img src="Assets/Icon/La maison.svg" alt="">
+                    <strong data-i18n="houseAction">Profiter de la maison</strong>
+                  </button>
+                  <button class="section-action" type="button" data-page-target="discover">
+                    <img src="Assets/Icon/A découvrir.png" alt="">
+                    <strong data-i18n="discoverAction">Découvrir le quartier</strong>
+                  </button>
+                  <button class="section-action" type="button" data-page-target="stay">
+                    <img src="Assets/Icon/Your stay.svg" alt="">
+                    <strong data-i18n="stayAction">Tout savoir sur mon séjour</strong>
+                  </button>
+                </aside>
+              </div>
+            </section>
+
+            <section class="qr-section" id="welcome-qr" data-section="welcomeQr" aria-label="Acces mobile et souhaits">
+              <div class="qr-panel">
+                <div class="qr-mini-card">
+                  <div class="qr-copy">
+                    <p data-i18n="qrKicker">Want to have this outside ?</p>
+                    <h2 data-i18n="qrTitle">Scan the QR Code</h2>
+                  </div>
+                  <figure class="qr-card">
+                    <img src="Assets/qr-site.png" alt="QR code pour ouvrir le site">
+                  </figure>
+                </div>
+
+                <div class="wish-card">
+                  <div class="wish-content">
+                    <div class="wish-title">
+                      <strong data-i18n="wishTitleInline">Make one wish for your next stay</strong>
+                      <img src="Assets/Icon/;).svg" alt="">
+                    </div>
+                    <p data-i18n="wishSubtitle">Si tu reviens ici, qu'est-ce que tu aimerais avoir en plus ou en moins ?</p>
+                    <button class="wish-open" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button>
+                  </div>
+                  <div class="footer-line" aria-hidden="true"></div>
+                  <p class="copyright">© 2026 - TLSL</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="page-content" data-page="home" hidden>
+            <section class="home-intro-module" id="home-blank" data-section="homeBlank" aria-label="Le logement">
+              <div class="home-intro-card">
+                <figure class="home-intro-image">
+                  <img src="Assets/Image/steven-nisha.jpg" alt="Steven et Nisha">
+                </figure>
+                <div class="home-intro-copy">
+                  <h1 data-i18n="homeHello">Bonjour,</h1>
+                  <h2 data-i18n="homeHosts">C'est Steven et Nisha</h2>
+                  <p>
+                    <strong data-i18n="homeLeadStrong">On a</strong>
+                    <span data-i18n="homeLeadText"> pensé ce logement pour que vous puissiez profiter d'un séjour simple, confortable et agréable.</span>
+                  </p>
+                  <p data-i18n="homeBody">On espère que vous vous y sentirez bien et que vous apprécierez aussi découvrir cet endroit et ses alentours.</p>
+                  <p data-i18n="homeEnjoy">Profitez bien, et n'hésitez pas à nous contacter si besoin !</p>
+                  <div class="home-contact" aria-label="Coordonnees">
+                    <a href="tel:+33767986660">+33 7 67 98 66 60</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="tel:+33659163415">+33 6 59 16 34 15</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="mailto:llucsteven@gmail.com">llucsteven@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+              <aside class="surface-panel" aria-label="Surface du logement">
+                <div class="surface-total">
+                  <img src="Assets/Icon/Total area.svg" alt="">
+                  <div>
+                    <strong>40 m²</strong>
+                    <span data-i18n="surfaceTotal">Surface totale</span>
+                  </div>
+                </div>
+                <div class="surface-details">
+                  <div>
+                    <img src="Assets/Icon/Living room.svg" alt="">
+                    <strong>27 m²</strong>
+                    <span data-i18n="surfaceLiving">séjour-cuisine</span>
+                  </div>
+                  <div>
+                    <img src="Assets/Icon/bathroom.svg" alt="">
+                    <strong>5 m²</strong>
+                    <span data-i18n="surfaceBath">salle de bain</span>
+                  </div>
+                  <div>
+                    <img src="Assets/Icon/Room.svg" alt="">
+                    <strong>8 m²</strong>
+                    <span data-i18n="surfaceBedroom">chambre</span>
+                  </div>
+                </div>
+              </aside>
+            </section>
+
+            <section class="home-model-module" id="home-model" data-section="homeModel" aria-label="Plan 3D du logement">
+              <div class="home-model-copy">
+                <h2 data-i18n="homeModelTitle">Spin to explore</h2>
+                <p class="home-model-location">
+                  <img src="Assets/Icon/location-events.png" alt="" aria-hidden="true">
+                  <span data-i18n="homeModelText">222 rue Delespaul - 59xxxx - Roubaix</span>
+                </p>
+              </div>
+              <div class="home-model-viewer" data-home-model-viewer data-model-src="Assets/Model/maison.glb">
+                <img class="home-model-fallback" src="Assets/Image/Home photos.png" alt="" loading="eager" decoding="async" aria-hidden="true">
+                <canvas aria-label="Modèle 3D du logement"></canvas>
+                <p class="home-model-status" data-model-status>Chargement du plan 3D...</p>
+              </div>
+            </section>
+
+            <section class="home-equipment-module" id="home-equipment" data-section="homeEquipment" aria-label="Guide des équipements">
+              <div class="equipment-heading">
+                <h2>
+                  <span data-i18n="equipmentTitleStrong">Les équipements</span>
+                  <span data-i18n="equipmentTitleMuted">à votre disposition pour votre confort</span>
+                </h2>
+              </div>
+
+              <div class="equipment-grid" aria-label="Equipements disponibles">
+                <button class="equipment-card is-featured" type="button" data-equipment="coffee">
+                  <img src="Assets/Image/equipment-coffee.png" alt="">
+                  <span data-i18n="equipmentCoffee">Machine à café</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="toaster">
+                  <img src="Assets/Image/equipment-toaster.png" alt="">
+                  <span data-i18n="equipmentToaster">Grille-pain</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="oven">
+                  <span class="equipment-photo-fallback"><img src="Assets/Icon/oven.svg" alt=""></span>
+                  <span data-i18n="equipmentOven">Four</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="microwave">
+                  <span class="equipment-photo-fallback"><img src="Assets/Icon/microwave.svg" alt=""></span>
+                  <span data-i18n="equipmentMicrowave">Micro-ondes</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="keypad">
+                  <span class="equipment-photo-fallback"><img src="Assets/Icon/data-encryption.svg" alt=""></span>
+                  <span data-i18n="equipmentKeypad">Digicode</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="washer">
+                  <span class="equipment-photo-fallback"><img src="Assets/Icon/washer.svg" alt=""></span>
+                  <span data-i18n="equipmentWasher">Lave-linge</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="robotVacuum">
+                  <img src="Assets/Image/equipment-robot-vacuum.png" alt="">
+                  <span data-i18n="equipmentRobotVacuum">Aspirateur robot</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="sofa">
+                  <img src="Assets/Image/equipment-sofa.png" alt="">
+                  <span data-i18n="equipmentSofa">Canapé-lit</span>
+                </button>
+                <button class="equipment-card" type="button" data-equipment="tv">
+                  <img src="Assets/Image/equipment-tv-clean.png" alt="">
+                  <span data-i18n="equipmentTv">TV</span>
+                </button>
+                <div class="equipment-controls" aria-label="Navigation équipements">
+                  <button class="equipment-control" id="equipmentPrev" type="button" aria-label="Équipement précédent">‹</button>
+                  <button class="equipment-control" id="equipmentNext" type="button" aria-label="Équipement suivant">›</button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="page-content" data-page="stay" hidden>
+            <section class="stay-journey" id="stay-blank" data-section="stayBlank" aria-label="Votre séjour">
+              <article class="stay-journey-page stay-arrival-scene is-active" data-stay-page-step="0">
+                <div class="stay-arrival-left">
+                  <div class="stay-arrival-info">
+                    <img src="Assets/Icon/hourglass.png" alt="">
+                    <div>
+                      <strong data-i18n="stayLineCheckInTime">After 04:00 PM</strong>
+                      <span data-i18n="stayLineCheckIn">Check in</span>
+                    </div>
+                  </div>
+
+                  <div class="stay-arrival-info">
+                    <img src="Assets/Icon/room.png" alt="">
+                    <div>
+                      <strong class="stay-secret-row">
+                        <span class="stay-secret" data-mask="Code ici" data-secret="35343534">Code ici</span>
+                        <button type="button" class="stay-reveal" aria-label="Afficher le code d'entrée" aria-pressed="false">
+                          <img src="Assets/Icon/eye.svg" alt="">
+                        </button>
+                      </strong>
+                      <span data-i18n="stayLineEntryCode">Entry code</span>
+                    </div>
+                  </div>
+
+                  <div class="stay-arrival-info">
+                    <img src="Assets/Icon/car.png" alt="">
+                    <div>
+                      <strong>Parking</strong>
+                      <span data-i18n="stayLineParkingText">Outside in the alley</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stay-arrival-wifi-card">
+                  <img class="stay-wifi-symbol" src="Assets/Icon/wifi.svg" alt="">
+                  <div class="stay-wifi-qr" aria-label="QR code Wi-Fi Lamouk">
+                    <img src="Assets/wifi-qr.png" alt="">
+                  </div>
+                  <strong>Lamouk</strong>
+                  <div class="stay-secret-row stay-wifi-password">
+                    <span class="stay-secret" data-mask="••••••••••••••" data-secret="Iloveyousomuch">••••••••••••••</span>
+                    <button type="button" class="stay-reveal" aria-label="Afficher le mot de passe Wi-Fi" aria-pressed="false">
+                      <img src="Assets/Icon/eye.svg" alt="">
+                    </button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="stay-journey-page stay-around-scene" data-stay-page-step="3">
+                <section class="stay-around-board" aria-label="Getting around">
+                  <article class="stay-around-card stay-around-transport">
+                    <h3 data-i18n="stayLineAroundTransportTitle">Access &amp; transport</h3>
+                    <div class="stay-around-list">
+                      <a class="stay-around-item" href="https://www.ilevia.fr/" target="_blank" rel="noopener noreferrer">
+                        <img src="Assets/Icon/bus.png" alt="">
+                        <span><strong data-i18n="stayLineAroundBusVigneTitle">Bus — La Vigne</strong><small data-i18n="stayLineAroundBusVigneText">Lines L8, CIT5</small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundBusVigneTime">5 min</b></span></em></span>
+                      </a>
+                      <a class="stay-around-item" href="https://www.ilevia.fr/" target="_blank" rel="noopener noreferrer">
+                        <img src="Assets/Icon/bus.png" alt="">
+                        <span><strong data-i18n="stayLineAroundBusMetzTitle">Bus — Boulevard de Metz</strong><small data-i18n="stayLineAroundBusMetzText">Lines L8, CIT5, Z6</small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundBusMetzTime">6 min</b></span></em></span>
+                      </a>
+                      <a class="stay-around-item" href="https://www.ilevia.fr/cms/institutionnel/metro-ligne-2" target="_blank" rel="noopener noreferrer">
+                        <img src="Assets/Icon/metro.png" alt="">
+                        <span><strong data-i18n="stayLineAroundMetroTitle">Metro — Alsace line 2</strong><small data-i18n="stayLineAroundMetroText">Direct to Lille, Tourcoing</small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundMetroTime">13 min</b></span></em></span>
+                      </a>
+                      <a class="stay-around-item" href="https://www.ilevia.fr/v-lille" target="_blank" rel="noopener noreferrer">
+                        <img src="Assets/Icon/bicycle.png" alt="">
+                        <span><strong data-i18n="stayLineAroundBikeTitle">V’Lille — De la Vigne</strong><small data-i18n="stayLineAroundBikeText">Self-service bikes</small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundBikeTime">7 min</b></span></em></span>
+                      </a>
+                      <a class="stay-around-item" href="https://www.sncf-connect.com/gares/roubaix" target="_blank" rel="noopener noreferrer">
+                        <img src="Assets/Icon/train (1).png" alt="">
+                        <span><strong data-i18n="stayLineAroundTrainTitle">Roubaix Train Station</strong><small data-i18n="stayLineAroundTrainText">Bus CIT5, TER Lille &amp; Belgium</small><em class="stay-distance"><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundTrainTime">21 min</b></span></em></span>
+                      </a>
+                    </div>
+                  </article>
+
+                  <article class="stay-around-card stay-around-groceries">
+                    <h3 data-i18n="stayLineAroundGroceriesTitle">Groceries</h3>
+                    <div class="stay-around-list">
+                      <a class="stay-around-item" href="https://www.aldi.fr/magasins-et-horaires-d-ouverture/roubaix/6-bis-boulevard-de-metz/3435064.html" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-aldi.png" alt=""><span><strong data-i18n="stayLineAroundAldiTitle">ALDI</strong><small class="stay-address"><span>6 bis Bd de Metz</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundAldiWalk">9 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundAldiCar">3 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundAldiTransit">9 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://www.lidl.fr/s/fr-FR/supermarches/roubaix/" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-lidl.png" alt=""><span><strong data-i18n="stayLineAroundLidlTitle">Lidl</strong><small class="stay-address"><span>43/45 Rue Jules Guesde</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundLidlWalk">13 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundLidlCar">4 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundLidlTransit">11 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://www.e.leclerc/mag/e-leclerc-roubaix" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-leclerc.png" alt=""><span><strong data-i18n="stayLineAroundLeclercTitle">E.Leclerc</strong><small class="stay-address"><span>21 Bis Grande Rue</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundLeclercWalk">21 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundLeclercText">6 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundLeclercTransit">16 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://www.carrefour.fr/magasin/city-roubaix-gaulle" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-carrefour-city.png" alt=""><span><strong data-i18n="stayLineAroundCarrefourTitle">Carrefour City</strong><small class="stay-address"><span>77 Bd de Gaulle</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundCarrefourWalk">21 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundCarrefourText">6 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundCarrefourTransit">16 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://www.auchan.fr/magasins/supermarche/auchan-supermarche-tourcoing/s-91" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-auchan.png" alt=""><span><strong data-i18n="stayLineAroundAuchanTitle">Auchan</strong><small class="stay-address"><span>Rue Fidèle Lehoucq</span><span>59200 Tourcoing</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundAuchanWalk">46 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundAuchanText">11 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundAuchanTransit">26 min</b></span></em></span></a>
+                    </div>
+                  </article>
+
+                  <article class="stay-around-card stay-around-essentials">
+                    <h3 data-i18n="stayLineAroundEssentialsTitle">Daily essentials</h3>
+                    <div class="stay-around-list">
+                      <a class="stay-around-item" href="https://pharmacieduhutin.fr/contact.html" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/pharmacy.png" alt=""><span><strong data-i18n="stayLineAroundPharmacyTitle">Pharmacie</strong><small class="stay-address"><span>52 Rue de Constantine</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundPharmacyText">3 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundPharmacyCar">2 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://annuaire-entreprises.data.gouv.fr/entreprise/885085571" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/bakery.png" alt=""><span><strong data-i18n="stayLineAroundBakeryTitle">Au Pain Gourmand</strong><small class="stay-address"><span>198 Rue d’Alger</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundBakeryWalk">7 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundBakeryText">3 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://boulangeries.marieblachere.com/fr/france-FR/wattrelos/results" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-marie-blachere.png" alt=""><span><strong data-i18n="stayLineAroundMarieTitle">Marie Blachère</strong><small class="stay-address"><span>4A Rue Albert Premier</span><span>59150 Wattrelos</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-walk"></i><b data-i18n="stayLineAroundMarieWalk">19 min</b></span><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundMarieCar">6 min</b></span><span class="distance-option"><i class="distance-transit"></i><b data-i18n="stayLineAroundMarieTransit">16 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://locator.totalenergies.com/NF074376?type=FUELING&amp;business_type=RETAIL" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/logo-totalenergies.png" alt=""><span><strong data-i18n="stayLineAroundGasTitle">TotalEnergies</strong><small class="stay-address"><span>660 Av. des Nations Unies</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundGasText">6 min</b></span></em></span></a>
+                      <a class="stay-around-item" href="https://www.ilewatt.fr/fr" target="_blank" rel="noopener noreferrer"><img src="Assets/Icon/charging-station.png" alt=""><span><strong data-i18n="stayLineAroundChargeTitle">Iléwatt Charging Station</strong><small class="stay-address"><span>207 Rue Lacroix</span><span>59100 Roubaix</span></small><em class="stay-distance"><span class="distance-option"><i class="distance-car"></i><b data-i18n="stayLineAroundChargeCar">4 min</b></span></em></span></a>
+                    </div>
+                  </article>
+                </section>
+
+              </article>
+
+              <article class="stay-journey-page stay-rules-scene" data-stay-page-step="1">
+                <div class="stay-rules-panel stay-rules-main">
+                  <p class="stay-rules-kicker" data-i18n="stayLineRulesTitle">Rules</p>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/smoking-ban.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineRuleNoSmokingTitle">No smoking</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineRuleInsideThanks">Inside the house. Thank you</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/music-slash (1).svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineRuleQuietTitle">23:00 to 06:00</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineRuleQuietText">Quiet hours</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/Party-ban.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineRulePartyTitle">No party/event</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineRuleInsideThanks">Inside the house. Thank you</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/Pet.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineRulePetsTitle">No pet(s)</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineRulePetsText">We are not ready for them yet</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/damage.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineRuleDamageTitle">Report any damage</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineRuleDamageText">Tell us quickly if something happens</span></small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stay-rules-panel stay-rules-practical">
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/recycle-bin.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineWasteGeneralTitle">General waste & recycling</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineWasteGeneralText">Please use the correct bin when possible. Bin bags are available in the drawer next to the bins.</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/shower-gel.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineWasteKitchenTitle">Kitchen cleaning supplies</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineWasteKitchenText">Cleaning products are available. You'll find dish soap, spray, a sponge and cloths.</span></small>
+                    </div>
+                  </div>
+                  <div class="stay-rule-row">
+                    <img src="Assets/Icon/cache-clean.svg" alt="">
+                    <div>
+                      <strong><span class="rule-write" data-i18n="stayLineWasteHouseTitle">House cleaning supplies</span></strong>
+                      <small><span class="rule-write" data-i18n="stayLineWasteHouseText">Other cleaning products are available for the rest of the house.</span></small>
+                    </div>
+                  </div>
+                  <p class="stay-rules-kicker stay-rules-footer" data-i18n="stayLineWasteTitle">Waste</p>
+                </div>
+              </article>
+
+              <article class="stay-journey-page stay-comfort-scene" data-stay-page-step="2">
+                <header class="stay-comfort-hero">
+                  <h2 data-i18n="stayLineComfortHero">Here for you, enjoy your stay ♡</h2>
+                </header>
+                <section class="stay-comfort-side stay-comfort-left" aria-label="Little extras">
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-coffee" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineCoffeeTitle">Coffee &amp; Tea</h3>
+                      <p data-i18n="stayLineCoffeeText">In the kitchen’s worktop</p>
+                    </div>
+                  </div>
+
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-blanket" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineBlanketTitle">A cosy blanket</h3>
+                      <p data-i18n="stayLineBlanketText">In the storage under the sofa</p>
+                    </div>
+                  </div>
+
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-bathroom" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineBathroomTitle">Bathroom essential</h3>
+                      <p data-i18n="stayLineBathroomText">In the drawer in the bathroom</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="stay-comfort-side stay-comfort-right" aria-label="Useful amenities">
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-bedding" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineBeddingTitle">Extra bedding</h3>
+                      <p data-i18n="stayLineBeddingText">In storage under the bed</p>
+                    </div>
+                  </div>
+
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-kitchen" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineKitchenBasicTitle">Kitchen’s basic</h3>
+                      <p data-i18n="stayLineKitchenBasicText">In the second drawer from the left</p>
+                    </div>
+                  </div>
+
+                  <div class="stay-comfort-card">
+                    <span class="stay-comfort-photo stay-comfort-photo-iron" aria-hidden="true"></span>
+                    <div>
+                      <h3 data-i18n="stayLineIronTitle">Iron &amp; Ironing board</h3>
+                      <p data-i18n="stayLineIronText">In the storage xxxx xxxxxx xxx</p>
+                    </div>
+                  </div>
+
+                </section>
+                <p class="stay-comfort-footnote" data-i18n="stayLineComfortFootnote">Everything you need, exactly where you need it ♡</p>
+              </article>
+
+              <article class="stay-journey-page stay-departure-scene" data-stay-page-step="4">
+                <header class="stay-departure-title">
+                  <h2 data-i18n="stayLineDepartureJourneyTitle">Check-out</h2>
+                  <img src="Assets/Icon/floral.png" alt="">
+                  <p data-i18n="stayLineDepartureJourneyLead">A few thoughtful steps before you head out.</p>
+                </header>
+
+                <section class="stay-departure-checkout" aria-label="Guide de départ">
+                  <div class="stay-departure-rail" aria-hidden="true">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                  </div>
+
+                  <div class="stay-departure-icons" aria-hidden="true">
+                    <img src="Assets/Icon/hourglass.png" alt="">
+                    <img src="Assets/Icon/cache-clean.svg" alt="">
+                    <img src="Assets/Icon/recycle-bin.svg" alt="">
+                    <img src="Assets/Icon/Review.svg" alt="">
+                    <img src="Assets/Icon/boite a clé.svg" alt="">
+                  </div>
+
+                  <div class="stay-departure-list">
+                    <article>
+                      <h3 data-i18n="stayLineDepartureStep1Title">Before 10:00</h3>
+                      <p data-i18n="stayLineDepartureStep1Text">Check out time</p>
+                    </article>
+                    <article>
+                      <h3 data-i18n="stayLineDepartureStep2Title">Tidy up</h3>
+                      <p data-i18n="stayLineDepartureStep2Text">Used dishes</p>
+                    </article>
+                    <article>
+                      <h3 data-i18n="stayLineDepartureStep3Title">Waste</h3>
+                      <p data-i18n="stayLineDepartureStep3Text">Take out the trash to the closet in the corridor</p>
+                    </article>
+                    <article>
+                      <h3 data-i18n="stayLineDepartureStep4Title">Final check</h3>
+                      <p data-i18n="stayLineDepartureStep4Text">Check for chargers, clothes &amp; personal items</p>
+                    </article>
+                    <article>
+                      <h3 data-i18n="stayLineDepartureStep5Title">Lock &amp; keys</h3>
+                      <p data-i18n="stayLineDepartureStep5Text">Close the door &amp; window, return the key, and scramble the code</p>
+                    </article>
+                  </div>
+                </section>
+
+                <aside class="stay-departure-still-life" aria-hidden="true">
+                  <span class="stay-departure-shadow"></span>
+                  <span class="stay-departure-vase"></span>
+                  <span class="stay-departure-table"></span>
+                  <img class="stay-departure-branch branch-1" src="Assets/Icon/coriander.svg" alt="">
+                  <img class="stay-departure-branch branch-2" src="Assets/Icon/leaf-fall.svg" alt="">
+                  <img class="stay-departure-branch branch-3" src="Assets/Icon/monstera.svg" alt="">
+                </aside>
+
+                <p class="stay-departure-safe" data-i18n="stayLineDepartureSafe">Safe Travels ! We hope to host you again soon ♡</p>
+              </article>
+            </section>
+          </div>
+          <div class="page-content" data-page="discover" hidden>
+            <section class="discover-events-hero" id="discover-events" data-section="discoverEvents" aria-label="What's happening nearby">
+              <div class="discover-events-backdrop">
+                <div class="events-hero-media" aria-hidden="true">
+                  <img class="events-hero-image is-current" id="eventsHeroImageCurrent" alt="">
+                  <img class="events-hero-image is-next" id="eventsHeroImageNext" alt="">
+                </div>
+                <img class="discover-events-pin" src="Assets/Icon/location-events.png" alt="">
+                <div class="discover-events-copy">
+                  <span id="eventsHeroMeta" data-i18n="eventsKicker">A découvrir</span>
+                  <h1 id="eventsHeroTitle" data-i18n="eventsTitle">What's happening nearby</h1>
+                  <p class="events-status" id="eventsNearbyStatus" aria-live="polite" data-i18n="eventsLoading">Recherche des prochains événements...</p>
+                  <a class="events-hero-cta" id="eventsHeroCta" href="#" target="_blank" rel="noopener" hidden data-i18n="eventsDiscover">Discover event →</a>
+                </div>
+                <a class="events-spotlight" id="eventsSpotlight" href="#" target="_blank" rel="noopener" hidden>
+                  <img src="Assets/Icon/A découvrir.png" alt="">
+                  <span>
+                    <small id="eventsSpotlightMeta">Lille & Around</small>
+                    <strong id="eventsSpotlightTitle">Event nearby</strong>
+                  </span>
+                </a>
+                <div class="events-slide-rail" id="eventsNearbyList" aria-label="Events nearby"></div>
+              </div>
+              <div class="events-search-dock" aria-label="Recherche événements">
+                <div class="events-location-text">
+                  <h2>Lille or Belgium ? Why choose ?</h2>
+                  <p>Lille and belgium are all within easy reach.</p>
+                </div>
+                <div class="events-location-picker">
+                  <button class="events-location-select" id="eventsLocationSelect" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <img src="Assets/Icon/location-events.png" alt="">
+                    <span>
+                      <small data-i18n="eventsLocationLabel">Location</small>
+                      <strong id="eventsSelectedLocation">FR · Roubaix</strong>
+                    </span>
+                  </button>
+                  <div class="events-location-menu" id="eventsLocationMenu" role="listbox" aria-label="Choisir une ville"></div>
+                </div>
+              </div>
+            </section>
+            <section class="discover-city-guide" id="discover-city-guide" data-section="discoverCityGuide" aria-label="City guide">
+              <div class="city-guide-cover">
+                <div class="city-guide-cover-icons" aria-hidden="true">
+                  <img src="Assets/Icon/citypart1.png" alt="">
+                  <img src="Assets/Icon/citypart2.png" alt="">
+                  <img src="Assets/Icon/citypart3.png" alt="">
+                </div>
+                <span class="city-guide-kicker" id="cityGuideKicker">A small city guide</span>
+                <h2 id="cityGuideTitle">Roubaix</h2>
+                <p id="cityGuideTags">Art · Textile heritage · Creative city</p>
+                <em class="city-guide-note">I like a fairytale, but real.</em>
+                <div class="city-guide-badges" id="cityGuideBadges"></div>
+              </div>
+              <div class="city-guide-panel">
+                <header>
+                  <span>History around every corner</span>
+                  <h3>3 must-see places</h3>
+                </header>
+                <div class="city-guide-list" id="cityGuideMustSee"></div>
+              </div>
+              <div class="city-guide-panel">
+                <header>
+                  <span>Good food after a day out</span>
+                  <h3>Eat & Drink</h3>
+                </header>
+                <div class="city-guide-list" id="cityGuideFood"></div>
+              </div>
+              <div class="city-guide-combo">
+                <img src="Assets/Icon/icon_perfect_combo.png" alt="">
+                <strong>Perfect combo</strong>
+                <span>A half-day well spent</span>
+                <div class="city-guide-combo-path" id="cityGuideCombo"></div>
+              </div>
+            </section>
+            <section class="discover-blank-page" id="discover-blank" data-section="discoverBlank" aria-label="Page blanche">
+              <div class="discover-blank-grid" aria-hidden="true">
+                <div class="discover-blank-card discover-blank-card-a">
+                  <img class="discover-blank-scroll" src="Assets/Icon/parchemin-ancien.png" alt="">
+                </div>
+                <div class="discover-blank-card discover-blank-card-b"></div>
+                <div class="discover-blank-card discover-blank-card-c"></div>
+                <div class="discover-blank-card discover-blank-card-wide">
+                  <div class="discover-blank-wide-slot"></div>
+                  <div class="discover-blank-wide-slot"></div>
+                  <div class="discover-blank-wide-slot"></div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="page-content" data-page="help" hidden>
+            <section class="blank-module" id="help-blank" data-section="helpBlank" aria-label="Besoin d'aide"></section>
+          </div>
+        </div>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Menu principal">
+        <button class="nav-item is-active" type="button" aria-current="page" data-page-target="welcome">
+          <img src="Assets/Icon/Bienvenu.svg" alt="">
+          <span data-i18n="navWelcome">Bienvenu</span>
+        </button>
+        <button class="nav-item" type="button" data-page-target="home">
+          <img src="Assets/Icon/La maison.svg" alt="">
+          <span data-i18n="navHome">Le logement</span>
+        </button>
+        <button class="nav-item" type="button" data-page-target="stay">
+          <img src="Assets/Icon/Your stay.svg" alt="">
+          <span data-i18n="navStay">Votre séjour</span>
+        </button>
+        <button class="nav-item" type="button" data-page-target="discover">
+          <img src="Assets/Icon/A découvrir.png" alt="">
+          <span data-i18n="navDiscover">A Découvrir</span>
+        </button>
+        <button class="nav-item" type="button" data-page-target="help">
+          <img src="Assets/Icon/Help.svg" alt="">
+          <span data-i18n="navHelp">Besoin d'aide ?</span>
+        </button>
+      </nav>
+    </main>
+
+    <div class="wish-modal" id="wishModal" aria-hidden="true">
+      <div class="wish-dialog" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+        <button class="wish-close" id="wishClose" type="button" aria-label="Fermer">×</button>
+        <h2 id="wishTitle" data-i18n="modalTitle">Make one wish</h2>
+        <form class="wish-form" id="wishForm">
+          <label>
+            <span data-i18n="firstName">First name</span>
+            <input id="wishFirstName" name="firstName" type="text" autocomplete="given-name" required>
+          </label>
+          <label>
+            <span data-i18n="lastName">Last name</span>
+            <input id="wishLastName" name="lastName" type="text" autocomplete="family-name" required>
+          </label>
+          <label>
+            <span data-i18n="yourWish">Your wish</span>
+            <textarea id="wishText" name="wish" rows="4" required></textarea>
+          </label>
+          <button class="wish-submit" type="submit" data-i18n="sendWish">Send</button>
+          <p class="wish-thanks" id="wishThanks" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="departure-modal" id="departureModal" aria-hidden="true">
+      <div class="departure-dialog" role="dialog" aria-modal="true" aria-labelledby="departureChecklistTitle">
+        <button class="departure-close" id="departureChecklistClose" type="button" aria-label="Fermer">×</button>
+        <h2 id="departureChecklistTitle" data-i18n="stayDepartureChecklistTitle">Checklist départ</h2>
+        <div class="departure-checklist">
+          <label><input type="checkbox"> <span data-i18n="stayDepartureCheckTrash">Déchets mis dans la poubelle à l'entrée</span></label>
+          <label><input type="checkbox"> <span data-i18n="stayDepartureCheckDishes">Vaisselle lancée ou mise sur l'étendoire</span></label>
+          <label><input type="checkbox"> <span data-i18n="stayDepartureCheckKeys">Clés remises dans la boîte à clé</span></label>
+          <label><input type="checkbox"> <span data-i18n="stayDepartureCheckWindows">Fenêtres fermées</span></label>
+          <label><input type="checkbox"> <span data-i18n="stayDepartureCheckForgot">Objet oublié vérifié</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipment-modal" id="equipmentModal" aria-hidden="true">
+      <div class="equipment-dialog" role="dialog" aria-modal="true" aria-labelledby="equipmentModalTitle">
+        <button class="equipment-close" id="equipmentClose" type="button" aria-label="Fermer">×</button>
+        <div class="equipment-dialog-head">
+          <img id="equipmentModalIcon" src="Assets/Icon/coffee-beans.svg" alt="">
+          <h2 id="equipmentModalTitle">Machine à café</h2>
+        </div>
+        <div class="equipment-modal-layout">
+          <div class="equipment-main-resource">
+            <div class="equipment-video" id="equipmentVideoBox" hidden>
+              <iframe
+                id="equipmentVideoFrame"
+                title="Mini vidéo officielle"
+                src=""
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              <video
+                id="equipmentVideoPlayer"
+                controls
+                playsinline
+                preload="metadata"
+                hidden
+              ></video>
+            </div>
+            <div class="equipment-notes">
+              <strong data-i18n="equipmentNotesTitle">Notes</strong>
+              <p id="equipmentModalText"></p>
+            </div>
+          </div>
+          <div class="equipment-links" aria-label="Ressources de l'équipement">
+            <a class="equipment-app-card" id="equipmentAppLink" href="#" aria-disabled="true">
+              <img class="equipment-app-logo" id="equipmentAppLogo" src="Dolce_Gusto.png" alt="">
+              <strong data-i18n="equipmentApp">Ouvrir l'app tablette</strong>
+              <span data-i18n="equipmentAppFallback">Play Store si l'app n'est pas dispo</span>
+            </a>
+            <a class="equipment-pdf-card" id="equipmentPdfLink" href="#" aria-disabled="true">
+              <img src="Assets/Icon/file-pdf.svg" alt="">
+              <strong data-i18n="equipmentPdf">Notice PDF</strong>
+              <span data-i18n="equipmentToConfigure">À configurer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./Assets/Vendor/three/three.module.js",
+          "three/addons/": "./Assets/Vendor/three/"
+        }
+      }
+    </script>
+    <script src="script.js?v=home-model-side-7"></script>
+    <script type="module" src="Assets/JS/home-model-viewer.js?v=home-model-side-7"></script>
+  </body>
+</html>
+
+
+
+

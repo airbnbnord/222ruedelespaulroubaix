@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Livret d'accueil Airbnb</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="content-stage" id="appContent" tabindex="-1">
+        <div class="utility-bar" aria-label="Options globales">
+          <button class="icon-toggle" id="themeToggle" type="button" aria-label="Basculer le theme sombre">
+            <span aria-hidden="true">◐</span>
+          </button>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+            <span id="langLabel">FR</span>
+          </button>
+        </div>
+
+        <section class="module-panel is-active" data-module="welcome" aria-labelledby="welcomeTitle">
+          <section class="hero">
+            <div class="hero-frame" aria-label="Photo du logement a remplacer">
+              <div class="media-lines" aria-hidden="true"></div>
+              <div class="hero-orb" aria-hidden="true"></div>
+              <div class="photo-placeholder">
+                <span data-i18n="photoPlaceholder">Photo de la pièce à venir</span>
+              </div>
+              <aside class="floating-card intro-card">
+                <div class="intro-visual" aria-hidden="true"></div>
+                <p class="intro-kicker" data-i18n="introKicker">Livret d'accueil</p>
+                <p class="intro-copy" data-i18n="introCopy">Repères rapides, bonnes adresses et infos pratiques pour vivre le logement sans friction.</p>
+              </aside>
+              <aside class="floating-card host-card">
+                <div class="host-avatar" aria-hidden="true">
+                  <span>S</span><span>A</span>
+                </div>
+                <div>
+                  <p data-i18n="hostLabel">Meet your hosts</p>
+                  <strong data-i18n="hostNames">Steven & votre hôte</strong>
+                </div>
+              </aside>
+              <div class="hero-copy">
+                <p class="eyebrow" data-i18n="eyebrow">Bienvenue à Roubaix</p>
+                <h1 id="welcomeTitle" data-i18n="heroTitle">Votre parenthèse maison</h1>
+                <p class="hero-text" data-i18n="heroText">
+                  Toutes les infos utiles pour arriver sereinement, profiter du logement et explorer la métropole lilloise.
+                </p>
+              </div>
+              <aside class="floating-card side-card">
+                <p class="side-kicker" data-i18n="sideKicker">Séjour fluide</p>
+                <strong class="side-title" data-i18n="sideTitle">Tout à portée</strong>
+                <p class="side-copy" data-i18n="sideCopy">Arrivée, wifi, bonnes pratiques et recommandations locales seront regroupés ici par module.</p>
+              </aside>
+              <button class="primary-action hero-action" type="button" data-target-module="stay">
+                <span data-i18n="cta">Préparer mon séjour</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              <aside class="weather-dock" aria-live="polite">
+                <div class="weather-dock-head">
+                  <div>
+                    <p class="weather-title" data-i18n="weatherTitle">Météo locale</p>
+                    <select id="locationSelect" aria-label="Choisir une ville">
+                      <option value="Roubaix">Roubaix</option>
+                      <option value="Wattrelos">Wattrelos</option>
+                      <option value="Lille">Lille</option>
+                      <option value="Tourcoing">Tourcoing</option>
+                      <option value="Villeneuve-d'Ascq">Villeneuve-d'Ascq</option>
+                      <option value="Croix">Croix</option>
+                    </select>
+                  </div>
+                  <div class="weather-now">
+                    <span class="weather-icon" id="weatherIcon" aria-hidden="true">☁</span>
+                    <strong><span id="temperature">--</span>°C</strong>
+                  </div>
+                </div>
+                <p class="weather-status" id="weatherStatus" data-i18n="weatherLoading">Chargement météo...</p>
+                <div class="weather-stats">
+                  <span><strong id="wind">--</strong><small data-i18n="wind">Vent</small></span>
+                  <span><strong id="humidity">--</strong><small data-i18n="humidity">Humidité</small></span>
+                </div>
+                <div class="forecast-row week-forecast" id="forecastRow" aria-label="Prévisions sur 7 jours"></div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="next-slice" aria-label="Section suivante a construire">
+            <p data-i18n="nextSlice">Prochain module: les essentiels du logement.</p>
+          </section>
+        </section>
+
+        <section class="module-panel" data-module="home" aria-labelledby="homeTitle">
+          <div class="module-placeholder">
+            <h2 id="homeTitle" data-i18n="homeTitle">Le logement</h2>
+            <p data-i18n="comingSoon">Module prêt à construire dans ce même cadrant, sans rechargement.</p>
+          </div>
+        </section>
+
+        <section class="module-panel" data-module="stay" aria-labelledby="stayTitle">
+          <div class="module-placeholder">
+            <h2 id="stayTitle" data-i18n="stayTitle">Votre séjour</h2>
+            <p data-i18n="comingSoon">Module prêt à construire dans ce même cadrant, sans rechargement.</p>
+          </div>
+        </section>
+
+        <section class="module-panel" data-module="discover" aria-labelledby="discoverTitle">
+          <div class="module-placeholder">
+            <h2 id="discoverTitle" data-i18n="discoverTitle">À découvrir</h2>
+            <p data-i18n="comingSoon">Module prêt à construire dans ce même cadrant, sans rechargement.</p>
+          </div>
+        </section>
+
+        <section class="module-panel" data-module="help" aria-labelledby="helpTitle">
+          <div class="module-placeholder">
+            <h2 id="helpTitle" data-i18n="helpTitle">Besoin d'aide ?</h2>
+            <p data-i18n="comingSoon">Module prêt à construire dans ce même cadrant, sans rechargement.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="module-nav" aria-label="Navigation modules">
+        <button class="nav-item is-active" type="button" data-module-button="welcome">
+          <img src="Assets/Icon/Welcome_light.png" alt="">
+          <span data-i18n="navWelcome">Bienvenu</span>
+        </button>
+        <button class="nav-item" type="button" data-module-button="home">
+          <img src="Assets/Icon/hands.png" alt="">
+          <span data-i18n="navHome">Le logement</span>
+        </button>
+        <button class="nav-item" type="button" data-module-button="stay">
+          <img src="Assets/Icon/star.png" alt="">
+          <span data-i18n="navStay">Votre séjour</span>
+        </button>
+        <button class="nav-item" type="button" data-module-button="discover">
+          <img src="Assets/Icon/adventure-game.png" alt="">
+          <span data-i18n="navDiscover">À découvrir</span>
+        </button>
+        <button class="nav-item" type="button" data-module-button="help">
+          <img src="Assets/Icon/Welcome_night.png" alt="">
+          <span data-i18n="navHelp">Besoin d'aide ?</span>
+        </button>
+      </footer>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

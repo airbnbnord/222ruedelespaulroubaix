@@ -1,0 +1,103 @@
+{
+  "_metadata": {
+    "widgetType": "weather",
+    "exportDate": "2026-08-22T20:44:52.199Z"
+  },
+  "data": {
+    "settings": {
+      "showTitle": true,
+      "showLocation": true,
+      "showMetrics": true,
+      "showStatus": true,
+      "showWeatherIcon": true,
+      "showDailyCast": true,
+      "showWeeklyCast": true,
+      "showArrows": true,
+      "timeFormat": "24-hours",
+      "temperatureUnit": "celsius",
+      "speedUnit": "k",
+      "lang": "en"
+    },
+    "styles": {
+      "skinId": 0,
+      "layoutId": "default",
+      "fontId": "font_source_sans_pro",
+      "customCSS": "",
+      "layout": "layout-1",
+      "mainWrapper": {},
+      "title": {},
+      "weatherWrapper": {
+        "maxWidth": "322px",
+        "borderRadius": "16px",
+        "overflow": "hidden",
+        "boxShadow": "0 18px 40px rgba(31,41,55,0.12)"
+      },
+      "weatherBg": [
+        "#000080",
+        "#1a1a99"
+      ],
+      "location": {
+        "color": "#fdf7f7",
+        "fontSize": "14px"
+      },
+      "temperature": {
+        "color": "#fdf7f7",
+        "fontSize": "38px"
+      },
+      "status": {
+        "color": "#fdf7f7",
+        "fontSize": "14px"
+      },
+      "weatherIcon": {
+        "color": "#fdf7f7",
+        "fontSize": "44px"
+      },
+      "statsBg": "#fdf7f7",
+      "statsColor": "#111827",
+      "navigationArrowColor": "#fdf7f7",
+      "dayHour": {
+        "color": "#fdf7f7",
+        "fontSize": "12px"
+      },
+      "dayIcon": {
+        "color": "#fdf7f7",
+        "fontSize": "18px"
+      },
+      "dayTemperature": {
+        "color": "#fdf7f7",
+        "fontSize": "12px"
+      },
+      "weekForecastWrapper": {
+        "backgroundColor": "#fdf7f7",
+        "borderTop": "1px solid #E4E9F2"
+      },
+      "weekDay": {
+        "color": "#111827",
+        "fontSize": "14px"
+      },
+      "weekIcon": {
+        "color": "#111827",
+        "fontSize": "18px"
+      },
+      "weekTemperature": {
+        "color": "#111827",
+        "fontSize": "14px"
+      }
+    },
+    "content": {
+      "items": [
+        {
+          "id": "weather-layers-loc-1",
+          "location": "Roubaix",
+          "customName": "",
+          "isLiveLocation": false
+        }
+      ]
+    },
+    "colorScheme": {
+      "text": "#111827",
+      "background": "#fdf7f7ff",
+      "accent": "#000080ff"
+    }
+  }
+}
