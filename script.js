@@ -102,7 +102,6 @@ const copy = {
     icon: "EN",
     loading: "Meteo en direct...",
     fallback: "Meteo temporairement indisponible",
-    weatherCached: "Dernière météo disponible, prochain rafraîchissement automatique.",
     rangeHigh: "Haut",
     rangeLow: "Bas",
     houseAction: "Profiter de la maison",
@@ -503,7 +502,6 @@ const copy = {
     icon: "FR",
     loading: "Live weather...",
     fallback: "Weather temporarily unavailable",
-    weatherCached: "Last available weather, until the next automatic refresh.",
     rangeHigh: "High",
     rangeLow: "Low",
     houseAction: "Enjoy the house",
@@ -2437,11 +2435,17 @@ async function updateWeather() {
   if (!slot.isRefreshHour) {
     if (cached?.data) {
       renderForecast(cached.data);
-      weatherStatus.textContent = copy[lang].weatherCached;
-      clearTimeout(weatherRefreshTimer);
-      weatherRefreshTimer = setTimeout(updateWeather, msUntilNextDiscoverRefresh());
-      return;
+      weatherStatus.textContent = copy[lang].eventsCached;
+    } else {
+      weatherIcon.textContent = "☁";
+      weatherTemp.textContent = "--°";
+      weatherRange.textContent = `${copy[lang].rangeHigh}: --°  ${copy[lang].rangeLow}: --°`;
+      weatherStatus.textContent = copy[lang].eventsCached;
+      weatherDays.innerHTML = "";
     }
+    clearTimeout(weatherRefreshTimer);
+    weatherRefreshTimer = setTimeout(updateWeather, msUntilNextDiscoverRefresh());
+    return;
   }
   const params = new URLSearchParams({
     latitude: place.latitude,
@@ -2649,16 +2653,7 @@ async function updateEventsNearby() {
   eventsNearbyStatus.textContent = copy[lang].eventsLoading;
 
   try {
-    const apiUrl = `api/events-nearby?location=${encodeURIComponent(selectedLocation)}`;
-    let response = await fetch(apiUrl, { cache: "no-store" });
-    if (!response.ok) {
-      const indexResponse = await fetch("api/events-nearby.json", { cache: "no-store" });
-      if (!indexResponse.ok) throw new Error("Events request failed");
-      const indexPayload = await indexResponse.json();
-      const staticFile = indexPayload.locations?.[selectedLocation] || indexPayload.locations?.[indexPayload.defaultLocation];
-      if (!staticFile) throw new Error("Events static cache missing");
-      response = await fetch(`api/${staticFile}`, { cache: "no-store" });
-    }
+    const response = await fetch("/api/events-nearby", { cache: "no-store" });
     if (!response.ok) throw new Error("Events request failed");
     eventsNearbyPayload = await response.json();
     renderEventsNearby(eventsNearbyPayload);
