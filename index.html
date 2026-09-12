@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Ysabeau+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=discover-parchemin-asset-1">
+    <link rel="stylesheet" href="styles.css?v=discover-routes-responsive-1">
   </head>
   <body>
     <main class="stage" aria-label="Frame photo du logement">
@@ -129,7 +129,7 @@
                   <span data-i18n="homeModelText">222 rue Delespaul - 59xxxx - Roubaix</span>
                 </p>
               </div>
-              <div class="home-model-viewer" data-home-model-viewer data-model-src="Assets/Model/maison.glb">
+              <div class="home-model-viewer" data-home-model-viewer data-model-src="Assets/Model/maison-roubaix-rdc-v07.glb">
                 <img class="home-model-fallback" src="Assets/Image/Home photos.png" alt="" loading="eager" decoding="async" aria-hidden="true">
                 <canvas aria-label="Modèle 3D du logement"></canvas>
                 <p class="home-model-status" data-model-status>Chargement du plan 3D...</p>
@@ -146,11 +146,11 @@
 
               <div class="equipment-grid" aria-label="Equipements disponibles">
                 <button class="equipment-card is-featured" type="button" data-equipment="coffee">
-                  <img src="Assets/Image/equipment-coffee.png" alt="">
+                  <img src="Assets/Image/equipment-coffee.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentCoffee">Machine à café</span>
                 </button>
                 <button class="equipment-card" type="button" data-equipment="toaster">
-                  <img src="Assets/Image/equipment-toaster.png" alt="">
+                  <img src="Assets/Image/equipment-toaster.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentToaster">Grille-pain</span>
                 </button>
                 <button class="equipment-card" type="button" data-equipment="oven">
@@ -170,15 +170,15 @@
                   <span data-i18n="equipmentWasher">Lave-linge</span>
                 </button>
                 <button class="equipment-card" type="button" data-equipment="robotVacuum">
-                  <img src="Assets/Image/equipment-robot-vacuum.png" alt="">
+                  <img src="Assets/Image/equipment-robot-vacuum.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentRobotVacuum">Aspirateur robot</span>
                 </button>
                 <button class="equipment-card" type="button" data-equipment="sofa">
-                  <img src="Assets/Image/equipment-sofa.png" alt="">
+                  <img src="Assets/Image/equipment-sofa.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentSofa">Canapé-lit</span>
                 </button>
                 <button class="equipment-card" type="button" data-equipment="tv">
-                  <img src="Assets/Image/equipment-tv-clean.png" alt="">
+                  <img src="Assets/Image/equipment-tv-clean.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentTv">TV</span>
                 </button>
                 <div class="equipment-controls" aria-label="Navigation équipements">
@@ -358,9 +358,6 @@
               </article>
 
               <article class="stay-journey-page stay-comfort-scene" data-stay-page-step="2">
-                <header class="stay-comfort-hero">
-                  <h2 data-i18n="stayLineComfortHero">Here for you, enjoy your stay ♡</h2>
-                </header>
                 <section class="stay-comfort-side stay-comfort-left" aria-label="Little extras">
                   <div class="stay-comfort-card">
                     <span class="stay-comfort-photo stay-comfort-photo-coffee" aria-hidden="true"></span>
@@ -430,7 +427,6 @@
                     <span>3</span>
                     <span>4</span>
                     <span>5</span>
-                    <span>6</span>
                   </div>
 
                   <div class="stay-departure-icons" aria-hidden="true">
@@ -439,7 +435,6 @@
                     <img src="Assets/Icon/recycle-bin.svg" alt="">
                     <img src="Assets/Icon/Review.svg" alt="">
                     <img src="Assets/Icon/boite a clé.svg" alt="">
-                    <img src="Assets/Icon/;).svg" alt="">
                   </div>
 
                   <div class="stay-departure-list">
@@ -463,10 +458,6 @@
                       <h3 data-i18n="stayLineDepartureStep5Title">Lock &amp; keys</h3>
                       <p data-i18n="stayLineDepartureStep5Text">Close the door &amp; window, return the key, and scramble the code</p>
                     </article>
-                    <article>
-                      <h3><button class="stay-departure-wish-button" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button></h3>
-                      <p data-i18n="wishSubtitle">If you come back here, what would you like to have more or less of?</p>
-                    </article>
                   </div>
                 </section>
 
@@ -482,6 +473,26 @@
                 <p class="stay-departure-safe" data-i18n="stayLineDepartureSafe">Safe Travels ! We hope to host you again soon ♡</p>
               </article>
 
+              <article class="stay-journey-page stay-wish-scene" data-stay-page-step="5">
+                <section class="stay-wish-panel" aria-label="Souhait pour le prochain séjour">
+                  <div class="stay-wish-number" aria-hidden="true">6</div>
+                  <img class="stay-wish-floral" src="Assets/Icon/floral.png" alt="">
+                  <div class="wish-content">
+                    <div class="wish-title">
+                      <strong data-i18n="wishTitleInline">One wish for next time?</strong>
+                      <img src="Assets/Icon/;).svg" alt="">
+                    </div>
+                    <p data-i18n="wishSubtitle">If you come back here, what would you like to have more or less of?</p>
+                    <button class="wish-open" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button>
+                  </div>
+                </section>
+
+                <aside class="stay-wish-note" aria-hidden="true">
+                  <span class="stay-wish-paper"></span>
+                  <img class="stay-wish-leaf stay-wish-leaf-a" src="Assets/Icon/leaf-fall.svg" alt="">
+                  <img class="stay-wish-leaf stay-wish-leaf-b" src="Assets/Icon/monstera.svg" alt="">
+                </aside>
+              </article>
             </section>
           </div>
           <div class="page-content" data-page="discover" hidden>
@@ -509,8 +520,8 @@
               </div>
               <div class="events-search-dock" aria-label="Recherche événements">
                 <div class="events-location-text">
-                  <h2>Lille or Belgium ? Why choose ?</h2>
-                  <p>Lille and belgium are all within easy reach.</p>
+                  <h2 data-i18n="eventsLocationTitle">Lille ou Belgique ? Pourquoi choisir ?</h2>
+                  <p data-i18n="eventsLocationText">Lille et la Belgique sont facilement accessibles.</p>
                 </div>
                 <div class="events-location-picker">
                   <button class="events-location-select" id="eventsLocationSelect" type="button" aria-haspopup="listbox" aria-expanded="false">
@@ -524,63 +535,67 @@
                 </div>
               </div>
             </section>
-            <section class="discover-city-guide" id="discover-city-guide" data-section="discoverCityGuide" aria-label="City guide">
-              <div class="city-guide-cover">
-                <div class="city-guide-cover-icons" aria-hidden="true">
-                  <img src="Assets/Icon/citypart1.png" alt="">
-                  <img src="Assets/Icon/citypart2.png" alt="">
-                  <img src="Assets/Icon/citypart3.png" alt="">
-                </div>
-                <span class="city-guide-kicker" id="cityGuideKicker">A small city guide</span>
-                <h2 id="cityGuideTitle">Roubaix</h2>
-                <p id="cityGuideTags">Art · Textile heritage · Creative city</p>
-                <em class="city-guide-note">I like a fairytale, but real.</em>
-                <div class="city-guide-badges" id="cityGuideBadges"></div>
-              </div>
-              <div class="city-guide-panel">
-                <header>
-                  <span>History around every corner</span>
-                  <h3>3 must-see places</h3>
-                </header>
-                <div class="city-guide-list" id="cityGuideMustSee"></div>
-              </div>
-              <div class="city-guide-panel">
-                <header>
-                  <span>Good food after a day out</span>
-                  <h3>Eat & Drink</h3>
-                </header>
-                <div class="city-guide-list" id="cityGuideFood"></div>
-              </div>
-              <div class="city-guide-combo">
-                <img src="Assets/Icon/icon_perfect_combo.png" alt="">
-                <strong>Perfect combo</strong>
-                <span>A half-day well spent</span>
-                <div class="city-guide-combo-path" id="cityGuideCombo"></div>
-              </div>
-            </section>
             <section class="discover-blank-page" id="discover-blank" data-section="discoverBlank" aria-label="Page blanche">
-              <div class="discover-blank-grid" aria-hidden="true">
-                <div class="discover-blank-card discover-blank-card-a">
-                  <div class="discover-focus-copy">
-                    <span class="discover-focus-line" id="discoverFocusLine">_____</span>
+              <div class="discover-simple-guide">
+                <article class="discover-simple-hero">
+                  <img id="discoverHeroImage" src="Assets/Image/Lille.webp" alt="">
+                  <div class="discover-simple-hero-copy">
+                    <span data-i18n="discoverSimpleKicker">To discover</span>
                     <h3 id="discoverFocusTitle">ROUBAIX</h3>
                     <p id="discoverFocusSubtitle">Art · Textile heritage · Creative city</p>
+                    <em id="discoverFocusNote">History meets the good life</em>
                   </div>
-                  <img class="discover-blank-scroll" src="Assets/Icon/Parchemin.png" alt="">
-                  <div class="discover-focus-best">
-                    <strong>Best for</strong>
-                    <div class="discover-focus-tags" id="discoverFocusTags"></div>
+                  <div class="discover-simple-tags">
+                    <strong data-i18n="discoverBestFor">Best for</strong>
+                    <div class="discover-simple-tabs" id="discoverFocusTags"></div>
                   </div>
-                </div>
-                <div class="discover-blank-card discover-blank-card-b"></div>
-                <div class="discover-blank-card discover-blank-card-c"></div>
-                <div class="discover-blank-card discover-blank-card-wide">
-                  <div class="discover-blank-wide-slot">
-                    <img class="discover-blank-compass" src="Assets/Icon/compass.png" alt="">
+                </article>
+                <aside class="discover-simple-panel">
+                  <section class="discover-simple-block">
+                    <header>
+                      <img class="discover-simple-header-icon" src="Assets/Icon/eco-tourism.png" alt="">
+                      <h3 data-i18n="discoverSimpleMustSee">Must-see</h3>
+                    </header>
+                    <div class="discover-simple-list" id="discoverBlankMustSee"></div>
+                  </section>
+                  <section class="discover-simple-block">
+                    <header>
+                      <img class="discover-simple-header-icon" src="Assets/Icon/meal.png" alt="">
+                      <h3 data-i18n="discoverSimpleEatDrink">Eat & Drink</h3>
+                    </header>
+                    <div class="discover-simple-list" id="discoverBlankFood"></div>
+                  </section>
+                  <section class="discover-simple-combo">
+                    <header>
+                      <img src="Assets/Icon/location-events.png" alt="">
+                      <h3 data-i18n="discoverSimpleCombo">Perfect combo</h3>
+                    </header>
+                    <div class="discover-simple-combo-path" id="discoverBlankCombo"></div>
+                  </section>
+                  <p class="discover-simple-footer" data-i18n="discoverSimpleFooter">A lively escape, ideal for a day trip.</p>
+                </aside>
+              </div>
+            </section>
+            <section class="discover-routes-outdoors" id="discover-routes-outdoors" data-section="discoverRoutesOutdoors" aria-label="Routes and outdoors">
+              <div class="routes-outdoors-shell">
+                <header class="routes-outdoors-header">
+                  <div class="routes-outdoors-leaf" aria-hidden="true">
+                    <img src="Assets/Icon/leaf-fall.svg" alt="">
+                    <img src="Assets/Icon/monstera.svg" alt="">
                   </div>
-                  <div class="discover-blank-wide-slot"></div>
-                  <div class="discover-blank-wide-slot"></div>
-                </div>
+                  <div class="routes-outdoors-copy">
+                    <span data-i18n="discoverRoutesKicker">Good walks nearby</span>
+                    <h2 data-i18n="discoverRoutesTitle">Routes &amp; Outdoors</h2>
+                    <p data-i18n="discoverRoutesLead">Walk. Ride. Explore.</p>
+                    <em data-i18n="discoverRoutesNote">Beautiful routes, just around the corner.</em>
+                  </div>
+                  <aside class="routes-outdoors-doodle" aria-hidden="true">
+                    <strong>Good</strong>
+                    <span>Walks</span>
+                    <em>Brighter Days</em>
+                  </aside>
+                </header>
+                <div class="routes-outdoors-grid" id="routesOutdoorsGrid" aria-label="Outdoor routes nearby"></div>
               </div>
             </section>
           </div>
@@ -702,10 +717,11 @@
         }
       }
     </script>
-    <script src="script.js?v=weather-first-load-1"></script>
-    <script type="module" src="Assets/JS/home-model-viewer.js?v=home-model-side-7"></script>
+    <script src="script.js?v=discover-routes-responsive-1"></script>
+    <script type="module" src="Assets/JS/home-model-viewer.js?v=home-model-side-8-collada-v07"></script>
   </body>
 </html>
+
 
 
 

@@ -73,6 +73,16 @@ const cityGuideMustSee = document.querySelector("#cityGuideMustSee");
 const cityGuideFood = document.querySelector("#cityGuideFood");
 const cityGuideCombo = document.querySelector("#cityGuideCombo");
 const discoverBlankSection = document.querySelector("#discover-blank");
+const discoverHeroImage = document.querySelector("#discoverHeroImage");
+const discoverFocusLine = document.querySelector("#discoverFocusLine");
+const discoverFocusTitle = document.querySelector("#discoverFocusTitle");
+const discoverFocusSubtitle = document.querySelector("#discoverFocusSubtitle");
+const discoverFocusNote = document.querySelector("#discoverFocusNote");
+const discoverFocusTags = document.querySelector("#discoverFocusTags");
+const discoverBlankMustSee = document.querySelector("#discoverBlankMustSee");
+const discoverBlankFood = document.querySelector("#discoverBlankFood");
+const discoverBlankCombo = document.querySelector("#discoverBlankCombo");
+const routesOutdoorsGrid = document.querySelector("#routesOutdoorsGrid");
 
 const wishRecipientEmail = "";
 const discoverRefreshHours = [7, 12, 17];
@@ -98,24 +108,65 @@ const copy = {
     houseAction: "Profiter de la maison",
     discoverAction: "Découvrir le quartier",
     stayAction: "Tout savoir sur mon séjour",
-    navWelcome: "Bienvenu",
+    navWelcome: "Bienvenue",
     navHome: "Le logement",
     navStay: "Votre séjour",
-    navDiscover: "A Découvrir",
+    navDiscover: "À découvrir",
     navHelp: "Besoin d'aide ?",
-    eventsKicker: "A découvrir",
-    eventsTitle: "What's happening nearby",
+    eventsKicker: "À découvrir",
+    eventsTitle: "Que se passe-t-il autour ?",
     eventsIntro: "Les prochains grands rendez-vous autour de Lille et en Belgique, mis à jour à 07h, 12h et 17h.",
     eventsLoading: "Recherche des prochains événements...",
     eventsUnavailable: "Les événements seront affichés ici dès qu'une donnée valide sera disponible.",
     eventsUpdated: "Mis à jour sur le créneau 07h / 12h / 17h.",
     eventsCached: "Dernière sélection disponible, en attendant le prochain rafraîchissement.",
-    eventsDiscover: "Discover event →",
+    eventsDiscover: "Voir l'événement →",
     eventsLocationLabel: "Ville",
-    eventsSearch: "Search",
-    sideDiscoverEvents: "Events nearby",
+    eventsSearch: "Rechercher",
+    eventsLocationTitle: "Lille ou Belgique ? Pourquoi choisir ?",
+    eventsLocationText: "Lille et la Belgique sont facilement accessibles.",
+    sideDiscoverEvents: "Événements autour",
     sideDiscoverCityGuide: "Guide ville",
     sideDiscoverBlank: "Page blanche",
+    sideDiscoverRoutes: "Routes & plein air",
+    discoverBestFor: "Idéal pour",
+    discoverSimpleKicker: "À découvrir",
+    discoverSimpleNote: "L'histoire rencontre l'art de vivre",
+    discoverSimpleMustSee: "À voir",
+    discoverSimpleEatDrink: "Manger & boire",
+    discoverSimpleCombo: "Combo parfait",
+    discoverSimpleFooter: "Une escapade vivante, idéale pour une journée.",
+    discoverRoutesKicker: "Balades à proximité",
+    discoverRoutesTitle: "Routes & plein air",
+    discoverRoutesLead: "Marcher. Rouler. Explorer.",
+    discoverRoutesNote: "De beaux itinéraires, juste à côté.",
+    discoverRoutesWalk: "Marche",
+    discoverRoutesBike: "Vélo",
+    discoverRoutesHike: "Randonnée",
+    discoverRoutesBarbieuxText: "Une balade paisible entre jardins, lacs et arbres remarquables.",
+    discoverRoutesCanalText: "Une sortie agréable le long du canal, entre nature et patrimoine.",
+    discoverRoutesMarqueText: "Un chemin nature entre zones humides et paysages verts.",
+    discoverRoutesDistance: "Distance",
+    discoverRoutesTime: "Durée",
+    discoverRoutesLevel: "Niveau",
+    discoverRoutesFormat: "Format",
+    discoverRoutesBestFor: "Idéal pour",
+    discoverRoutesEasy: "Facile",
+    discoverRoutesModerate: "Modéré",
+    discoverRoutesLoop: "Boucle",
+    discoverRoutesOneWay: "Aller simple",
+    discoverRoutesCta: "Voir l'itinéraire →",
+    discoverCard2Title: "3 lieux à voir",
+    discoverCard2Kicker: "De l'histoire à chaque coin",
+    discoverCard2Place1Title: "Grand'Place & Vieille Bourse",
+    discoverCard2Place1Text: "Le cœur de Lille : architecture flamande, cafés et l'un des bâtiments les plus iconiques de la ville.",
+    discoverCard2Place1Note: "Commencer ici",
+    discoverCard2Place2Title: "Palais des Beaux-Arts",
+    discoverCard2Place2Text: "L'un des grands musées des beaux-arts en France, directement sur la Place de la République.",
+    discoverCard2Place2Note: "Pause musée",
+    discoverCard2Place3Title: "Vieux-Lille & Hospice Comtesse",
+    discoverCard2Place3Text: "Rues pavées, façades colorées, boutiques et plusieurs siècles d'histoire locale.",
+    discoverCard2Place3Note: "Balade photo",
     qrKicker: "Tu veux l'avoir dehors ?",
     qrTitle: "Scanne le QR Code",
     wishTitleInline: "Un vœu pour la prochaine fois ?",
@@ -140,7 +191,7 @@ const copy = {
     homeBody: "On espère que vous vous y sentirez bien et que vous apprécierez aussi découvrir cet endroit et ses alentours.",
     homeEnjoy: "Profitez bien, et n'hésitez pas à nous contacter si besoin !",
     homeScrollNote: "Faites défiler pour découvrir davantage la maison.",
-    homeModelTitle: "Spin to explore",
+    homeModelTitle: "Explorer en 3D",
     homeModelText: "222 rue Delespaul - 59xxxx - Roubaix",
     surfaceTotal: "Surface totale",
     surfaceLiving: "séjour-cuisine",
@@ -246,6 +297,7 @@ const copy = {
     stayStepTogether: "Bien vivre",
     stayStepLastWord: "Dernier mot",
     stayStepDeparture: "Départ",
+    stayStepWish: "Vœu",
     stayComfortTitle: "Pour votre confort",
     stayComfortIntro: "Les petites attentions et équipements disponibles pendant le séjour.",
     stayComfortCoffeeTitle: "Café & thé",
@@ -472,9 +524,50 @@ const copy = {
     eventsDiscover: "Discover event →",
     eventsLocationLabel: "Location",
     eventsSearch: "Search",
+    eventsLocationTitle: "Lille or Belgium ? Why choose ?",
+    eventsLocationText: "Lille and Belgium are all within easy reach.",
     sideDiscoverEvents: "Events nearby",
     sideDiscoverCityGuide: "City guide",
     sideDiscoverBlank: "Blank page",
+    sideDiscoverRoutes: "Routes & outdoors",
+    discoverBestFor: "Best for",
+    discoverSimpleKicker: "To discover",
+    discoverSimpleNote: "History meets the good life",
+    discoverSimpleMustSee: "Must-see",
+    discoverSimpleEatDrink: "Eat & Drink",
+    discoverSimpleCombo: "Perfect combo",
+    discoverSimpleFooter: "A lively escape, ideal for a day trip.",
+    discoverRoutesKicker: "Good walks nearby",
+    discoverRoutesTitle: "Routes & Outdoors",
+    discoverRoutesLead: "Walk. Ride. Explore.",
+    discoverRoutesNote: "Beautiful routes, just around the corner.",
+    discoverRoutesWalk: "Walk",
+    discoverRoutesBike: "Bike",
+    discoverRoutesHike: "Hike",
+    discoverRoutesBarbieuxText: "A peaceful walk through gardens, lakes and remarkable trees.",
+    discoverRoutesCanalText: "A pleasant ride along the canal, with nature and heritage.",
+    discoverRoutesMarqueText: "A nature path through wetlands and green landscapes.",
+    discoverRoutesDistance: "Distance",
+    discoverRoutesTime: "Time",
+    discoverRoutesLevel: "Level",
+    discoverRoutesFormat: "Format",
+    discoverRoutesBestFor: "Best for",
+    discoverRoutesEasy: "Easy",
+    discoverRoutesModerate: "Moderate",
+    discoverRoutesLoop: "Loop",
+    discoverRoutesOneWay: "One way",
+    discoverRoutesCta: "View route →",
+    discoverCard2Title: "3 must-see places",
+    discoverCard2Kicker: "History around every corner",
+    discoverCard2Place1Title: "Grand'Place & Vieille Bourse",
+    discoverCard2Place1Text: "The heart of Lille: Flemish architecture, cafes and one of the city's most iconic buildings.",
+    discoverCard2Place1Note: "Start here",
+    discoverCard2Place2Title: "Palais des Beaux-Arts",
+    discoverCard2Place2Text: "One of France's major fine-art museums, right on Place de la Republique.",
+    discoverCard2Place2Note: "Museum stop",
+    discoverCard2Place3Title: "Vieux-Lille & Hospice Comtesse",
+    discoverCard2Place3Text: "Cobblestone streets, colourful facades, boutiques and centuries of local history.",
+    discoverCard2Place3Note: "Photo walk",
     qrKicker: "Want to have this outside ?",
     qrTitle: "Scan the QR Code",
     wishTitleInline: "One wish for next time?",
@@ -605,6 +698,7 @@ const copy = {
     stayStepTogether: "Living well",
     stayStepLastWord: "Last word",
     stayStepDeparture: "Departure",
+    stayStepWish: "Wish",
     stayComfortTitle: "For your comfort",
     stayComfortIntro: "Small attentions and useful items available during your stay.",
     stayComfortCoffeeTitle: "Coffee & tea",
@@ -857,12 +951,13 @@ const pageSections = {
     { id: "stay-blank", key: "stayStepHouse", icon: "Assets/Icon/rules.svg", stayStep: 1 },
     { id: "stay-blank", key: "stayStepComfort", icon: "Assets/Icon/Bien vivre.svg", stayStep: 2 },
     { id: "stay-blank", key: "stayStepGettingAround", icon: "Assets/Icon/getting arround.png", stayStep: 3 },
-    { id: "stay-blank", key: "stayStepDeparture", icon: "Assets/Icon/Départ.svg", stayStep: 4 }
+    { id: "stay-blank", key: "stayStepDeparture", icon: "Assets/Icon/Départ.svg", stayStep: 4 },
+    { id: "stay-blank", key: "stayStepWish", icon: "Assets/Icon/;).svg", stayStep: 5 }
   ],
   discover: [
     { id: "discover-events", key: "sideDiscoverEvents", icon: "Assets/Icon/A découvrir.png" },
-    { id: "discover-city-guide", key: "sideDiscoverCityGuide", icon: "Assets/Icon/buildings.png" },
-    { id: "discover-blank", key: "sideDiscoverBlank", icon: "Assets/Icon/leaf.png" }
+    { id: "discover-blank", key: "sideDiscoverBlank", icon: "Assets/Icon/leaf.png" },
+    { id: "discover-routes-outdoors", key: "sideDiscoverRoutes", icon: "Assets/Icon/footprint.png" }
   ],
   help: [
     { id: "help-blank", key: "navHelp", icon: "Assets/Icon/Help.svg" }
@@ -886,6 +981,15 @@ let discoverPageScrollLock = false;
 const stayDefaultDuration = 5600;
 const staySlideDurations = {};
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const runtimeNavigator = window.navigator || {};
+const leanDevice = Boolean(
+  reducedMotion.matches
+  || window.matchMedia("(max-width: 900px)").matches
+  || (runtimeNavigator.deviceMemory && runtimeNavigator.deviceMemory <= 4)
+  || (runtimeNavigator.hardwareConcurrency && runtimeNavigator.hardwareConcurrency <= 4)
+  || window.matchMedia("(pointer: coarse)").matches
+);
+root.classList.toggle("is-lean-device", leanDevice);
 
 const locations = {
   Lille: { country: "FR", label: { fr: "Lille", en: "Lille" }, latitude: 50.6292, longitude: 3.0573 },
@@ -905,6 +1009,13 @@ const discoverCityGuides = {
     title: "Lille",
     kicker: "Culture · Flemish architecture · Food & nightlife",
     tags: ["Culture", "Flemish architecture", "Food & nightlife"],
+    focusSubtitle: "Culture · Old town · Nightlife",
+    focusTags: [
+      "💕 Romantic stroll",
+      "🍻 Night out",
+      "🥘 Northern food",
+      "📸 Flemish streets"
+    ],
     badges: ["Old town", "Museums", "Craft beer", "Easy walk"],
     mustSee: [
       ["Grand'Place & Vieille Bourse", "The heart of Lille: Flemish architecture, cafes and one of the city's most iconic buildings."],
@@ -916,12 +1027,19 @@ const discoverCityGuides = {
       ["Bar", "La Capsule Lille", "Excellent craft-beer bar in Vieux-Lille; relaxed rather than nightclub-style."],
       ["Quick bite", "Bioburger Lille", "Easy mixed-group choice with vegetarian/vegan options."]
     ],
-    combo: "Palais des Beaux-Arts -> Grand'Place -> Vieux-Lille -> La Capsule -> dinner"
+    combo: "Palais des Beaux-Arts → Grand'Place → Vieux-Lille → La Capsule → dinner"
   },
   Roubaix: {
     title: "Roubaix",
     kicker: "Art · Textile heritage · Creative city",
     tags: ["Art", "Textile heritage", "Creative city"],
+    focusSubtitle: "Art · Industrial heritage",
+    focusTags: [
+      "🎨 Art day",
+      "🏭 Industrial past",
+      "🌿 Quiet escape",
+      "☕ Museum & coffee"
+    ],
     badges: ["La Piscine", "Brunch stop", "Textile story", "City walk"],
     mustSee: [
       ["La Piscine", "The essential Roubaix visit: an art museum inside a spectacular former Art Deco swimming pool."],
@@ -933,12 +1051,19 @@ const discoverCityGuides = {
       ["Bar", "Mercado negro", "Cocktails, tapas and rooftop atmosphere, with vegetarian choices."],
       ["Quick bite", "GARDEN FOOD ROUBAIX", "Poke, salads and quick food; particularly easy for vegetarian guests."]
     ],
-    combo: "La Piscine -> city centre -> Mercado Negro"
+    combo: "La Piscine → city centre → Mercado Negro"
   },
   "Villeneuve-dAscq": {
     title: "Villeneuve-d'Ascq",
     kicker: "Modern art · Science · Nature",
     tags: ["Modern art", "Science", "Nature"],
+    focusSubtitle: "Modern art · Nature",
+    focusTags: [
+      "🌿 Nature",
+      "🎨 Modern art",
+      "👨‍👩‍👧 Family day",
+      "🚶 Lake walk"
+    ],
     badges: ["Family friendly", "LaM", "Lake walk", "Calm day"],
     mustSee: [
       ["LaM", "Modern, contemporary and outsider art in one of the area's major museums."],
@@ -950,12 +1075,19 @@ const discoverCityGuides = {
       ["Bar", "Ninkasi Lille - Lezennes", "Beer, cocktails, live music and a casual atmosphere."],
       ["Quick bite", "Dubble Lille Pilaterie", "Bowls and healthy quick meals with veggie-friendly options."]
     ],
-    combo: "LaM -> Parc du Heron -> dinner"
+    combo: "LaM → Parc du Heron → dinner"
   },
   Dunkerque: {
     title: "Dunkirk",
     kicker: "Sea · WWII history · Flemish coast",
     tags: ["Sea", "WWII history", "Flemish coast"],
+    focusSubtitle: "Sea · History",
+    focusTags: [
+      "🌅 Sea sunset",
+      "🌊 Fresh air",
+      "⚓ Maritime history",
+      "🏖️ Beach day"
+    ],
     badges: ["Beach", "Harbour", "Sunset", "Sea air"],
     mustSee: [
       ["Beffroi Saint-Eloi", "The city's landmark tower with panoramic views."],
@@ -967,12 +1099,19 @@ const discoverCityGuides = {
       ["Bar", "Kilimanjaro", "Cocktails, beer, live music and a relaxed waterfront vibe."],
       ["Quick bite", "Crepe Touch Dunkerque", "Customisable galettes, crepes and salads with dedicated vegetarian recipes."]
     ],
-    combo: "Beffroi -> harbour -> Malo-les-Bains -> sunset drink"
+    combo: "Beffroi → harbour → Malo-les-Bains → sunset drink"
   },
   Bruges: {
     title: "Bruges",
     kicker: "Medieval · Canals · Romantic",
     tags: ["Medieval", "Canals", "Romantic"],
+    focusSubtitle: "Medieval · Romantic",
+    focusTags: [
+      "💕 Romantic day",
+      "🚤 Canals",
+      "📸 Postcard view",
+      "🕯️ Medieval escape"
+    ],
     badges: ["History lovers", "Couples", "Photographers", "Slow travel"],
     mustSee: [
       ["Markt & Belfry", "The iconic postcard view of Bruges; climb the 366 steps if you want the panorama."],
@@ -984,12 +1123,19 @@ const discoverCityGuides = {
       ["Bar", "NOBLE Bruges", "Cosy cocktail and wine bar in the historic centre."],
       ["Quick bite", "Bohemian Burgers", "Beef, chicken, fish plus five vegetarian alternatives and vegan options."]
     ],
-    combo: "Markt -> Belfry -> canals -> Den Amand"
+    combo: "Markt → Belfry → canals → Den Amand"
   },
   Bruxelles: {
     title: "Brussels",
     kicker: "Grand architecture · Surrealism · Big-city energy",
     tags: ["Architecture", "Surrealism", "Big-city energy"],
+    focusSubtitle: "Capital · Culture",
+    focusTags: [
+      "🤩 Iconic stop",
+      "🍸 City night",
+      "🎨 Culture fix",
+      "🌍 Big-city buzz"
+    ],
     badges: ["Grand-Place", "Magritte", "Jazz bar", "Big city"],
     mustSee: [
       ["Grand-Place & Royal Galleries", "The obvious first stop and the most spectacular historic part of central Brussels."],
@@ -1001,12 +1147,19 @@ const discoverCityGuides = {
       ["Bar", "L'Archiduc", "Historic Art Deco cocktail and jazz bar, memorable for tourists."],
       ["Quick bite", "Pois Chiche", "Falafel, hummus, mezze and plant-based Middle Eastern street food."]
     ],
-    combo: "Grand-Place -> Royal Galleries -> cocktail -> dinner"
+    combo: "Grand-Place → Royal Galleries → cocktail → dinner"
   },
   Courtrai: {
     title: "Kortrijk / Courtrai",
     kicker: "Easy Belgian escape · Heritage · Shopping",
     tags: ["Heritage", "Shopping", "Belgian escape"],
+    focusSubtitle: "Easy Belgian escape",
+    focusTags: [
+      "🇧🇪 Belgian escape",
+      "☕ Cosy afternoon",
+      "🛍️ Shopping walk",
+      "🏰 History taste"
+    ],
     badges: ["UNESCO feel", "Short escape", "Cocktails", "Underrated"],
     mustSee: [
       ["Broel Towers", "The twin medieval towers are the city's best-known landmark."],
@@ -1018,12 +1171,19 @@ const discoverCityGuides = {
       ["Bar", "Bar Memoir", "Small, cosy cocktail stop."],
       ["Quick bite", "Paul's Boutique", "Good burger stop with several listed vegetarian options."]
     ],
-    combo: "Broel Towers -> Beguinage -> Grote Markt -> dinner"
+    combo: "Broel Towers → Beguinage → Grote Markt → dinner"
   },
   Gand: {
     title: "Ghent / Gand",
     kicker: "Medieval · Waterfront · Lively",
     tags: ["Medieval", "Waterfront", "Lively"],
+    focusSubtitle: "Medieval · Lively",
+    focusTags: [
+      "🏰 Medieval mood",
+      "🍷 Waterfront",
+      "🌙 Night out",
+      "🚶 Wander freely"
+    ],
     badges: ["Castle", "Waterfront", "Wine bar", "Walkable"],
     mustSee: [
       ["Gravensteen", "A proper medieval castle in the middle of the city."],
@@ -1035,12 +1195,19 @@ const discoverCityGuides = {
       ["Bar", "Ona", "Cosy wine bar, much more intimate than a big nightlife venue."],
       ["Quick bite", "Greenway Ghent", "Fast, casual vegan/vegetarian food."]
     ],
-    combo: "Gravensteen -> Graslei/Korenlei -> St Bavo -> wine bar"
+    combo: "Gravensteen → Graslei/Korenlei → St Bavo → wine bar"
   },
   Tournai: {
     title: "Tournai",
     kicker: "UNESCO heritage · Architecture · Relaxed",
     tags: ["UNESCO heritage", "Architecture", "Relaxed"],
+    focusSubtitle: "Heritage · Relaxed",
+    focusTags: [
+      "😌 Slow down",
+      "🏛️ Architecture",
+      "🍷 Wine evening",
+      "💕 Quiet date"
+    ],
     badges: ["Cathedral", "Belfry", "Wine bar", "Riverside"],
     mustSee: [
       ["Notre-Dame Cathedral & Belfry", "The two UNESCO landmarks that define Tournai's skyline."],
@@ -1052,13 +1219,20 @@ const discoverCityGuides = {
       ["Bar", "Le Greco - OenoBar", "Vaulted wine-bar atmosphere, Greek wines, cocktails and small plates."],
       ["Quick bite", "Black & White Burger Tournai", "Straightforward fast-food option with vegetarian burgers available."]
     ],
-    combo: "Cathedral -> Grand-Place -> Pont des Trous -> OenoBar"
+    combo: "Cathedral → Grand-Place → Pont des Trous → OenoBar"
   },
   Bergues: {
     title: "Bergues",
     kicker: "Ramparts · Flemish charm · Bienvenue chez les Ch'tis",
     tags: ["Ramparts", "Flemish charm", "Seasonal gem"],
-    badges: ["Best spring -> autumn", "Ramparts", "Friterie", "Film streets"],
+    focusSubtitle: "Ch'tis · Ramparts · Best spring–autumn",
+    focusTags: [
+      "🎬 Movie mood",
+      "🍟 Ch'ti stop",
+      "🌿 Country escape",
+      "🚶 Ramparts walk"
+    ],
+    badges: ["Best spring → autumn", "Ramparts", "Friterie", "Film streets"],
     mustSee: [
       ["Ramparts", "The best year-round activity: walk Vauban's fortifications around the old town."],
       ["Grand-Place & Belfry", "The city's recognisable centre and one of its defining landmarks."],
@@ -1069,8 +1243,348 @@ const discoverCityGuides = {
       ["Cafe", "Cafe de la Poste", "Perfectly suited to the town-centre/Beffroi atmosphere."],
       ["Quick bite", "Snack Friterie Bergues", "Simple northern friterie food, with vegetarian choices."]
     ],
-    combo: "Ramparts -> Grand-Place -> Belfry -> frites"
+    combo: "Ramparts → Grand-Place → Belfry → frites"
   }
+};
+
+const discoverCityGuidesFr = {
+  Lille: {
+    title: "Lille",
+    kicker: "Culture · architecture flamande · cuisine & soirées",
+    tags: ["Culture", "Architecture flamande", "Cuisine & soirées"],
+    focusSubtitle: "Culture · vieille ville · soirées",
+    focusTags: ["💕 Balade romantique", "🍻 Soirée dehors", "🥘 Cuisine du Nord", "📸 Rues flamandes"],
+    badges: ["Vieille ville", "Musées", "Bières artisanales", "Balade facile"],
+    mustSee: [
+      ["Grand'Place & Vieille Bourse", "Le coeur de Lille : architecture flamande, cafés et l'un des bâtiments les plus iconiques de la ville."],
+      ["Palais des Beaux-Arts", "L'un des grands musées des beaux-arts en France, directement sur la place de la République."],
+      ["Vieux-Lille & Hospice Comtesse", "Rues pavées, façades colorées, boutiques et plusieurs siècles d'histoire locale."]
+    ],
+    food: [
+      ["Dîner", "La Petite Table - Estaminet Vieux Lille", "Ambiance flamande et nordiste traditionnelle, cosy et parfaite pour découvrir la cuisine locale."],
+      ["Bar", "La Capsule Lille", "Très bon bar à bières artisanales dans le Vieux-Lille, détendu plutôt que club."],
+      ["Sur le pouce", "Bioburger Lille", "Choix simple pour un groupe mixte, avec options végétariennes et vegan."]
+    ],
+    combo: "Palais des Beaux-Arts → Grand'Place → Vieux-Lille → La Capsule → dîner"
+  },
+  Roubaix: {
+    title: "Roubaix",
+    kicker: "Art · patrimoine textile · ville créative",
+    tags: ["Art", "Patrimoine textile", "Ville créative"],
+    focusSubtitle: "Art · patrimoine industriel",
+    focusTags: ["🎨 Journée art", "🏭 Passé industriel", "🌿 Pause calme", "☕ Musée & café"],
+    badges: ["La Piscine", "Pause brunch", "Histoire textile", "Balade urbaine"],
+    mustSee: [
+      ["La Piscine", "La visite incontournable de Roubaix : un musée d'art dans une ancienne piscine Art déco spectaculaire."],
+      ["La Manufacture", "Pour comprendre comment le textile a façonné Roubaix et toute la région."],
+      ["Parc Barbieux", "Un grand parc paysager, parfait pour marcher entre deux visites culturelles."]
+    ],
+    food: [
+      ["Dîner", "La Nonna Ristorante Roubaix", "Dîner italien chaleureux, simple et pratique pour un groupe mixte."],
+      ["Bar", "Mercado negro", "Cocktails, tapas et ambiance rooftop, avec des choix végétariens."],
+      ["Sur le pouce", "GARDEN FOOD ROUBAIX", "Poke, salades et repas rapides, très pratique pour les voyageurs végétariens."]
+    ],
+    combo: "La Piscine → centre-ville → Mercado Negro"
+  },
+  "Villeneuve-dAscq": {
+    title: "Villeneuve-d'Ascq",
+    kicker: "Art moderne · sciences · nature",
+    tags: ["Art moderne", "Sciences", "Nature"],
+    focusSubtitle: "Art moderne · nature",
+    focusTags: ["🌿 Nature", "🎨 Art moderne", "👨‍👩‍👧 Journée famille", "🚶 Balade au lac"],
+    badges: ["Famille", "LaM", "Balade au lac", "Journée calme"],
+    mustSee: [
+      ["LaM", "Art moderne, contemporain et brut dans l'un des grands musées de la métropole."],
+      ["Forum départemental des Sciences", "Centre de sciences interactif, particulièrement adapté aux familles."],
+      ["Parc du Héron", "Lac, chemins de balade et nature juste à côté du quartier culturel."]
+    ],
+    food: [
+      ["Dîner", "Rosso & Bianco", "Cadre italien chaleureux, grande carte et options végétariennes explicites."],
+      ["Bar", "Ninkasi Lille - Lezennes", "Bières, cocktails, musique live et ambiance décontractée."],
+      ["Sur le pouce", "Dubble Lille Pilaterie", "Bowls et repas rapides équilibrés, avec options veggie."]
+    ],
+    combo: "LaM → Parc du Héron → dîner"
+  },
+  Dunkerque: {
+    title: "Dunkerque",
+    kicker: "Mer · histoire WWII · côte flamande",
+    tags: ["Mer", "Histoire WWII", "Côte flamande"],
+    focusSubtitle: "Mer · histoire",
+    focusTags: ["🌅 Coucher de soleil", "🌊 Grand air", "⚓ Histoire maritime", "🏖️ Journée plage"],
+    badges: ["Plage", "Port", "Coucher de soleil", "Air marin"],
+    mustSee: [
+      ["Beffroi Saint-Éloi", "La tour emblématique de la ville, avec vue panoramique."],
+      ["Musée Maritime & Portuaire", "Le meilleur endroit pour comprendre le lien profond entre Dunkerque, son port et la mer."],
+      ["Malo-les-Bains", "Plage, promenade et villas balnéaires Belle Époque."]
+    ],
+    food: [
+      ["Dîner", "LE TAJ MAHAL", "Restaurant indien cosy, grande carte et plats végétariens clairement identifiés."],
+      ["Bar", "Kilimanjaro", "Cocktails, bière, musique live et ambiance détendue côté front de mer."],
+      ["Sur le pouce", "Crêpe Touch Dunkerque", "Galettes, crêpes et salades personnalisables, avec recettes végétariennes dédiées."]
+    ],
+    combo: "Beffroi → port → Malo-les-Bains → verre au coucher du soleil"
+  },
+  Bruges: {
+    title: "Bruges",
+    kicker: "Médiéval · canaux · romantique",
+    tags: ["Médiéval", "Canaux", "Romantique"],
+    focusSubtitle: "Médiéval · romantique",
+    focusTags: ["💕 Journée romantique", "🚤 Canaux", "📸 Vue carte postale", "🕯️ Parenthèse médiévale"],
+    badges: ["Histoire", "Couples", "Photos", "Voyage lent"],
+    mustSee: [
+      ["Markt & Beffroi", "La vue iconique de Bruges ; grimpez les 366 marches si vous voulez le panorama."],
+      ["Canaux & Rozenhoedkaai", "Marchez ou prenez un bateau dans le centre médiéval. Rozenhoedkaai est le spot photo classique."],
+      ["Groeninge Museum", "Grande collection d'art belge et de primitifs flamands, dont Van Eyck."]
+    ],
+    food: [
+      ["Dîner", "Den Amand", "Petite place piétonne près du Markt, cadre cosy et plats de saison végétariens, poisson ou viande."],
+      ["Bar", "NOBLE Bruges", "Bar à cocktails et vins cosy dans le centre historique."],
+      ["Sur le pouce", "Bohemian Burgers", "Boeuf, poulet, poisson, cinq alternatives végétariennes et options vegan."]
+    ],
+    combo: "Markt → Beffroi → canaux → Den Amand"
+  },
+  Bruxelles: {
+    title: "Bruxelles",
+    kicker: "Grande architecture · surréalisme · énergie de capitale",
+    tags: ["Architecture", "Surréalisme", "Énergie de capitale"],
+    focusSubtitle: "Capitale · culture",
+    focusTags: ["🤩 Incontournable", "🍸 Soirée en ville", "🎨 Dose de culture", "🌍 Énergie urbaine"],
+    badges: ["Grand-Place", "Magritte", "Bar jazz", "Grande ville"],
+    mustSee: [
+      ["Grand-Place & Galeries Royales", "Le premier arrêt évident et le coeur historique le plus spectaculaire de Bruxelles."],
+      ["Atomium", "Le monument immédiatement reconnaissable de la ville, créé pour l'Expo 58."],
+      ["Musée Magritte", "La plus grande collection au monde consacrée à René Magritte."]
+    ],
+    food: [
+      ["Dîner", "Le Conteur", "Plats méditerranéens et moyen-orientaux à partager, avec beaucoup de choix végétariens et vegan."],
+      ["Bar", "L'Archiduc", "Bar à cocktails et jazz Art déco historique, mémorable pour les visiteurs."],
+      ["Sur le pouce", "Pois Chiche", "Falafels, houmous, mezzés et street food moyen-orientale végétale."]
+    ],
+    combo: "Grand-Place → Galeries Royales → cocktail → dîner"
+  },
+  Courtrai: {
+    title: "Courtrai / Kortrijk",
+    kicker: "Escapade belge facile · patrimoine · shopping",
+    tags: ["Patrimoine", "Shopping", "Escapade belge"],
+    focusSubtitle: "Escapade belge facile",
+    focusTags: ["🇧🇪 Escapade belge", "☕ Après-midi cosy", "🛍️ Balade shopping", "🏰 Touche d'histoire"],
+    badges: ["Ambiance UNESCO", "Courte escapade", "Cocktails", "Sous-cotée"],
+    mustSee: [
+      ["Tours du Broel", "Les deux tours médiévales sont le monument le plus connu de la ville."],
+      ["Béguinage", "Ensemble paisible de maisons historiques classées UNESCO, avec centre d'interprétation."],
+      ["Grote Markt, Beffroi & Hôtel de Ville", "Le coeur historique de la ville et une autre connexion UNESCO."]
+    ],
+    food: [
+      ["Dîner", "Nude Kortrijk", "Cuisine d'inspiration moyen-orientale à partager, cocktails et choix végétariens/vegan."],
+      ["Bar", "Bar Memoir", "Petit bar à cocktails cosy."],
+      ["Sur le pouce", "Paul's Boutique", "Bonne adresse burgers avec plusieurs options végétariennes."]
+    ],
+    combo: "Tours du Broel → Béguinage → Grote Markt → dîner"
+  },
+  Gand: {
+    title: "Gand",
+    kicker: "Médiéval · quais · vivant",
+    tags: ["Médiéval", "Quais", "Vivant"],
+    focusSubtitle: "Médiéval · vivant",
+    focusTags: ["🏰 Ambiance médiévale", "🍷 Quais", "🌙 Soirée belge", "🚶 Balade libre"],
+    badges: ["Château", "Bord de l'eau", "Bar à vin", "À pied"],
+    mustSee: [
+      ["Gravensteen", "Un vrai château médiéval au milieu de la ville."],
+      ["Cathédrale Saint-Bavon & Agneau mystique", "La cathédrale abrite le chef-d'oeuvre mondialement connu de Van Eyck."],
+      ["Graslei & Korenlei", "Maisons de guildes historiques au bord de l'eau ; l'un des meilleurs endroits pour flâner."]
+    ],
+    food: [
+      ["Dîner", "Royal India Restaurant", "Large choix végétarien, vegan et non végétarien, pratique pour un groupe mixte."],
+      ["Bar", "Ona", "Bar à vin cosy, plus intime qu'un grand lieu de sortie."],
+      ["Sur le pouce", "Greenway Ghent", "Cuisine rapide végétarienne et vegan."]
+    ],
+    combo: "Gravensteen → Graslei/Korenlei → Saint-Bavon → bar à vin"
+  },
+  Tournai: {
+    title: "Tournai",
+    kicker: "Patrimoine UNESCO · architecture · détente",
+    tags: ["Patrimoine UNESCO", "Architecture", "Détente"],
+    focusSubtitle: "Patrimoine · détente",
+    focusTags: ["😌 Ralentir", "🏛️ Architecture", "🍷 Soirée vin", "💕 Rendez-vous calme"],
+    badges: ["Cathédrale", "Beffroi", "Bar à vin", "Bord d'Escaut"],
+    mustSee: [
+      ["Cathédrale Notre-Dame & Beffroi", "Les deux monuments UNESCO qui dessinent la silhouette de Tournai."],
+      ["Musée des Beaux-Arts", "Architecture de Victor Horta, avec des oeuvres de Manet, Monet, Seurat et d'autres."],
+      ["Pont des Trous & Grand-Place", "Marchez le long de l'Escaut jusqu'à la porte d'eau médiévale, puis revenez vers la Grand-Place."]
+    ],
+    food: [
+      ["Dîner", "Cannelle et safran", "Cadre cosy et romantique, avec choix végétariens."],
+      ["Bar", "Le Greco - OenoBar", "Ambiance cave voûtée, vins grecs, cocktails et petites assiettes."],
+      ["Sur le pouce", "Black & White Burger Tournai", "Option rapide simple, avec burgers végétariens disponibles."]
+    ],
+    combo: "Cathédrale → Grand-Place → Pont des Trous → OenoBar"
+  },
+  Bergues: {
+    title: "Bergues",
+    kicker: "Remparts · charme flamand · Bienvenue chez les Ch'tis",
+    tags: ["Remparts", "Charme flamand", "Belle saison"],
+    focusSubtitle: "Ch'tis · remparts · idéal printemps-automne",
+    focusTags: ["🎬 Ambiance cinéma", "🍟 Pause ch'ti", "🌿 Escapade campagne", "🚶 Tour des remparts"],
+    badges: ["Idéal printemps → automne", "Remparts", "Friterie", "Rues du film"],
+    mustSee: [
+      ["Remparts", "La meilleure activité en toute saison : marcher sur les fortifications Vauban autour de la vieille ville."],
+      ["Grand-Place & Beffroi", "Le centre reconnaissable de la ville et l'un de ses repères principaux."],
+      ["Lieux de tournage des Ch'tis", "Une raison amusante d'explorer les rues si les voyageurs connaissent Bienvenue chez les Ch'tis."]
+    ],
+    food: [
+      ["Dîner", "La Taverne Vauban", "Cadre traditionnel dans l'ancien corps de garde ; préparations végétariennes possibles sur demande."],
+      ["Café", "Café de la Poste", "Très adapté à l'ambiance centre-ville/Beffroi."],
+      ["Sur le pouce", "Snack Friterie Bergues", "Friterie du Nord simple, avec choix végétariens."]
+    ],
+    combo: "Remparts → Grand-Place → Beffroi → frites"
+  }
+};
+
+const routeVisuals = {
+  city: "Assets/Image/Lille.webp",
+  park: "Assets/Image/Discover/Routes/parc-barbieux.jpg",
+  canal: "Assets/Image/Discover/Routes/canal-de-roubaix.webp",
+  nature: "Assets/Image/Discover/Routes/val-de-marque.jpg",
+  coast: "Assets/Image/Discover/Routes/val-de-marque.jpg"
+};
+
+const routeImages = {
+  lilleWalk: "Assets/Image/Discover/Routes/route-lille-vieux-lille.jpg",
+  lilleBike: "Assets/Image/Discover/Routes/route-lille-deule-bike.webp",
+  lilleHike: "Assets/Image/Discover/Routes/route-lille-citadelle.jpg",
+  roubaixWalk: "Assets/Image/Discover/Routes/route-roubaix-parc-barbieux.jpg",
+  roubaixBike: "Assets/Image/Discover/Routes/route-roubaix-canal.jpg",
+  roubaixHike: "Assets/Image/Discover/Routes/route-val-de-marque.jpg",
+  villeneuveWalk: "Assets/Image/Discover/Routes/route-villeneuve-lac-heron.jpg",
+  villeneuveBike: "Assets/Image/Discover/Routes/route-villeneuve-marque-bike.webp",
+  villeneuveHike: "Assets/Image/Discover/Routes/route-villeneuve-val-marque.jpg",
+  berguesWalk: "Assets/Image/Discover/Routes/route-bergues-remparts.jpg",
+  berguesBike: "Assets/Image/Discover/Routes/route-bergues-flanders-bike.jpg",
+  berguesHike: "Assets/Image/Discover/Routes/route-bergues-canal-bois.jpg",
+  dunkerqueWalk: "Assets/Image/Discover/Routes/route-dunkerque-malo.jpg",
+  dunkerqueBike: "Assets/Image/Discover/Routes/route-dunkerque-velomaritime.jpg",
+  dunkerqueHike: "Assets/Image/Discover/Routes/route-dunkerque-dunes.jpg",
+  brugesWalk: "Assets/Image/Discover/Routes/route-bruges-ramparts-windmill.jpg",
+  brugesBike: "Assets/Image/Discover/Routes/route-bruges-castles-bike.png",
+  brugesHike: "Assets/Image/Discover/Routes/route-bruges-castles-walk.webp",
+  bruxellesWalk: "Assets/Image/Discover/Routes/route-brussels-galleries.jpg",
+  bruxellesBike: "Assets/Image/Discover/Routes/route-brussels-promenade-verte.jpg",
+  bruxellesHike: "Assets/Image/Discover/Routes/route-brussels-sonian-forest.jpg",
+  courtraiWalk: "Assets/Image/Discover/Routes/route-kortrijk-broel.jpg",
+  courtraiBike: "Assets/Image/Discover/Routes/route-kortrijk-bike.jpg",
+  courtraiHike: "Assets/Image/Discover/Routes/route-kortrijk-preshoekbos.jpg",
+  gandWalk: "Assets/Image/Discover/Routes/route-ghent-gravensteen.jpg",
+  gandBike: "Assets/Image/Discover/Routes/route-ghent-cycling.jpg",
+  gandHike: "Assets/Image/Discover/Routes/route-ghent-bourgoyen.jpg",
+  tournaiWalk: "Assets/Image/Discover/Routes/route-tournai-escaut.jpg",
+  tournaiBike: "Assets/Image/Discover/Routes/route-tournai-bike.jpg",
+  tournaiHike: "Assets/Image/Discover/Routes/route-tournai-mont-saint-aubert.jpg"
+};
+
+const discoverRouteGuides = {
+  Lille: [
+    { mode: "walk", title: "Vieux-Lille City Walk", place: "Lille", text: "Cobbled streets, colourful facades and hidden squares through Lille's most charming neighbourhood.", distance: "4 km", time: "1-1.5 h", level: "Easy", format: "Loop", bestFor: "Architecture · First visit · City vibes", image: routeImages.lilleWalk },
+    { mode: "bike", title: "Tour du Grand Lille", place: "Lille", text: "A full metropolitan loop mixing the Deule, parks, neighbourhoods, countryside and urban heritage.", distance: "50 km", time: "3-4 h", level: "Easy-Moderate", format: "Loop", bestFor: "Full day · Variety · Active travellers", image: routeImages.lilleBike },
+    { mode: "hike", title: "Citadelle & Deule", place: "Lille", text: "Leave the busy streets behind for woodland paths, riverside views and the green surroundings of Lille's Citadel.", distance: "6-8 km", time: "1.5-2 h", level: "Easy", format: "Loop", bestFor: "Nature · Relaxed pace · Couples", image: routeImages.lilleHike }
+  ],
+  Roubaix: [
+    { mode: "walk", title: "Parc Barbieux", place: "Roubaix", text: "A peaceful walk through landscaped gardens, lakes, lawns and remarkable trees.", distance: "4-5 km", time: "1-1.5 h", level: "Easy", format: "Loop", bestFor: "Gardens · Couples · Relaxed", image: routeImages.roubaixWalk },
+    { mode: "bike", title: "Canal de Roubaix", place: "Roubaix", text: "Follow the towpath through greenery, waterways and Roubaix's industrial heritage. Turn back whenever you like.", distance: "10-20 km", time: "1-2 h", level: "Easy", format: "Out & back", bestFor: "Waterside · Heritage · Easy ride", image: routeImages.roubaixBike },
+    { mode: "hike", title: "Val de Marque", place: "Roubaix", text: "A greener escape through wetlands, woodland and wildlife along the Marque valley.", distance: "8-12 km", time: "2-3 h", level: "Easy-Moderate", format: "Nature walk", bestFor: "Wildlife · Quiet · Nature", image: routeImages.roubaixHike }
+  ],
+  "Villeneuve-dAscq": [
+    { mode: "walk", title: "Chain of Lakes", place: "Villeneuve-d'Ascq", text: "Follow the lakes around the Heron area through one of the greenest parts of the Lille metropolitan area.", distance: "6-8 km", time: "1.5-2 h", level: "Easy", format: "Loop", bestFor: "Lakes · Birds · Families", image: routeImages.villeneuveWalk },
+    { mode: "bike", title: "Heron → Marque → Roubaix", place: "Villeneuve-d'Ascq", text: "Ride from the Lac du Heron along the Marque before joining the Canal de Roubaix and its greenways.", distance: "15-20 km", time: "2 h", level: "Easy", format: "One way", bestFor: "Water · Nature · Easy cycling", image: routeImages.villeneuveBike },
+    { mode: "hike", title: "Val de Marque", place: "Villeneuve-d'Ascq", text: "Woodland, wetlands, birds and peaceful trails just outside the urban centre.", distance: "8-12 km", time: "2-3 h", level: "Easy-Moderate", format: "Nature walk", bestFor: "Wildlife · Photography · Escape", image: routeImages.roubaixHike }
+  ],
+  Bergues: [
+    { mode: "walk", title: "Bergues Ramparts", place: "Bergues", text: "Circle the fortified town along remarkably preserved medieval and Vauban ramparts.", distance: "5.3 km", time: "1-1.5 h", level: "Easy", format: "Loop", bestFor: "History · Views · First visit", image: routeImages.berguesWalk },
+    { mode: "bike", title: "Bergues → Dunkirk", place: "Bergues", text: "Leave the fortified town and ride towards Dunkirk through canals, countryside and the Flanders cycling network.", distance: "20 km return", time: "1.5-2 h", level: "Easy", format: "Out & back", bestFor: "Countryside · Canal · Easy ride", image: routeImages.berguesBike },
+    { mode: "hike", title: "Canal & Bois des Forts", place: "Bergues", text: "Extend your escape beyond the ramparts towards peaceful waterways and the wooded landscapes around Bergues.", distance: "10-12 km", time: "2.5-3 h", level: "Easy-Moderate", format: "Nature walk", bestFor: "Quiet · Countryside · Nature", image: routeImages.berguesHike }
+  ],
+  Dunkerque: [
+    { mode: "walk", title: "Malo-les-Bains Seafront", place: "Dunkirk", text: "Walk along the beach and promenade between colourful seaside villas, cafes and endless North Sea views.", distance: "5 km", time: "1-1.5 h", level: "Easy", format: "Out & back", bestFor: "Sea · Sunset · Relaxed", image: routeImages.dunkerqueWalk },
+    { mode: "bike", title: "Dunes & History", place: "Dunkirk", text: "Ride between Dunkirk, the coast and the Dunes de Flandre through maritime landscapes and WWII heritage.", distance: "11-14 km", time: "1-1.5 h", level: "Easy", format: "Loop", bestFor: "Coast · History · Families", image: routeImages.dunkerqueBike },
+    { mode: "hike", title: "Dunes de Flandre", place: "Dunkirk", text: "Leave the city for sand dunes, wild beaches and protected coastal landscapes towards Zuydcoote and Bray-Dunes.", distance: "8-12 km", time: "2-3 h", level: "Moderate", format: "Hike", bestFor: "Sea · Wild nature · Fresh air", image: routeImages.dunkerqueHike }
+  ],
+  Bruges: [
+    { mode: "walk", title: "City Ramparts", place: "Bruges", text: "Circle Bruges through its green belt of medieval gates, windmills, canals and more than 3,000 trees.", distance: "7 km", time: "1.5 h", level: "Easy", format: "Loop", bestFor: "History · Greenery · Photography", image: routeImages.brugesWalk },
+    { mode: "bike", title: "Green Belt Bruges", place: "Bruges", text: "Escape the tourist centre through forests, castle parks, canals, villages and open Flemish countryside.", distance: "53 km", time: "3-4 h", level: "Moderate", format: "Loop", bestFor: "Full day · Countryside · Castles", image: routeImages.brugesBike },
+    { mode: "hike", title: "Three Castles Walk", place: "Bruges", text: "Explore the quieter hinterland of Bruges through woodland, estates and historic castle landscapes.", distance: "2-3 h", time: "2-3 h", level: "Easy-Moderate", format: "Loop", bestFor: "Forest · Castles · Slow travel", image: routeImages.brugesHike }
+  ],
+  Bruxelles: [
+    { mode: "walk", title: "Historic Brussels", place: "Brussels", text: "Link Grand-Place, the Royal Galleries, Mont des Arts and the Royal Quarter on foot.", distance: "4-5 km", time: "1.5 h", level: "Easy", format: "Loop", bestFor: "Architecture · First visit · Culture", image: routeImages.bruxellesWalk },
+    { mode: "bike", title: "Promenade Verte", place: "Brussels", text: "Brussels' huge green loop is divided into sections, so simply choose the part that matches your energy.", distance: "5-12 km", time: "45-90 min", level: "Easy", format: "Flexible", bestFor: "Parks · Local Brussels · Flexible ride", image: routeImages.bruxellesBike },
+    { mode: "hike", title: "Sonian Forest", place: "Brussels", text: "Swap the European capital for ancient woodland, long forest paths and remarkable beech trees.", distance: "8-12 km", time: "2-3 h", level: "Easy-Moderate", format: "Forest", bestFor: "Forest · Silence · Full escape", image: routeImages.bruxellesHike }
+  ],
+  Courtrai: [
+    { mode: "walk", title: "Leie & Historic Centre", place: "Kortrijk", text: "Walk from the Broel Towers along the lowered riverbanks towards the Beguinage and Grote Markt.", distance: "4 km", time: "1 h", level: "Easy", format: "Loop", bestFor: "Heritage · River · First visit", image: routeImages.courtraiWalk },
+    { mode: "bike", title: "Kortrijk Icons Route", place: "Kortrijk", text: "A curated ride connecting the architectural and cultural icons of Kortrijk and its surroundings.", distance: "37.5 km", time: "2.5-3 h", level: "Easy-Moderate", format: "Loop", bestFor: "Architecture · City + countryside · Full ride", image: routeImages.courtraiBike },
+    { mode: "hike", title: "Preshoekbos", place: "Kortrijk", text: "Over 140 hectares of forest with peaceful walking paths, wildlife and more adventurous trails.", distance: "6-10 km", time: "1.5-2.5 h", level: "Easy-Moderate", format: "Nature walk", bestFor: "Forest · Wildlife · Quiet", image: routeImages.courtraiHike }
+  ],
+  Gand: [
+    { mode: "walk", title: "Ghent's Quirky Charm", place: "Ghent", text: "See the Castle of the Counts, Graslei, Korenlei, the three towers and Patershol in one compact city walk.", distance: "4.2 km", time: "1-1.5 h", level: "Easy", format: "Loop", bestFor: "First visit · Medieval Ghent · Photography", image: routeImages.gandWalk },
+    { mode: "bike", title: "Gentse Fietsen Route", place: "Ghent", text: "Discover Ghent beyond the historic centre through neighbourhoods, waterways, parks and local favourites.", distance: "37 km", time: "2.5-3 h", level: "Moderate", format: "Loop", bestFor: "Local Ghent · Full ride · Variety", image: routeImages.gandBike },
+    { mode: "hike", title: "Bourgoyen-Ossemeersen", place: "Ghent", text: "Wetlands, birdlife and peaceful pedestrian trails just outside Ghent's historic centre.", distance: "5-8 km", time: "1.5-2 h", level: "Easy", format: "Nature walk", bestFor: "Birds · Nature · Quiet", image: routeImages.gandHike }
+  ],
+  Tournai: [
+    { mode: "walk", title: "Along the Escaut", place: "Tournai", text: "Follow Tournai's riverside audio walk through the city's history, architecture and changing relationship with the Escaut.", distance: "3-5 km", time: "1-1.5 h", level: "Easy", format: "Riverside", bestFor: "Riverside · History · Slow walk", image: routeImages.tournaiWalk },
+    { mode: "bike", title: "Tournai en Roues Libres", place: "Tournai", text: "Use Tournai's official cycle-node network to leave the historic centre for villages, countryside and the RAVeL.", distance: "15-30 km", time: "1.5-3 h", level: "Easy-Moderate", format: "Flexible", bestFor: "Countryside · Flexible ride · Belgian villages", image: routeImages.tournaiBike },
+    { mode: "hike", title: "Mont-Saint-Aubert", place: "Tournai", text: "Climb into the hills above Tournai for woodland paths, countryside and panoramic views across the Escaut valley.", distance: "8-12 km", time: "2-3 h", level: "Moderate", format: "Hike", bestFor: "Views · Hills · Real hike", image: routeImages.tournaiHike }
+  ]
+};
+
+const discoverRouteGuidesFr = {
+  Lille: [
+    { mode: "walk", title: "Balade dans le Vieux-Lille", place: "Lille", text: "Rues pavées, façades colorées et places cachées dans le quartier le plus charmant de Lille.", distance: "4 km", time: "1-1,5 h", level: "Facile", format: "Boucle", bestFor: "Architecture · Première visite · Ambiance ville", image: routeImages.lilleWalk },
+    { mode: "bike", title: "Tour du Grand Lille", place: "Lille", text: "Grande boucle métropolitaine mêlant Deûle, parcs, quartiers, campagne et patrimoine urbain.", distance: "50 km", time: "3-4 h", level: "Facile-modéré", format: "Boucle", bestFor: "Journée complète · Variété · Voyageurs actifs", image: routeImages.lilleBike },
+    { mode: "hike", title: "Citadelle & Deûle", place: "Lille", text: "Quittez les rues animées pour les chemins boisés, les vues au bord de l'eau et les abords verts de la Citadelle.", distance: "6-8 km", time: "1,5-2 h", level: "Facile", format: "Boucle", bestFor: "Nature · Rythme doux · Couples", image: routeImages.lilleHike }
+  ],
+  Roubaix: [
+    { mode: "walk", title: "Parc Barbieux", place: "Roubaix", text: "Une balade paisible entre jardins paysagers, lacs, pelouses et arbres remarquables.", distance: "4-5 km", time: "1-1,5 h", level: "Facile", format: "Boucle", bestFor: "Jardins · Couples · Détente", image: routeImages.roubaixWalk },
+    { mode: "bike", title: "Canal de Roubaix", place: "Roubaix", text: "Suivez le chemin de halage entre verdure, canaux et patrimoine industriel de Roubaix. Demi-tour quand vous voulez.", distance: "10-20 km", time: "1-2 h", level: "Facile", format: "Aller-retour", bestFor: "Bord de l'eau · Patrimoine · Vélo facile", image: routeImages.roubaixBike },
+    { mode: "hike", title: "Val de Marque", place: "Roubaix", text: "Une échappée verte entre zones humides, bois et faune le long de la vallée de la Marque.", distance: "8-12 km", time: "2-3 h", level: "Facile-modéré", format: "Balade nature", bestFor: "Faune · Calme · Nature", image: routeImages.roubaixHike }
+  ],
+  "Villeneuve-dAscq": [
+    { mode: "walk", title: "Chaîne des lacs", place: "Villeneuve-d'Ascq", text: "Suivez les lacs autour du Héron dans l'un des coins les plus verts de la métropole lilloise.", distance: "6-8 km", time: "1,5-2 h", level: "Facile", format: "Boucle", bestFor: "Lacs · Oiseaux · Familles", image: routeImages.villeneuveWalk },
+    { mode: "bike", title: "Héron → Marque → Roubaix", place: "Villeneuve-d'Ascq", text: "Partez du lac du Héron, longez la Marque puis rejoignez le Canal de Roubaix et ses voies vertes.", distance: "15-20 km", time: "2 h", level: "Facile", format: "Aller simple", bestFor: "Eau · Nature · Vélo facile", image: routeImages.villeneuveBike },
+    { mode: "hike", title: "Val de Marque", place: "Villeneuve-d'Ascq", text: "Bois, zones humides, oiseaux et chemins calmes juste hors du centre urbain.", distance: "8-12 km", time: "2-3 h", level: "Facile-modéré", format: "Balade nature", bestFor: "Faune · Photo · Évasion", image: routeImages.roubaixHike }
+  ],
+  Bergues: [
+    { mode: "walk", title: "Remparts de Bergues", place: "Bergues", text: "Faites le tour de la ville fortifiée le long de remparts médiévaux et Vauban remarquablement conservés.", distance: "5,3 km", time: "1-1,5 h", level: "Facile", format: "Boucle", bestFor: "Histoire · Vues · Première visite", image: routeImages.berguesWalk },
+    { mode: "bike", title: "Bergues → Dunkerque", place: "Bergues", text: "Quittez la ville fortifiée vers Dunkerque par les canaux, la campagne et le réseau cyclable des Flandres.", distance: "20 km aller-retour", time: "1,5-2 h", level: "Facile", format: "Aller-retour", bestFor: "Campagne · Canal · Vélo facile", image: routeImages.berguesBike },
+    { mode: "hike", title: "Canal & Bois des Forts", place: "Bergues", text: "Prolongez l'échappée au-delà des remparts vers des voies d'eau calmes et les paysages boisés autour de Bergues.", distance: "10-12 km", time: "2,5-3 h", level: "Facile-modéré", format: "Balade nature", bestFor: "Calme · Campagne · Nature", image: routeImages.berguesHike }
+  ],
+  Dunkerque: [
+    { mode: "walk", title: "Front de mer de Malo-les-Bains", place: "Dunkerque", text: "Marchez le long de la plage et de la promenade entre villas colorées, cafés et vues sur la mer du Nord.", distance: "5 km", time: "1-1,5 h", level: "Facile", format: "Aller-retour", bestFor: "Mer · Coucher de soleil · Détente", image: routeImages.dunkerqueWalk },
+    { mode: "bike", title: "Dunes & histoire", place: "Dunkerque", text: "Roulez entre Dunkerque, la côte et les Dunes de Flandre, entre paysages maritimes et mémoire WWII.", distance: "11-14 km", time: "1-1,5 h", level: "Facile", format: "Boucle", bestFor: "Côte · Histoire · Familles", image: routeImages.dunkerqueBike },
+    { mode: "hike", title: "Dunes de Flandre", place: "Dunkerque", text: "Quittez la ville pour les dunes, plages sauvages et paysages côtiers protégés vers Zuydcoote et Bray-Dunes.", distance: "8-12 km", time: "2-3 h", level: "Modéré", format: "Randonnée", bestFor: "Mer · Nature sauvage · Grand air", image: routeImages.dunkerqueHike }
+  ],
+  Bruges: [
+    { mode: "walk", title: "Remparts de Bruges", place: "Bruges", text: "Faites le tour de Bruges par sa ceinture verte : portes médiévales, moulins, canaux et milliers d'arbres.", distance: "7 km", time: "1,5 h", level: "Facile", format: "Boucle", bestFor: "Histoire · Verdure · Photo", image: routeImages.brugesWalk },
+    { mode: "bike", title: "Ceinture verte de Bruges", place: "Bruges", text: "Échappez au centre touristique par forêts, parcs de châteaux, canaux, villages et campagne flamande.", distance: "53 km", time: "3-4 h", level: "Modéré", format: "Boucle", bestFor: "Journée complète · Campagne · Châteaux", image: routeImages.brugesBike },
+    { mode: "hike", title: "Balade des trois châteaux", place: "Bruges", text: "Explorez l'arrière-pays plus calme de Bruges entre bois, domaines et paysages de châteaux.", distance: "8-10 km", time: "2-3 h", level: "Facile-modéré", format: "Boucle", bestFor: "Forêt · Châteaux · Voyage lent", image: routeImages.brugesHike }
+  ],
+  Bruxelles: [
+    { mode: "walk", title: "Bruxelles historique", place: "Bruxelles", text: "Reliez à pied la Grand-Place, les Galeries Royales, le Mont des Arts et le Quartier Royal.", distance: "4-5 km", time: "1,5 h", level: "Facile", format: "Boucle", bestFor: "Architecture · Première visite · Culture", image: routeImages.bruxellesWalk },
+    { mode: "bike", title: "Promenade Verte", place: "Bruxelles", text: "La grande boucle verte de Bruxelles est découpée en sections : choisissez simplement celle qui correspond à votre énergie.", distance: "5-12 km", time: "45-90 min", level: "Facile", format: "Flexible", bestFor: "Parcs · Bruxelles locale · Sortie flexible", image: routeImages.bruxellesBike },
+    { mode: "hike", title: "Forêt de Soignes", place: "Bruxelles", text: "Échangez la capitale européenne contre une forêt ancienne, de longs chemins et de remarquables hêtres.", distance: "8-12 km", time: "2-3 h", level: "Facile-modéré", format: "Forêt", bestFor: "Forêt · Silence · Grande évasion", image: routeImages.bruxellesHike }
+  ],
+  Courtrai: [
+    { mode: "walk", title: "Lys & centre historique", place: "Courtrai", text: "Marchez des Tours du Broel aux berges abaissées de la Lys, puis vers le Béguinage et le Grote Markt.", distance: "4 km", time: "1 h", level: "Facile", format: "Boucle", bestFor: "Patrimoine · Rivière · Première visite", image: routeImages.courtraiWalk },
+    { mode: "bike", title: "Route des icônes de Courtrai", place: "Courtrai", text: "Une sortie vélo qui relie les icônes architecturales et culturelles de Courtrai et de ses environs.", distance: "37,5 km", time: "2,5-3 h", level: "Facile-modéré", format: "Boucle", bestFor: "Architecture · Ville + campagne · Grande sortie", image: routeImages.courtraiBike },
+    { mode: "hike", title: "Preshoekbos", place: "Courtrai", text: "Plus de 140 hectares de forêt avec chemins paisibles, faune et sentiers plus aventureux.", distance: "6-10 km", time: "1,5-2,5 h", level: "Facile-modéré", format: "Balade nature", bestFor: "Forêt · Faune · Calme", image: routeImages.courtraiHike }
+  ],
+  Gand: [
+    { mode: "walk", title: "Charme singulier de Gand", place: "Gand", text: "Voyez le Château des Comtes, Graslei, Korenlei, les trois tours et Patershol dans une balade compacte.", distance: "4,2 km", time: "1-1,5 h", level: "Facile", format: "Boucle", bestFor: "Première visite · Gand médiéval · Photo", image: routeImages.gandWalk },
+    { mode: "bike", title: "Gentse Fietsen Route", place: "Gand", text: "Découvrez Gand au-delà du centre historique, entre quartiers, canaux, parcs et adresses locales.", distance: "37 km", time: "2,5-3 h", level: "Modéré", format: "Boucle", bestFor: "Gand local · Grande sortie · Variété", image: routeImages.gandBike },
+    { mode: "hike", title: "Bourgoyen-Ossemeersen", place: "Gand", text: "Zones humides, oiseaux et chemins piétons paisibles juste à l'extérieur du centre historique.", distance: "5-8 km", time: "1,5-2 h", level: "Facile", format: "Balade nature", bestFor: "Oiseaux · Nature · Calme", image: routeImages.gandHike }
+  ],
+  Tournai: [
+    { mode: "walk", title: "Le long de l'Escaut", place: "Tournai", text: "Suivez la balade audio au bord de l'Escaut à travers l'histoire, l'architecture et la ville qui change.", distance: "3-5 km", time: "1-1,5 h", level: "Facile", format: "Bord d'eau", bestFor: "Rivière · Histoire · Balade lente", image: routeImages.tournaiWalk },
+    { mode: "bike", title: "Tournai en Roues Libres", place: "Tournai", text: "Utilisez le réseau officiel de points-noeuds pour quitter le centre historique vers les villages, la campagne et le RAVeL.", distance: "15-30 km", time: "1,5-3 h", level: "Facile-modéré", format: "Flexible", bestFor: "Campagne · Sortie flexible · Villages belges", image: routeImages.tournaiBike },
+    { mode: "hike", title: "Mont-Saint-Aubert", place: "Tournai", text: "Montez dans les collines au-dessus de Tournai pour des bois, de la campagne et des vues sur la vallée de l'Escaut.", distance: "8-12 km", time: "2-3 h", level: "Modéré", format: "Randonnée", bestFor: "Vues · Collines · Vraie rando", image: routeImages.tournaiHike }
+  ]
 };
 
 const weatherLabels = {
@@ -1181,6 +1695,7 @@ function setLanguage(lang, persist = true) {
   weatherStatus.textContent = state.loading;
   updateStaticCopy(lang);
   updateLocationLabels(lang);
+  renderCityGuide();
   if (activeEquipmentKey && equipmentModal.classList.contains("is-open")) {
     updateEquipmentModal(activeEquipmentKey, { updateMedia: false });
   }
@@ -1263,49 +1778,310 @@ function cityGuideMustSeeIcon(index) {
   return ["Assets/Icon/citypart1.png", "Assets/Icon/citypart2.png", "Assets/Icon/citypart3.png"][index % 3];
 }
 
-function renderCityGuide() {
-  const guide = discoverCityGuides[selectedLocation] || discoverCityGuides.Roubaix;
-  if (!guide || !cityGuideSection) return;
+function fitDiscoverFocusTitle() {
+  if (!discoverFocusTitle) return;
+  discoverFocusTitle.style.removeProperty("--discover-focus-title-size");
 
-  cityGuideKicker.textContent = guide.kicker;
-  cityGuideTitle.textContent = guide.title;
-  cityGuideTags.textContent = guide.tags.join(" · ");
-  cityGuideBadges.innerHTML = guide.badges.map((badge) => `
-    <span>
-      <img src="${cityGuideBadgeIcon(badge)}" alt="">
-      ${escapeHtml(badge)}
-    </span>
-  `).join("");
-  cityGuideMustSee.innerHTML = guide.mustSee.map(([title, text], index) => `
-    <article class="city-guide-item">
-      <figure class="city-guide-thumb">
-        <img src="${cityGuideMustSeeIcon(index)}" alt="">
-      </figure>
-      <span>${index + 1}</span>
-      <div>
-        <h4>${escapeHtml(title)}</h4>
-        <p>${escapeHtml(text)}</p>
-        <small>${index === 0 ? "Worth the stop" : index === 1 ? "Postcard moment" : "Lives here too"}</small>
-      </div>
-    </article>
-  `).join("");
-  cityGuideFood.innerHTML = guide.food.map(([type, title, text]) => `
-    <article class="city-guide-item is-food">
-      <figure class="city-guide-thumb">
-        <img src="${cityGuideFoodIcon(type)}" alt="">
-      </figure>
-      <span>${escapeHtml(type)}</span>
-      <div>
-        <h4>${escapeHtml(title)}</h4>
-        <p>${escapeHtml(text)}</p>
-        <small>${type.toLowerCase().includes("bar") ? "Great drinks" : type.toLowerCase().includes("quick") ? "Simple & delicious" : "Local favourite"}</small>
-      </div>
-    </article>
-  `).join("");
-  cityGuideCombo.innerHTML = guide.combo.split(/\s*->\s*/).map((step, index, steps) => `
-    <span>${escapeHtml(step)}</span>
-    ${index < steps.length - 1 ? '<img src="Assets/Icon/arrow.png" alt="">' : ""}
-  `).join("");
+  let size = 86;
+  const minSize = 30;
+  discoverFocusTitle.style.setProperty("--discover-focus-title-size", `${size}px`);
+  const targetWidth = discoverFocusTitle.clientWidth || discoverFocusTitle.parentElement?.clientWidth || 0;
+
+  while (targetWidth && size > minSize && discoverFocusTitle.scrollWidth > targetWidth + 1) {
+    size -= 1;
+    discoverFocusTitle.style.setProperty("--discover-focus-title-size", `${size}px`);
+  }
+}
+
+function guidePlaceNote(index, lang) {
+  const notes = {
+    fr: ["Vaut le detour", "Moment carte postale", "A voir aussi"],
+    en: ["Worth the stop", "Postcard moment", "Lives here too"]
+  };
+  return notes[lang]?.[index] || notes.en[index] || "";
+}
+
+function guideFoodNote(type, lang) {
+  const normalized = type.toLowerCase();
+  if (lang === "fr") {
+    if (normalized.includes("bar")) return "Bon verre";
+    if (normalized.includes("quick")) return "Simple & bon";
+    return "Valeur sure";
+  }
+  if (normalized.includes("bar")) return "Great drinks";
+  if (normalized.includes("quick")) return "Simple & delicious";
+  return "Local favourite";
+}
+
+function guideFoodType(type, lang) {
+  if (lang !== "fr") return type;
+  const normalized = type.toLowerCase();
+  if (normalized.includes("quick")) return "Sur le pouce";
+  if (normalized.includes("dinner")) return "Diner";
+  return type;
+}
+
+function guideMoodLine(locationKey, lang) {
+  const lines = {
+    Lille: {
+      fr: "Facades flamandes, terrasses et soiree douce",
+      en: "Flemish facades, terraces and a soft evening"
+    },
+    Roubaix: {
+      fr: "Art deco, textile et pause inspiree",
+      en: "Art deco, textile stories and an inspired pause"
+    },
+    "Villeneuve-dAscq": {
+      fr: "Musee, lac et respiration verte",
+      en: "Museum, lake paths and a green breather"
+    },
+    Dunkerque: {
+      fr: "Air marin, beffroi et lumiere du large",
+      en: "Sea air, belfry views and coastal light"
+    },
+    Bergues: {
+      fr: "Remparts, briques flamandes et charme ch'ti",
+      en: "Ramparts, Flemish brick and Ch'ti charm"
+    },
+    Bruges: {
+      fr: "Canaux lents et romance medievale",
+      en: "Slow canals and medieval romance"
+    },
+    Gand: {
+      fr: "Chateau, quais vivants et nuit belge",
+      en: "Castle walls, lively quays and Belgian nights"
+    },
+    Bruxelles: {
+      fr: "Grand decor, galeries et energie capitale",
+      en: "Grand scenery, galleries and capital energy"
+    },
+    Courtrai: {
+      fr: "Tours, beguinage et escapade facile",
+      en: "Twin towers, beguinage and an easy escape"
+    },
+    Tournai: {
+      fr: "Pierres UNESCO et verre tranquille",
+      en: "UNESCO stonework and a quiet glass"
+    }
+  };
+  return lines[locationKey]?.[lang] || lines.Roubaix[lang] || lines.Roubaix.en;
+}
+
+function routeModeMeta(mode) {
+  const meta = {
+    walk: { key: "discoverRoutesWalk", icon: "Assets/Image/Discover/Routes/marche.png" },
+    bike: { key: "discoverRoutesBike", icon: "Assets/Image/Discover/Routes/velo-de-piste.png" },
+    hike: { key: "discoverRoutesHike", icon: "Assets/Image/Discover/Routes/empreintes.png" }
+  };
+  return meta[mode] || meta.walk;
+}
+
+function routeMapLink(route) {
+  const query = encodeURIComponent(`${route.title} ${route.place}`);
+  return `https://www.google.com/maps/search/?api=1&query=${query}`;
+}
+
+function getDiscoverCityGuide(locationKey, lang) {
+  return (lang === "fr" ? discoverCityGuidesFr[locationKey] : discoverCityGuides[locationKey])
+    || discoverCityGuides[locationKey]
+    || discoverCityGuides.Roubaix;
+}
+
+const discoverCityHeroImages = {
+  Lille: "Assets/Image/Lille.webp",
+  Bergues: "Assets/Image/discover-bergues.png",
+  Dunkerque: "Assets/Image/discover-dunkerque.png",
+  Roubaix: "Assets/Image/discover-roubaix.png",
+  "Villeneuve-dAscq": "Assets/Image/discover-villeneuve-dascq.png",
+  Bruges: "Assets/Image/discover-bruges.png",
+  Gand: "Assets/Image/discover-gand.png",
+  Bruxelles: "Assets/Image/discover-bruxelles.png",
+  Courtrai: "Assets/Image/discover-courtrai.png",
+  Tournai: "Assets/Image/discover-tournai.png"
+};
+
+function discoverCityHeroImage(locationKey) {
+  return discoverCityHeroImages[locationKey] || discoverCityHeroImages.Lille;
+}
+
+const discoverPlaceImageBase = "Assets/Image/Discover/Places";
+const discoverPlaceImageSlugs = {
+  Lille: "lille",
+  Bergues: "bergues",
+  Dunkerque: "dunkerque",
+  Roubaix: "roubaix",
+  "Villeneuve-dAscq": "villeneuve",
+  Bruges: "bruges",
+  Gand: "gand",
+  Bruxelles: "bruxelles",
+  Courtrai: "courtrai",
+  Tournai: "tournai"
+};
+
+const guideItemImagePositions = {
+  mustSee: ["50% 44%", "42% 50%", "62% 54%"],
+  food: ["54% 54%", "38% 46%", "68% 52%"]
+};
+
+function guidePlacePhotoUrl(locationKey, kind, index, fallback) {
+  const slug = discoverPlaceImageSlugs[locationKey];
+  const group = kind === "food" ? "food" : "must";
+  if (!slug) return fallback;
+  return `${discoverPlaceImageBase}/${slug}-${group}-${index + 1}.jpg`;
+}
+
+function guideItemImagePosition(kind, index) {
+  const positions = guideItemImagePositions[kind] || guideItemImagePositions.mustSee;
+  return positions[index % positions.length] || "50% 50%";
+}
+
+function guideGoogleLink(title, locationKey) {
+  const lang = root.dataset.lang || "en";
+  const city = locations[locationKey]?.label?.[lang] || locations[locationKey]?.label?.fr || locationKey;
+  const query = title.toLowerCase().includes(city.toLowerCase()) ? title : `${title} ${city}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function getDiscoverRoutes(locationKey, lang) {
+  return (lang === "fr" ? discoverRouteGuidesFr[locationKey] : discoverRouteGuides[locationKey])
+    || discoverRouteGuides[locationKey]
+    || discoverRouteGuides.Roubaix;
+}
+
+function renderRoutesOutdoors() {
+  if (!routesOutdoorsGrid) return;
+  const lang = root.dataset.lang || "en";
+  const state = copy[lang] || copy.en;
+  const selectedPlace = locations[selectedLocation];
+  const routes = getDiscoverRoutes(selectedLocation, lang);
+  routesOutdoorsGrid.setAttribute("aria-label", `${selectedPlace?.label?.[lang] || "Roubaix"} outdoor routes`);
+  routesOutdoorsGrid.innerHTML = routes.map((route) => {
+    const mode = routeModeMeta(route.mode);
+    return `
+      <article class="route-card">
+        <div class="route-card-type">
+          <img src="${mode.icon}" alt="">
+          <span>${escapeHtml(state[mode.key] || route.mode)}</span>
+        </div>
+        <figure>
+          <img src="${escapeHtml(route.image || routeVisuals.nature)}" alt="${escapeHtml(route.title)}">
+        </figure>
+        <h3>${escapeHtml(route.title)}</h3>
+        <small>${escapeHtml(route.place)}</small>
+        <p>${escapeHtml(route.text)}</p>
+        <dl>
+          <div><dt>${escapeHtml(state.discoverRoutesDistance)}</dt><dd>${escapeHtml(route.distance)}</dd></div>
+          <div><dt>${escapeHtml(state.discoverRoutesTime)}</dt><dd>${escapeHtml(route.time)}</dd></div>
+          <div><dt>${escapeHtml(state.discoverRoutesLevel)}</dt><dd>${escapeHtml(route.level)}</dd></div>
+          <div><dt>${escapeHtml(state.discoverRoutesFormat)}</dt><dd>${escapeHtml(route.format)}</dd></div>
+        </dl>
+        <p class="route-card-best">${escapeHtml(state.discoverRoutesBestFor)}: ${escapeHtml(route.bestFor)}</p>
+        <a href="${routeMapLink(route)}" target="_blank" rel="noopener">${escapeHtml(state.discoverRoutesCta)}</a>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderCityGuide() {
+  const lang = root.dataset.lang || "en";
+  const guide = getDiscoverCityGuide(selectedLocation, lang);
+  if (!guide) return;
+
+  const selectedPlace = locations[selectedLocation];
+  if (discoverHeroImage) {
+    discoverHeroImage.src = discoverCityHeroImage(selectedLocation);
+    discoverHeroImage.alt = selectedPlace?.label?.[lang] || guide.title;
+  }
+  if (discoverFocusTitle) discoverFocusTitle.textContent = (selectedPlace?.label?.[lang] || guide.title).toUpperCase();
+  fitDiscoverFocusTitle();
+  if (discoverFocusSubtitle) discoverFocusSubtitle.textContent = guide.focusSubtitle || guide.kicker;
+  if (discoverFocusNote) discoverFocusNote.textContent = guideMoodLine(selectedLocation, lang);
+  if (discoverFocusTags) {
+    const focusTags = guide.focusTags || guide.badges;
+    discoverFocusTags.innerHTML = focusTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+  }
+
+  if (cityGuideKicker && cityGuideTitle && cityGuideTags && cityGuideBadges && cityGuideMustSee && cityGuideFood && cityGuideCombo) {
+    cityGuideKicker.textContent = guide.kicker;
+    cityGuideTitle.textContent = guide.title;
+    cityGuideTags.textContent = guide.tags.join(" · ");
+    cityGuideBadges.innerHTML = guide.badges.map((badge) => `
+      <span>
+        <img src="${cityGuideBadgeIcon(badge)}" alt="">
+        ${escapeHtml(badge)}
+      </span>
+    `).join("");
+    cityGuideMustSee.innerHTML = guide.mustSee.map(([title, text], index) => `
+      <a class="city-guide-item" href="${guideGoogleLink(title, selectedLocation)}" target="_blank" rel="noopener">
+        <figure class="city-guide-thumb">
+          <img src="${guidePlacePhotoUrl(selectedLocation, "mustSee", index, cityGuideMustSeeIcon(index))}" alt="" style="--item-image-position: ${guideItemImagePosition("mustSee", index)}">
+        </figure>
+        <span>${index + 1}</span>
+        <div>
+          <h4>${escapeHtml(title)}</h4>
+          <p>${escapeHtml(text)}</p>
+          <small>${guidePlaceNote(index, lang)}</small>
+        </div>
+      </a>
+    `).join("");
+    cityGuideFood.innerHTML = guide.food.map(([type, title, text], index) => `
+      <a class="city-guide-item is-food" href="${guideGoogleLink(title, selectedLocation)}" target="_blank" rel="noopener">
+        <figure class="city-guide-thumb">
+          <img src="${guidePlacePhotoUrl(selectedLocation, "food", index, cityGuideFoodIcon(type))}" alt="" style="--item-image-position: ${guideItemImagePosition("food", index)}">
+        </figure>
+        <span>${escapeHtml(guideFoodType(type, lang))}</span>
+        <div>
+          <h4>${escapeHtml(title)}</h4>
+          <p>${escapeHtml(text)}</p>
+          <small>${guideFoodNote(type, lang)}</small>
+        </div>
+      </a>
+    `).join("");
+    cityGuideCombo.innerHTML = guide.combo.split(/\s*→\s*/).map((step, index, steps) => `
+      <span>${escapeHtml(step)}</span>
+      ${index < steps.length - 1 ? '<img src="Assets/Icon/arrow.png" alt="">' : ""}
+    `).join("");
+  }
+
+  if (discoverBlankMustSee) {
+    discoverBlankMustSee.innerHTML = guide.mustSee.map(([title, text], index) => `
+      <a class="discover-simple-item" href="${guideGoogleLink(title, selectedLocation)}" target="_blank" rel="noopener" aria-label="${escapeHtml(title)} Google">
+        <figure>
+          <img src="${guidePlacePhotoUrl(selectedLocation, "mustSee", index, cityGuideMustSeeIcon(index))}" alt="" style="--item-image-position: ${guideItemImagePosition("mustSee", index)}">
+        </figure>
+        <div>
+          <h4>${escapeHtml(title)}</h4>
+          <p>${escapeHtml(text)}</p>
+        </div>
+        <small>${guidePlaceNote(index, lang)}</small>
+        <span aria-hidden="true">→</span>
+      </a>
+    `).join("");
+  }
+
+  if (discoverBlankFood) {
+    discoverBlankFood.innerHTML = guide.food.map(([type, title, text], index) => `
+      <a class="discover-simple-item" href="${guideGoogleLink(title, selectedLocation)}" target="_blank" rel="noopener" aria-label="${escapeHtml(title)} Google">
+        <figure>
+          <img src="${guidePlacePhotoUrl(selectedLocation, "food", index, cityGuideFoodIcon(type))}" alt="" style="--item-image-position: ${guideItemImagePosition("food", index)}">
+        </figure>
+        <div>
+          <small>${escapeHtml(guideFoodType(type, lang))}</small>
+          <h4>${escapeHtml(title)}</h4>
+          <p>${escapeHtml(text)}</p>
+        </div>
+        <span aria-hidden="true">→</span>
+      </a>
+    `).join("");
+  }
+
+  if (discoverBlankCombo) {
+    discoverBlankCombo.innerHTML = guide.combo.split(/\s*→\s*/).map((step, index, steps) => `
+      <span>${escapeHtml(step)}</span>
+      ${index < steps.length - 1 ? "<i></i>" : ""}
+    `).join("");
+  }
+  renderRoutesOutdoors();
 }
 
 function setSharedLocation(locationKey) {
@@ -1327,11 +2103,11 @@ function restoreFrameScroll(scrollTop) {
 }
 
 function goToDiscoverCityGuide() {
-  if (!frameScroll || !cityGuideSection || root.dataset.page !== "discover") return;
-  const targetTop = cityGuideSection.offsetTop;
+  if (!frameScroll || !discoverBlankSection || root.dataset.page !== "discover") return;
+  const targetTop = discoverBlankSection.offsetTop;
   frameScroll.scrollTo({ top: targetTop, behavior: "smooth" });
   window.setTimeout(() => {
-    setActiveSection("discover-city-guide");
+    setActiveSection("discover-blank");
   }, 360);
 }
 
@@ -1479,6 +2255,7 @@ function setActivePage(page) {
   }
   if (targetPage === "discover") {
     setEventsHero(activeEventHeroIndex);
+    requestAnimationFrame(fitDiscoverFocusTitle);
     startEventsHeroAutoplay();
   } else {
     stopEventsHeroAutoplay();
@@ -1540,7 +2317,7 @@ frameScroll.addEventListener("scroll", () => {
 });
 
 frameScroll.addEventListener("wheel", (event) => {
-  if (activePage !== "discover" || !cityGuideSection || !eventsNearbySection) return;
+  if (activePage !== "discover" || !eventsNearbySection) return;
   if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 
   event.preventDefault();
@@ -1554,7 +2331,10 @@ frameScroll.addEventListener("wheel", (event) => {
   }, 780);
 }, { passive: false });
 
-window.addEventListener("resize", updateNavIndicator);
+window.addEventListener("resize", () => {
+  updateNavIndicator();
+  if (root.dataset.page === "discover") requestAnimationFrame(fitDiscoverFocusTitle);
+});
 
 function getWeatherMeta(code) {
   if (code === 0) return { icon: "☀", key: "clear" };
@@ -2062,6 +2842,7 @@ function stopEquipmentAutoplay() {
 
 function startEquipmentAutoplay() {
   stopEquipmentAutoplay();
+  if (leanDevice || reducedMotion.matches) return;
   equipmentAutoTimer = setInterval(() => rotateEquipment(1), 4200);
 }
 
