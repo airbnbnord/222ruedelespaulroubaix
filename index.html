@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Ysabeau+Infant:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=discover-routes-responsive-1">
+    <link rel="stylesheet" href="styles.css?v=stay-comfort-watercolor-2">
   </head>
   <body>
     <main class="stage" aria-label="Frame photo du logement">
@@ -126,7 +126,7 @@
                 <h2 data-i18n="homeModelTitle">Spin to explore</h2>
                 <p class="home-model-location">
                   <img src="Assets/Icon/location-events.png" alt="" aria-hidden="true">
-                  <span data-i18n="homeModelText">222 rue Delespaul - 59xxxx - Roubaix</span>
+                  <span data-i18n="homeModelText">222 rue Delespaul - 59100 - Roubaix</span>
                 </p>
               </div>
               <div class="home-model-viewer" data-home-model-viewer data-model-src="Assets/Model/maison-roubaix-rdc-v07.glb">
@@ -138,46 +138,48 @@
 
             <section class="home-equipment-module" id="home-equipment" data-section="homeEquipment" aria-label="Guide des équipements">
               <div class="equipment-heading">
+                <p class="equipment-kicker" data-i18n="equipmentKicker">Pour votre confort</p>
                 <h2>
                   <span data-i18n="equipmentTitleStrong">Les équipements</span>
-                  <span data-i18n="equipmentTitleMuted">à votre disposition pour votre confort</span>
+                  <span data-i18n="equipmentTitleMuted">du logement</span>
                 </h2>
+                <p class="equipment-subtitle" data-i18n="equipmentSubtitle">Repérez l'essentiel en un coup d'oeil, puis touchez une carte pour ouvrir les détails utiles.</p>
               </div>
 
               <div class="equipment-grid" aria-label="Equipements disponibles">
-                <button class="equipment-card is-featured" type="button" data-equipment="coffee">
+                <button class="equipment-card is-featured" type="button" data-equipment="coffee" style="--gallery-image: url('Assets/Image/home-kitchen.png'); --gallery-pos: center;">
                   <img src="Assets/Image/equipment-coffee.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentCoffee">Machine à café</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="toaster">
+                <button class="equipment-card" type="button" data-equipment="toaster" style="--gallery-image: url('Assets/Image/equipment-toaster.png'); --gallery-pos: center;">
                   <img src="Assets/Image/equipment-toaster.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentToaster">Grille-pain</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="oven">
+                <button class="equipment-card" type="button" data-equipment="oven" style="--gallery-image: url('Assets/Image/Home photos.png'); --gallery-pos: center;">
                   <span class="equipment-photo-fallback"><img src="Assets/Icon/oven.svg" alt=""></span>
                   <span data-i18n="equipmentOven">Four</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="microwave">
+                <button class="equipment-card" type="button" data-equipment="microwave" style="--gallery-image: url('Assets/Image/home-living-room.png'); --gallery-pos: center;">
                   <span class="equipment-photo-fallback"><img src="Assets/Icon/microwave.svg" alt=""></span>
                   <span data-i18n="equipmentMicrowave">Micro-ondes</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="keypad">
+                <button class="equipment-card" type="button" data-equipment="keypad" style="--gallery-image: url('Assets/Image/home-terrace.png'); --gallery-pos: center;">
                   <span class="equipment-photo-fallback"><img src="Assets/Icon/data-encryption.svg" alt=""></span>
                   <span data-i18n="equipmentKeypad">Digicode</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="washer">
+                <button class="equipment-card" type="button" data-equipment="washer" style="--gallery-image: url('Assets/Image/home-bathroom.png'); --gallery-pos: center;">
                   <span class="equipment-photo-fallback"><img src="Assets/Icon/washer.svg" alt=""></span>
                   <span data-i18n="equipmentWasher">Lave-linge</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="robotVacuum">
+                <button class="equipment-card" type="button" data-equipment="robotVacuum" style="--gallery-image: url('Assets/Image/Home photos.png'); --gallery-pos: center;">
                   <img src="Assets/Image/equipment-robot-vacuum.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentRobotVacuum">Aspirateur robot</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="sofa">
+                <button class="equipment-card" type="button" data-equipment="sofa" style="--gallery-image: url('Assets/Image/home-living-room.png'); --gallery-pos: center;">
                   <img src="Assets/Image/equipment-sofa.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentSofa">Canapé-lit</span>
                 </button>
-                <button class="equipment-card" type="button" data-equipment="tv">
+                <button class="equipment-card" type="button" data-equipment="tv" style="--gallery-image: url('Assets/Image/home-bedroom.png'); --gallery-pos: center;">
                   <img src="Assets/Image/equipment-tv-clean.png" alt="" loading="lazy" decoding="async" fetchpriority="low">
                   <span data-i18n="equipmentTv">TV</span>
                 </button>
@@ -240,6 +242,58 @@
 
               <article class="stay-journey-page stay-around-scene" data-stay-page-step="3">
                 <section class="stay-around-board" aria-label="Getting around">
+                  <div class="stay-around-explorer" id="stayAroundExplorer">
+                    <header class="stay-around-top">
+                      <div>
+                        <h2 data-i18n="stayLineAroundMapTitle">Around the house</h2>
+                        <p data-i18n="stayLineAroundMapLead">Explore what's nearby — transport, shops and everyday essentials.</p>
+                      </div>
+                      <p class="stay-around-script" aria-hidden="true">Feel<br>at home<br>here ♡</p>
+                    </header>
+                    <div class="stay-around-filters" aria-label="Nearby filters">
+                      <button class="is-active" type="button" data-around-filter="all" data-i18n="stayLineAroundFilterAll">All</button>
+                      <button type="button" data-around-filter="transport"><img src="Assets/Icon/bus.png" alt=""><span data-i18n="stayLineAroundFilterTransport">Transport</span></button>
+                      <button type="button" data-around-filter="groceries"><img src="Assets/Icon/shopping-bag.png" alt=""><span data-i18n="stayLineAroundFilterGroceries">Groceries</span></button>
+                      <button type="button" data-around-filter="essentials"><img src="Assets/Icon/pharmacy.png" alt=""><span data-i18n="stayLineAroundFilterEssentials">Essentials</span></button>
+                      <button type="button" data-around-filter="bakery"><img src="Assets/Icon/bakery.png" alt=""><span data-i18n="stayLineAroundFilterBakery">Bakery & Food</span></button>
+                      <button type="button" data-around-filter="other"><span class="filter-dots" aria-hidden="true">...</span><span data-i18n="stayLineAroundFilterOther">Other</span></button>
+                    </div>
+                    <div class="stay-around-mode" aria-label="Travel mode">
+                      <button class="is-active" type="button" data-around-mode="walk"><img src="Assets/Icon/around-footprint.png" alt=""><span data-i18n="stayLineAroundModeWalk">Walking</span></button>
+                      <button type="button" data-around-mode="drive"><img src="Assets/Icon/around-car.png" alt=""><span data-i18n="stayLineAroundModeDrive">Driving</span></button>
+                      <button type="button" data-around-mode="transit"><img src="Assets/Icon/around-train.png" alt=""><span data-i18n="stayLineAroundModeTransit">Transit</span></button>
+                    </div>
+                    <div class="stay-around-map-wrap">
+                      <div class="stay-around-map" id="stayAroundMap" aria-label="Carte des essentiels autour du logement">
+                        <iframe
+                          class="stay-around-google-map"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20215.494750146092!2d3.1828397993902255!3d50.70255653101114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c328b9070413c9%3A0x6bdf046b9b564360!2s222%20Rue%20Delespaul%2C%2059100%20Roubaix!5e0!3m2!1sfr!2sfr!4v1789327482255!5m2!1sfr!2sfr"
+                          title="Carte Google Maps centrée sur le logement"
+                          loading="lazy"
+                          scrolling="no"
+                          tabindex="-1"
+                          aria-hidden="true"
+                          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <span class="map-road road-a"></span>
+                        <span class="map-road road-b"></span>
+                        <span class="map-road road-c"></span>
+                        <span class="map-road road-d"></span>
+                        <span class="map-park park-a">Parc Barbieux</span>
+                        <span class="map-park park-b"></span>
+                        <span class="map-home"><img src="Assets/Icon/La maison.svg" alt=""><b>Home</b></span>
+                        <span class="map-scale">0 <i></i>250 <i></i>500 m</span>
+                        <span class="map-city">Roubaix</span>
+                      </div>
+                    </div>
+                    <aside class="stay-around-list-card" aria-label="Nearby essentials">
+                      <header>
+                        <h3 data-i18n="stayLineAroundListTitle">Nearby essentials</h3>
+                        <span data-i18n="stayLineAroundListHint">sorted by selected mode</span>
+                      </header>
+                      <div class="stay-around-dynamic-list" id="stayAroundList"></div>
+                    <p class="stay-around-note"><img src="Assets/Icon/stay-review-plant.png" alt=""><span data-i18n="stayLineAroundMapNote">Everything you need, just around the corner.</span></p>
+                    </aside>
+                  </div>
                   <article class="stay-around-card stay-around-transport">
                     <h3 data-i18n="stayLineAroundTransportTitle">Access &amp; transport</h3>
                     <div class="stay-around-list">
@@ -358,6 +412,15 @@
               </article>
 
               <article class="stay-journey-page stay-comfort-scene" data-stay-page-step="2">
+                <header class="stay-comfort-intro">
+                  <p data-i18n="stayLineComfortKicker">Votre guide de séjour</p>
+                  <h2 data-i18n="stayLineComfortTitle">Tout ce dont vous avez besoin, au même endroit</h2>
+                  <span data-i18n="stayLineComfortLead">Un séjour simple, confortable et inoubliable à Roubaix et ses alentours.</span>
+                  <button class="section-action" type="button" data-page-target="welcome">
+                    <span data-i18n="stayLineComfortCta">Découvrir la maison</span>
+                    <i aria-hidden="true">→</i>
+                  </button>
+                </header>
                 <section class="stay-comfort-side stay-comfort-left" aria-label="Little extras">
                   <div class="stay-comfort-card">
                     <span class="stay-comfort-photo stay-comfort-photo-coffee" aria-hidden="true"></span>
@@ -473,25 +536,36 @@
                 <p class="stay-departure-safe" data-i18n="stayLineDepartureSafe">Safe Travels ! We hope to host you again soon ♡</p>
               </article>
 
-              <article class="stay-journey-page stay-wish-scene" data-stay-page-step="5">
-                <section class="stay-wish-panel" aria-label="Souhait pour le prochain séjour">
-                  <div class="stay-wish-number" aria-hidden="true">6</div>
-                  <img class="stay-wish-floral" src="Assets/Icon/floral.png" alt="">
-                  <div class="wish-content">
-                    <div class="wish-title">
-                      <strong data-i18n="wishTitleInline">One wish for next time?</strong>
-                      <img src="Assets/Icon/;).svg" alt="">
-                    </div>
-                    <p data-i18n="wishSubtitle">If you come back here, what would you like to have more or less of?</p>
-                    <button class="wish-open" id="wishOpen" type="button" data-i18n="wishButton">Make a wish</button>
+              <article class="stay-journey-page stay-wish-scene stay-review-scene" data-stay-page-step="5">
+                <img class="stay-review-bg" src="Assets/Image/stay-review-lille-sunset.png" alt="">
+                <div class="stay-review-shade" aria-hidden="true"></div>
+                <section class="stay-review-panel" aria-label="Laisser un avis">
+                  <img class="stay-review-floating-heart" src="Assets/Icon/stay-review-heart.png" alt="" aria-hidden="true">
+                  <div class="stay-review-content">
+                    <h2 data-i18n="reviewFinalTitle">Loved your stay ?</h2>
+                    <p data-i18n="reviewFinalSubtitle">Your review helps us keep improving and inspires future travellers.</p>
+                    <button class="stay-review-cta" type="button">
+                      <img src="Assets/Icon/stay-review-spark.png" alt="" aria-hidden="true">
+                      <span data-i18n="reviewFinalButton">Leave a review</span>
+                      <span aria-hidden="true">→</span>
+                    </button>
                   </div>
+                  <div class="stay-review-reasons" aria-label="Pourquoi laisser un avis">
+                    <article>
+                      <img src="Assets/Icon/stay-review-guests.png" alt="" aria-hidden="true">
+                      <p data-i18n="reviewFinalReasonGuests">Helps<br>future guests</p>
+                    </article>
+                    <article>
+                      <img src="Assets/Icon/stay-review-heart.png" alt="" aria-hidden="true">
+                      <p data-i18n="reviewFinalReasonMeans">Means<br>a lot to us</p>
+                    </article>
+                    <article>
+                      <img src="Assets/Icon/stay-review-plant.png" alt="" aria-hidden="true">
+                      <p data-i18n="reviewFinalReasonVibes">Keeps<br>the good vibes</p>
+                    </article>
+                  </div>
+                  <p class="stay-review-merci" aria-hidden="true">Merci !</p>
                 </section>
-
-                <aside class="stay-wish-note" aria-hidden="true">
-                  <span class="stay-wish-paper"></span>
-                  <img class="stay-wish-leaf stay-wish-leaf-a" src="Assets/Icon/leaf-fall.svg" alt="">
-                  <img class="stay-wish-leaf stay-wish-leaf-b" src="Assets/Icon/monstera.svg" alt="">
-                </aside>
               </article>
             </section>
           </div>
@@ -560,7 +634,7 @@
                   </section>
                   <section class="discover-simple-block">
                     <header>
-                      <img class="discover-simple-header-icon" src="Assets/Icon/meal.png" alt="">
+                      <img class="discover-simple-header-icon" src="Assets/Icon/food.png" alt="">
                       <h3 data-i18n="discoverSimpleEatDrink">Eat & Drink</h3>
                     </header>
                     <div class="discover-simple-list" id="discoverBlankFood"></div>
@@ -601,7 +675,132 @@
           </div>
 
           <div class="page-content" data-page="help" hidden>
-            <section class="blank-module" id="help-blank" data-section="helpBlank" aria-label="Besoin d'aide"></section>
+            <section class="help-module" id="help-blank" data-section="helpBlank" aria-label="Besoin d'aide">
+              <div class="help-shell">
+                <main class="help-main">
+                  <header class="help-header">
+                    <div>
+                      <h1 data-i18n="helpTitle">Need help?</h1>
+                      <p data-i18n="helpLead">Here’s everything you need, in one place.</p>
+                    </div>
+                    <aside class="help-note" aria-label="Enjoy your stay">
+                      <span data-i18n="helpHandNote">You're in good hands</span>
+                      <small data-i18n="helpHandSubnote">Enjoy your stay in good company</small>
+                    </aside>
+                  </header>
+
+                  <section class="help-emergency" aria-label="Emergency Europe">
+                    <div class="help-emergency-call">
+                      <span class="help-icon-bubble is-large">
+                        <img src="Assets/Icon/help-phone.png" alt="">
+                      </span>
+                      <div>
+                        <small data-i18n="helpEmergencyEurope">Emergency (Europe)</small>
+                        <strong>112</strong>
+                      </div>
+                    </div>
+                    <ul>
+                      <li data-i18n="helpPolice">Police</li>
+                      <li data-i18n="helpFire">Fire</li>
+                      <li data-i18n="helpMedical">Medical</li>
+                      <li data-i18n="helpAllEmergencies">All emergencies</li>
+                    </ul>
+                  </section>
+
+                  <section class="help-number-grid" aria-label="Emergency numbers">
+                    <article class="help-number-card">
+                      <span class="help-alert-icon is-red"><img src="Assets/Icon/help-pharmacy.png" alt=""></span>
+                      <strong>15</strong>
+                      <h2 data-i18n="helpMedicalEmergency">Medical emergency</h2>
+                      <p>SAMU</p>
+                      <small data-i18n="helpMedicalNote">(Serious injury or illness)</small>
+                    </article>
+                    <article class="help-number-card">
+                      <span class="help-alert-icon is-coral"><img src="Assets/Icon/help-fire.png" alt=""></span>
+                      <strong>18</strong>
+                      <h2 data-i18n="helpFireBrigade">Fire brigade</h2>
+                      <p data-i18n="helpFireNote">Fire, smoke, rescue</p>
+                    </article>
+                    <article class="help-number-card">
+                      <span class="help-alert-icon"><img src="Assets/Icon/help-police-badge.png" alt=""></span>
+                      <strong>17</strong>
+                      <h2 data-i18n="helpPoliceTitle">Police</h2>
+                      <p data-i18n="helpPoliceNote">Theft, violence, security issue</p>
+                    </article>
+                    <article class="help-number-card">
+                      <span class="help-alert-icon"><img src="Assets/Icon/help-gossip.png" alt=""></span>
+                      <strong>114</strong>
+                      <h2 data-i18n="helpSmsTitle">Emergency SMS</h2>
+                      <p data-i18n="helpSmsNote">For deaf or hard of hearing people</p>
+                    </article>
+                  </section>
+
+                  <section class="help-quick">
+                    <h2 data-i18n="helpQuickTitle">Common issues? Quick help here.</h2>
+                    <div class="help-quick-grid">
+                      <a class="help-quick-card" href="tel:+33612345678">
+                        <span><img src="Assets/Icon/help-light-bulb.png" alt=""></span>
+                        <strong data-i18n="helpElectricityTitle">No electricity?</strong>
+                        <small data-i18n="helpElectricityText">Check the fuse box</small>
+                      </a>
+                      <a class="help-quick-card" href="tel:+33612345678">
+                        <span><img src="Assets/Icon/help-drop-of-liquid.png" alt=""></span>
+                        <strong data-i18n="helpWaterTitle">Water leak?</strong>
+                        <small data-i18n="helpWaterText">Turn off the main valve</small>
+                      </a>
+                      <a class="help-quick-card" href="tel:+33612345678">
+                        <span><img src="Assets/Icon/help-key.png" alt=""></span>
+                        <strong data-i18n="helpKeyTitle">Key problem?</strong>
+                        <small data-i18n="helpKeyText">Contact the host</small>
+                      </a>
+                      <a class="help-quick-card" href="tel:112">
+                        <span><img src="Assets/Icon/help-fire.png" alt=""></span>
+                        <strong data-i18n="helpGasTitle">Fire or gas smell?</strong>
+                        <small data-i18n="helpGasText">Get outside and call 112</small>
+                      </a>
+                    </div>
+                  </section>
+                </main>
+
+                <aside class="help-side" aria-label="Useful contacts">
+                  <article class="help-side-card">
+                    <div class="help-side-head">
+                      <span class="help-icon-bubble"><img src="Assets/Icon/Help.svg" alt=""></span>
+                      <div>
+                        <h2 data-i18n="helpContactHost">Contact host</h2>
+                        <p data-i18n="helpContactHostText">We're here to help</p>
+                      </div>
+                    </div>
+                    <a class="help-phone-link" href="tel:+33612345678">+33 6 12 34 56 78</a>
+                    <a class="help-primary-button" href="tel:+33612345678" data-i18n="helpCallHost">Call host</a>
+                    <a class="help-row-link" href="sms:+33612345678">
+                      <span data-i18n="helpMessageHost">Or send a message</span>
+                    </a>
+                  </article>
+
+                  <article class="help-side-card">
+                    <div class="help-side-head">
+                      <span class="help-icon-bubble"><img src="Assets/Icon/location-events.png" alt=""></span>
+                      <div>
+                        <h2 data-i18n="helpAddressTitle">Our address</h2>
+                        <p>222 rue Delespaul<br>59100 Roubaix<br>France</p>
+                      </div>
+                    </div>
+                    <a class="help-secondary-button" href="https://www.google.com/maps/search/?api=1&query=222%20rue%20Delespaul%2059100%20Roubaix%20France" target="_blank" rel="noopener noreferrer" data-i18n="helpOpenMaps">Open in Maps</a>
+                  </article>
+
+                  <article class="help-side-card">
+                    <div class="help-side-head">
+                      <span class="help-icon-bubble"><img src="Assets/Icon/help-pharmacy.png" alt=""></span>
+                      <div>
+                        <h2 data-i18n="helpFirstAidTitle">First-aid kit</h2>
+                        <p data-i18n="helpFirstAidText">Located in the kitchen top right cabinet</p>
+                      </div>
+                    </div>
+                  </article>
+                </aside>
+              </div>
+            </section>
           </div>
         </div>
       </section>
@@ -717,8 +916,8 @@
         }
       }
     </script>
-    <script src="script.js?v=discover-routes-responsive-1"></script>
-    <script type="module" src="Assets/JS/home-model-viewer.js?v=home-model-side-8-collada-v07"></script>
+    <script src="script.js?v=stay-comfort-watercolor-2"></script>
+    <script type="module" src="Assets/JS/home-model-viewer.js?v=welcome-m11-1"></script>
   </body>
 </html>
 

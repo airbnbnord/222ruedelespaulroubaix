@@ -43,6 +43,11 @@ const stayHouseTrack = document.querySelector(".stay-house-track");
 const stayJourney = document.querySelector(".stay-journey");
 const stayJourneySteps = [...document.querySelectorAll(".stay-journey-step")];
 const stayJourneyPages = [...document.querySelectorAll(".stay-journey-page")].sort((a, b) => Number(a.dataset.stayPageStep || 0) - Number(b.dataset.stayPageStep || 0));
+const stayAroundExplorer = document.querySelector("#stayAroundExplorer");
+const stayAroundMap = document.querySelector("#stayAroundMap");
+const stayAroundList = document.querySelector("#stayAroundList");
+const stayAroundModeButtons = [...document.querySelectorAll("[data-around-mode]")];
+const stayAroundFilterButtons = [...document.querySelectorAll("[data-around-filter]")];
 if (stayJourney && stayJourneyPages.length) {
   stayJourneyPages.forEach((page) => stayJourney.appendChild(page));
 }
@@ -112,6 +117,40 @@ const copy = {
     navStay: "Votre séjour",
     navDiscover: "À découvrir",
     navHelp: "Besoin d'aide ?",
+    helpTitle: "Besoin d'aide ?",
+    helpLead: "Tout ce dont vous avez besoin, au meme endroit.",
+    helpHandNote: "Vous etes entre de bonnes mains",
+    helpHandSubnote: "Profitez de votre sejour en bonne compagnie",
+    helpEmergencyEurope: "Urgence (Europe)",
+    helpPolice: "Police",
+    helpFire: "Pompiers",
+    helpMedical: "Medical",
+    helpAllEmergencies: "Toutes urgences",
+    helpMedicalEmergency: "Urgence medicale",
+    helpMedicalNote: "(Blessure ou maladie grave)",
+    helpFireBrigade: "Pompiers",
+    helpFireNote: "Feu, fumee, secours",
+    helpPoliceTitle: "Police",
+    helpPoliceNote: "Vol, violence, probleme de securite",
+    helpSmsTitle: "SMS d'urgence",
+    helpSmsNote: "Pour les personnes sourdes ou malentendantes",
+    helpQuickTitle: "Probleme courant ? Aide rapide ici.",
+    helpElectricityTitle: "Plus d'electricite ?",
+    helpElectricityText: "Verifiez le tableau electrique",
+    helpWaterTitle: "Fuite d'eau ?",
+    helpWaterText: "Fermez l'arrivee d'eau principale",
+    helpKeyTitle: "Probleme de cle ?",
+    helpKeyText: "Contactez l'hote",
+    helpGasTitle: "Feu ou odeur de gaz ?",
+    helpGasText: "Sortez et appelez le 112",
+    helpContactHost: "Contacter l'hote",
+    helpContactHostText: "Nous sommes la pour aider",
+    helpCallHost: "Appeler l'hote",
+    helpMessageHost: "Ou envoyer un message",
+    helpAddressTitle: "Notre adresse",
+    helpOpenMaps: "Ouvrir dans Maps",
+    helpFirstAidTitle: "Trousse de secours",
+    helpFirstAidText: "Dans le placard haut droit de la cuisine",
     eventsKicker: "À découvrir",
     eventsTitle: "Que se passe-t-il autour ?",
     eventsIntro: "Les prochains grands rendez-vous autour de Lille et en Belgique, mis à jour à 07h, 12h et 17h.",
@@ -171,6 +210,12 @@ const copy = {
     wishTitleInline: "Un vœu pour la prochaine fois ?",
     wishSubtitle: "Si tu reviens ici, qu'est-ce que tu aimerais avoir en plus ou en moins ?",
     wishButton: "Faire un vœu",
+    reviewFinalTitle: "Loved your stay ?",
+    reviewFinalSubtitle: "Your review helps us keep improving and inspires future travellers.",
+    reviewFinalButton: "Leave a review",
+    reviewFinalReasonGuests: "Helps\nfuture guests",
+    reviewFinalReasonMeans: "Means\na lot to us",
+    reviewFinalReasonVibes: "Keeps\nthe good vibes",
     modalTitle: "Faire un vœu",
     firstName: "Prénom",
     lastName: "Nom",
@@ -191,7 +236,7 @@ const copy = {
     homeEnjoy: "Profitez bien, et n'hésitez pas à nous contacter si besoin !",
     homeScrollNote: "Faites défiler pour découvrir davantage la maison.",
     homeModelTitle: "Explorer en 3D",
-    homeModelText: "222 rue Delespaul - 59xxxx - Roubaix",
+    homeModelText: "222 rue Delespaul - 59100 - Roubaix",
     surfaceTotal: "Surface totale",
     surfaceLiving: "séjour-cuisine",
     surfaceBath: "salle de bain",
@@ -206,8 +251,10 @@ const copy = {
     wifiTitle: "Wifi",
     wifiNetwork: "Réseau",
     wifiPassword: "Mot de passe",
+    equipmentKicker: "Pour votre confort",
     equipmentTitleStrong: "Les équipements",
-    equipmentTitleMuted: "à votre disposition pour votre confort",
+    equipmentTitleMuted: "du logement",
+    equipmentSubtitle: "Repérez l'essentiel en un coup d'oeil, puis touchez une carte pour ouvrir les détails utiles.",
     equipmentIntro: "Les équipements à votre disposition pour votre confort.",
     equipmentCoffee: "Machine à café",
     equipmentToaster: "Grille-pain",
@@ -296,7 +343,7 @@ const copy = {
     stayStepTogether: "Bien vivre",
     stayStepLastWord: "Dernier mot",
     stayStepDeparture: "Départ",
-    stayStepWish: "Vœu",
+    stayStepWish: "Avis",
     stayComfortTitle: "Pour votre confort",
     stayComfortIntro: "Les petites attentions et équipements disponibles pendant le séjour.",
     stayComfortCoffeeTitle: "Café & thé",
@@ -359,6 +406,21 @@ const copy = {
     stayLineCheckIn: "Arrivée",
     stayLineEntryCode: "Code d'entrée",
     stayLineParkingText: "Dehors, dans l'allée",
+    stayLineAroundMapTitle: "Autour de la maison",
+    stayLineAroundMapLead: "Explorez ce qui est proche — transports, commerces et essentiels du quotidien.",
+    stayLineAroundModeWalk: "À pied",
+    stayLineAroundModeDrive: "Voiture",
+    stayLineAroundModeTransit: "Transport",
+    stayLineAroundFilterAll: "Tout",
+    stayLineAroundFilterTransport: "Transport",
+    stayLineAroundFilterGroceries: "Courses",
+    stayLineAroundFilterEssentials: "Essentiels",
+    stayLineAroundFilterBakery: "Boulangerie & food",
+    stayLineAroundFilterOther: "Autre",
+    stayLineAroundListTitle: "Essentiels proches",
+    stayLineAroundListHint: "tri selon le mode choisi",
+    stayLineAroundMapNote: "Tout ce qu'il faut, juste au coin de la rue.",
+    stayLineAroundUnavailable: "Non direct",
     stayLineAroundTitle: "Getting around",
     stayLineAroundLead: "Accès, commerces et essentiels à proximité du logement.",
     stayLineAroundTransportTitle: "Accès & transports",
@@ -453,6 +515,10 @@ const copy = {
     stayLineWasteHouseTitle: "Produits maison",
     stayLineWasteHouseText: "D'autres produits de nettoyage sont disponibles pour le reste du logement.",
     stayLineWasteTitle: "Infos pratiques",
+    stayLineComfortKicker: "Votre guide de séjour",
+    stayLineComfortTitle: "Tout ce dont vous avez besoin, au même endroit",
+    stayLineComfortLead: "Un séjour simple, confortable et inoubliable à Roubaix et ses alentours.",
+    stayLineComfortCta: "Découvrir la maison",
     stayLineComfortHero: "Pensé pour vous, profitez du séjour ♡",
     stayLineComfortFootnote: "Tout ce qu'il vous faut, exactement là où il faut ♡",
     stayLineExtrasTitle: "Petits plus",
@@ -512,6 +578,40 @@ const copy = {
     navStay: "Your stay",
     navDiscover: "Discover",
     navHelp: "Need help?",
+    helpTitle: "Need help?",
+    helpLead: "Here's everything you need, in one place.",
+    helpHandNote: "You're in good hands",
+    helpHandSubnote: "Enjoy your stay in good company",
+    helpEmergencyEurope: "Emergency (Europe)",
+    helpPolice: "Police",
+    helpFire: "Fire",
+    helpMedical: "Medical",
+    helpAllEmergencies: "All emergencies",
+    helpMedicalEmergency: "Medical emergency",
+    helpMedicalNote: "(Serious injury or illness)",
+    helpFireBrigade: "Fire brigade",
+    helpFireNote: "Fire, smoke, rescue",
+    helpPoliceTitle: "Police",
+    helpPoliceNote: "Theft, violence, security issue",
+    helpSmsTitle: "Emergency SMS",
+    helpSmsNote: "For deaf or hard of hearing people",
+    helpQuickTitle: "Common issues? Quick help here.",
+    helpElectricityTitle: "No electricity?",
+    helpElectricityText: "Check the fuse box",
+    helpWaterTitle: "Water leak?",
+    helpWaterText: "Turn off the main valve",
+    helpKeyTitle: "Key problem?",
+    helpKeyText: "Contact the host",
+    helpGasTitle: "Fire or gas smell?",
+    helpGasText: "Get outside and call 112",
+    helpContactHost: "Contact host",
+    helpContactHostText: "We're here to help",
+    helpCallHost: "Call host",
+    helpMessageHost: "Or send a message",
+    helpAddressTitle: "Our address",
+    helpOpenMaps: "Open in Maps",
+    helpFirstAidTitle: "First-aid kit",
+    helpFirstAidText: "Located in the kitchen top right cabinet",
     eventsKicker: "To discover",
     eventsTitle: "What's happening nearby",
     eventsIntro: "Upcoming highlights around Lille and Belgium, refreshed at 07:00, 12:00 and 17:00.",
@@ -571,6 +671,12 @@ const copy = {
     wishTitleInline: "One wish for next time?",
     wishSubtitle: "If you come back here, what would you like to have more or less of?",
     wishButton: "Make a wish",
+    reviewFinalTitle: "Loved your stay ?",
+    reviewFinalSubtitle: "Your review helps us keep improving and inspires future travellers.",
+    reviewFinalButton: "Leave a review",
+    reviewFinalReasonGuests: "Helps\nfuture guests",
+    reviewFinalReasonMeans: "Means\na lot to us",
+    reviewFinalReasonVibes: "Keeps\nthe good vibes",
     modalTitle: "Make one wish",
     firstName: "First name",
     lastName: "Last name",
@@ -591,7 +697,7 @@ const copy = {
     homeEnjoy: "Enjoy your stay, and feel free to contact us if needed!",
     homeScrollNote: "Scroll down to discover more about the house.",
     homeModelTitle: "Spin to explore",
-    homeModelText: "222 rue Delespaul - 59xxxx - Roubaix",
+    homeModelText: "222 rue Delespaul - 59100 - Roubaix",
     surfaceTotal: "Total area",
     surfaceLiving: "living room-kitchen",
     surfaceBath: "bathroom",
@@ -606,8 +712,10 @@ const copy = {
     wifiTitle: "Wifi",
     wifiNetwork: "Network",
     wifiPassword: "Password",
+    equipmentKicker: "For your comfort",
     equipmentTitleStrong: "Equipment",
-    equipmentTitleMuted: "available for your comfort",
+    equipmentTitleMuted: "in the home",
+    equipmentSubtitle: "Spot the essentials at a glance, then tap a card to open the useful details.",
     equipmentIntro: "Equipment available for your comfort.",
     equipmentCoffee: "Coffee machine",
     equipmentToaster: "Toaster",
@@ -696,7 +804,7 @@ const copy = {
     stayStepTogether: "Living well",
     stayStepLastWord: "Last word",
     stayStepDeparture: "Departure",
-    stayStepWish: "Wish",
+    stayStepWish: "Review",
     stayComfortTitle: "For your comfort",
     stayComfortIntro: "Small attentions and useful items available during your stay.",
     stayComfortCoffeeTitle: "Coffee & tea",
@@ -759,6 +867,21 @@ const copy = {
     stayLineCheckIn: "Check in",
     stayLineEntryCode: "Entry code",
     stayLineParkingText: "Outside in the alley",
+    stayLineAroundMapTitle: "Around the house",
+    stayLineAroundMapLead: "Explore what's nearby — transport, shops and everyday essentials.",
+    stayLineAroundModeWalk: "Walking",
+    stayLineAroundModeDrive: "Driving",
+    stayLineAroundModeTransit: "Transit",
+    stayLineAroundFilterAll: "All",
+    stayLineAroundFilterTransport: "Transport",
+    stayLineAroundFilterGroceries: "Groceries",
+    stayLineAroundFilterEssentials: "Essentials",
+    stayLineAroundFilterBakery: "Bakery & Food",
+    stayLineAroundFilterOther: "Other",
+    stayLineAroundListTitle: "Nearby essentials",
+    stayLineAroundListHint: "sorted by selected mode",
+    stayLineAroundMapNote: "Everything you need, just around the corner.",
+    stayLineAroundUnavailable: "Not direct",
     stayLineAroundTitle: "Getting around",
     stayLineAroundLead: "Access, shops and everyday essentials close to the home.",
     stayLineAroundTransportTitle: "Access & transport",
@@ -853,6 +976,10 @@ const copy = {
     stayLineWasteHouseTitle: "House cleaning supplies",
     stayLineWasteHouseText: "Other cleaning products are available for the rest of the house.",
     stayLineWasteTitle: "Pratical infos",
+    stayLineComfortKicker: "Your stay guide",
+    stayLineComfortTitle: "Everything you need, in the same place",
+    stayLineComfortLead: "A simple, comfortable and memorable stay in Roubaix and around.",
+    stayLineComfortCta: "Discover the home",
     stayLineComfortHero: "Here for you, enjoy your stay ♡",
     stayLineComfortFootnote: "Everything you need, exactly where you need it ♡",
     stayLineExtrasTitle: "Little extras",
@@ -950,20 +1077,43 @@ const pageSections = {
     { id: "stay-blank", key: "stayStepComfort", icon: "Assets/Icon/Bien vivre.svg", stayStep: 2 },
     { id: "stay-blank", key: "stayStepGettingAround", icon: "Assets/Icon/getting arround.png", stayStep: 3 },
     { id: "stay-blank", key: "stayStepDeparture", icon: "Assets/Icon/Départ.svg", stayStep: 4 },
-    { id: "stay-blank", key: "stayStepWish", icon: "Assets/Icon/;).svg", stayStep: 5 }
+    { id: "stay-blank", key: "stayStepWish", icon: "Assets/Icon/stay-review-spark.png", stayStep: 5 }
   ],
   discover: [
     { id: "discover-events", key: "sideDiscoverEvents", icon: "Assets/Icon/A découvrir.png" },
     { id: "discover-blank", key: "sideDiscoverBlank", icon: "Assets/Icon/leaf.png" },
     { id: "discover-routes-outdoors", key: "sideDiscoverRoutes", icon: "Assets/Icon/footprint.png" }
   ],
-  help: [
-    { id: "help-blank", key: "navHelp", icon: "Assets/Icon/Help.svg" }
-  ]
+  help: []
 };
 
+function googleMapsLink(query) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+const aroundPlaces = [
+  { id: "pharmacy", category: "essentials", titleKey: "stayLineAroundPharmacyTitle", detailKey: "stayLineAroundPharmacyAddress", icon: "Assets/Icon/pharmacy.png", href: googleMapsLink("Pharmacie du Hutin 52 Rue de Constantine 59100 Roubaix"), times: { walk: 3, drive: 2 }, map: { x: 58, y: 32 } },
+  { id: "bus-vigne", category: "transport", titleKey: "stayLineAroundBusVigneTitle", detailKey: "stayLineAroundBusVigneText", icon: "Assets/Icon/bus.png", href: googleMapsLink("Arrêt Bus La Vigne Roubaix"), times: { walk: 5 }, map: { x: 25, y: 47 } },
+  { id: "bus-metz", category: "transport", titleKey: "stayLineAroundBusMetzTitle", detailKey: "stayLineAroundBusMetzText", icon: "Assets/Icon/bus.png", href: googleMapsLink("Boulevard de Metz Roubaix arrêt bus"), times: { walk: 6 }, map: { x: 22, y: 28 }, listOnly: true },
+  { id: "gas", category: "other", titleKey: "stayLineAroundGasTitle", detailKey: "stayLineAroundGasAddress", icon: "Assets/Icon/logo-totalenergies.png", href: googleMapsLink("TotalEnergies 660 Avenue des Nations Unies 59100 Roubaix"), times: { drive: 6 }, map: { x: 76, y: 68 } },
+  { id: "bakery", category: "bakery", titleKey: "stayLineAroundBakeryTitle", detailKey: "stayLineAroundBakeryAddress", icon: "Assets/Icon/bakery.png", href: googleMapsLink("Au Pain Gourmand 198 Rue d'Alger 59100 Roubaix"), times: { walk: 7, drive: 3 }, map: { x: 78, y: 50 } },
+  { id: "bike", category: "transport", titleKey: "stayLineAroundBikeTitle", detailKey: "stayLineAroundBikeText", icon: "Assets/Icon/bicycle.png", href: googleMapsLink("V'Lille De la Vigne Roubaix"), times: { walk: 7 }, map: { x: 36, y: 80 } },
+  { id: "aldi", category: "groceries", titleKey: "stayLineAroundAldiTitle", detailKey: "stayLineAroundAldiAddress", icon: "Assets/Icon/logo-aldi.png", href: googleMapsLink("ALDI 6 bis Boulevard de Metz 59100 Roubaix"), times: { walk: 9, drive: 3, transit: 9 }, map: { x: 31, y: 23 } },
+  { id: "lidl", category: "groceries", titleKey: "stayLineAroundLidlTitle", detailKey: "stayLineAroundLidlAddress", icon: "Assets/Icon/logo-lidl.png", href: googleMapsLink("Lidl 43 Rue Jules Guesde 59100 Roubaix"), times: { walk: 13, drive: 4, transit: 11 }, map: { x: 46, y: 24 }, listOnly: true },
+  { id: "metro", category: "transport", titleKey: "stayLineAroundMetroTitle", detailKey: "stayLineAroundMetroText", icon: "Assets/Icon/metro.png", href: googleMapsLink("Métro Alsace ligne 2 Roubaix"), times: { walk: 13 }, map: { x: 14, y: 68 } },
+  { id: "marie", category: "bakery", titleKey: "stayLineAroundMarieTitle", detailKey: "stayLineAroundMarieAddress", icon: "Assets/Icon/logo-marie-blachere.png", href: googleMapsLink("Marie Blachère 4A Rue Albert Premier 59150 Wattrelos"), times: { walk: 19, drive: 6, transit: 16 }, map: { x: 68, y: 22 }, listOnly: true },
+  { id: "leclerc", category: "groceries", titleKey: "stayLineAroundLeclercTitle", detailKey: "stayLineAroundLeclercAddress", icon: "Assets/Icon/logo-leclerc.png", href: googleMapsLink("E.Leclerc 21 Bis Grande Rue 59100 Roubaix"), times: { walk: 21, drive: 6, transit: 16 }, map: { x: 67, y: 76 }, listOnly: true },
+  { id: "carrefour", category: "groceries", titleKey: "stayLineAroundCarrefourTitle", detailKey: "stayLineAroundCarrefourAddress", icon: "Assets/Icon/logo-carrefour-city.png", href: googleMapsLink("Carrefour City 77 Boulevard de Gaulle 59100 Roubaix"), times: { walk: 21, drive: 6, transit: 16 }, map: { x: 52, y: 74 }, listOnly: true },
+  { id: "train", category: "transport", titleKey: "stayLineAroundTrainTitle", detailKey: "stayLineAroundTrainText", icon: "Assets/Icon/train (1).png", href: googleMapsLink("Gare de Roubaix"), times: { transit: 21 }, map: { x: 83, y: 24 }, listOnly: true },
+  { id: "charge", category: "other", titleKey: "stayLineAroundChargeTitle", detailKey: "stayLineAroundChargeAddress", icon: "Assets/Icon/charging-station.png", href: googleMapsLink("Iléwatt Charging Station 207 Rue Lacroix 59100 Roubaix"), times: { drive: 4 }, map: { x: 84, y: 40 }, listOnly: true },
+  { id: "auchan", category: "groceries", titleKey: "stayLineAroundAuchanTitle", detailKey: "stayLineAroundAuchanAddress", icon: "Assets/Icon/logo-auchan.png", href: googleMapsLink("Auchan Rue Fidèle Lehoucq 59200 Tourcoing"), times: { walk: 46, drive: 11, transit: 26 }, map: { x: 58, y: 84 }, listOnly: true }
+];
+
+let activeAroundMode = "walk";
+let activeAroundFilter = "all";
+
 let activePage = "welcome";
-let activeEquipmentIndex = 0;
+let activeEquipmentIndex = 7;
 let activeEquipmentKey = null;
 let activeStayIndex = 0;
 let equipmentAutoTimer;
@@ -1649,6 +1799,84 @@ function updateStaticCopy(lang) {
   wishClose.setAttribute("aria-label", state.close);
   departureChecklistClose?.setAttribute("aria-label", state.close);
   renderSideNav(activePage, lang);
+  renderAroundExplorer();
+}
+
+function getAroundModeIcon(mode) {
+  if (mode === "drive") return "Assets/Icon/around-car.png";
+  if (mode === "transit") return "Assets/Icon/around-train.png";
+  return "Assets/Icon/around-footprint.png";
+}
+
+function getAroundTime(place, mode) {
+  return Number.isFinite(place.times[mode]) ? place.times[mode] : null;
+}
+
+function getAroundSortTime(place, mode) {
+  const selectedTime = getAroundTime(place, mode);
+  if (selectedTime !== null) return selectedTime;
+  return Math.min(...Object.values(place.times).filter(Number.isFinite));
+}
+
+function formatAroundTime(place, mode, state) {
+  const minutes = getAroundTime(place, mode);
+  return minutes === null ? state.stayLineAroundUnavailable : `${minutes} min`;
+}
+
+function renderAroundExplorer() {
+  if (!stayAroundExplorer || !stayAroundMap || !stayAroundList) return;
+  const lang = root.dataset.lang || "fr";
+  const state = copy[lang] || copy.fr;
+  const filteredPlaces = aroundPlaces
+    .filter((place) => activeAroundFilter === "all" || place.category === activeAroundFilter)
+    .sort((a, b) => {
+      const aSelected = getAroundTime(a, activeAroundMode) === null ? 1 : 0;
+      const bSelected = getAroundTime(b, activeAroundMode) === null ? 1 : 0;
+      return aSelected - bSelected || getAroundSortTime(a, activeAroundMode) - getAroundSortTime(b, activeAroundMode);
+    });
+
+  stayAroundModeButtons.forEach((button) => {
+    const isActive = button.dataset.aroundMode === activeAroundMode;
+    button.classList.toggle("is-active", isActive);
+    button.toggleAttribute("aria-current", isActive);
+  });
+  stayAroundFilterButtons.forEach((button) => {
+    const isActive = button.dataset.aroundFilter === activeAroundFilter;
+    button.classList.toggle("is-active", isActive);
+    button.toggleAttribute("aria-current", isActive);
+  });
+
+  stayAroundMap.querySelectorAll(".map-pin").forEach((pin) => pin.remove());
+  filteredPlaces
+    .filter((place) => !place.listOnly)
+    .forEach((place) => {
+      const pin = document.createElement("a");
+      pin.className = `map-pin pin-${place.id}`;
+      pin.href = place.href;
+      pin.target = "_blank";
+      pin.rel = "noopener noreferrer";
+      pin.dataset.aroundMarker = place.id;
+      pin.dataset.category = place.category;
+      pin.style.left = `${place.map.x}%`;
+      pin.style.top = `${place.map.y}%`;
+      pin.classList.toggle("is-muted", getAroundTime(place, activeAroundMode) === null);
+      pin.innerHTML = `<img src="${place.icon}" alt=""><span>${escapeHtml(state[place.titleKey] || "")} <b>${escapeHtml(formatAroundTime(place, activeAroundMode, state))}</b></span>`;
+      stayAroundMap.appendChild(pin);
+    });
+
+  stayAroundList.innerHTML = filteredPlaces.map((place) => {
+    const isUnavailable = getAroundTime(place, activeAroundMode) === null;
+    return `
+      <a class="stay-around-item${isUnavailable ? " is-muted" : ""}" href="${place.href}" target="_blank" rel="noopener noreferrer" data-around-item="${place.id}" data-category="${place.category}">
+        <img src="${place.icon}" alt="">
+        <span>
+          <strong>${escapeHtml(state[place.titleKey] || "")}</strong>
+          <small>${escapeHtml(state[place.detailKey] || "")}</small>
+        </span>
+        <em><i style="background-image:url('${getAroundModeIcon(activeAroundMode)}')"></i><b>${escapeHtml(formatAroundTime(place, activeAroundMode, state))}</b></em>
+      </a>
+    `;
+  }).join("");
 }
 
 function typeLoop(text) {
@@ -1780,10 +2008,12 @@ function fitDiscoverFocusTitle() {
   if (!discoverFocusTitle) return;
   discoverFocusTitle.style.removeProperty("--discover-focus-title-size");
 
-  let size = 86;
-  const minSize = 30;
+  let size = Math.min(68, Math.max(38, Math.round(window.innerWidth * 0.045)));
+  const minSize = 18;
   discoverFocusTitle.style.setProperty("--discover-focus-title-size", `${size}px`);
-  const targetWidth = discoverFocusTitle.clientWidth || discoverFocusTitle.parentElement?.clientWidth || 0;
+  const parentStyle = window.getComputedStyle(discoverFocusTitle.parentElement);
+  const parentPadding = parseFloat(parentStyle.paddingLeft) + parseFloat(parentStyle.paddingRight);
+  const targetWidth = (discoverFocusTitle.parentElement?.clientWidth || discoverFocusTitle.clientWidth || 0) - parentPadding;
 
   while (targetWidth && size > minSize && discoverFocusTitle.scrollWidth > targetWidth + 1) {
     size -= 1;
@@ -2150,6 +2380,11 @@ function closeLocationMenus() {
 
 function renderSideNav(page, lang = root.dataset.lang || "en") {
   const sections = pageSections[page] || pageSections.welcome;
+  sideNav.hidden = sections.length === 0;
+  if (!sections.length) {
+    sideNav.innerHTML = "";
+    return;
+  }
   sideNav.innerHTML = sections.map((section, index) => `
     <button class="${index === 0 ? "is-active" : ""}" type="button" data-scroll-target="${section.id}"${Number.isInteger(section.stayStep) ? ` data-stay-step="${section.stayStep}"` : ""} aria-label="${copy[lang][section.key]}">
       <img src="${section.icon}" alt="">
@@ -2180,12 +2415,6 @@ function setStayJourneyStep(index) {
   stayJourneyPages.forEach((page, pageIndex) => {
     const isActivePage = pageIndex === boundedIndex;
     page.classList.toggle("is-active", isActivePage);
-    page.classList.remove("is-writing");
-    if (isActivePage && page.classList.contains("stay-rules-scene")) {
-      window.requestAnimationFrame(() => {
-        page.classList.add("is-writing");
-      });
-    }
   });
   sideNav.querySelectorAll("[data-stay-step]").forEach((button) => {
     const isActive = Number(button.dataset.stayStep) === boundedIndex;
@@ -2742,21 +2971,23 @@ document.addEventListener("keydown", (event) => {
 });
 
 function openWishModal() {
+  if (!wishModal) return;
   wishModal.classList.add("is-open");
   wishModal.setAttribute("aria-hidden", "false");
-  wishThanks.textContent = "";
-  document.querySelector("#wishFirstName").focus();
+  if (wishThanks) wishThanks.textContent = "";
+  document.querySelector("#wishFirstName")?.focus();
 }
 
 function closeWishModal() {
+  if (!wishModal) return;
   wishModal.classList.remove("is-open");
   wishModal.setAttribute("aria-hidden", "true");
 }
 
-wishOpen.addEventListener("click", openWishModal);
-wishClose.addEventListener("click", closeWishModal);
+wishOpen?.addEventListener("click", openWishModal);
+wishClose?.addEventListener("click", closeWishModal);
 
-wishModal.addEventListener("click", (event) => {
+wishModal?.addEventListener("click", (event) => {
   if (event.target === wishModal) closeWishModal();
 });
 
@@ -2823,8 +3054,8 @@ function updateEquipmentCarousel() {
     let slot = index - activeEquipmentIndex;
     if (slot > total / 2) slot -= total;
     if (slot < total / -2) slot += total;
-    if (slot > 2) slot = 3;
-    if (slot < -2) slot = -3;
+    if (slot > 3) slot = 4;
+    if (slot < -3) slot = -4;
     card.dataset.slot = String(slot);
     card.classList.toggle("is-featured", slot === 0);
     card.setAttribute("aria-current", String(slot === 0));
@@ -2837,8 +3068,7 @@ function stopEquipmentAutoplay() {
 
 function startEquipmentAutoplay() {
   stopEquipmentAutoplay();
-  if (leanDevice || reducedMotion.matches) return;
-  equipmentAutoTimer = setInterval(() => rotateEquipment(1), 4200);
+  return;
 }
 
 function setStayFrame(index) {
@@ -3132,7 +3362,7 @@ document.querySelectorAll(".stay-reveal").forEach((button) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && wishModal.classList.contains("is-open")) {
+  if (event.key === "Escape" && wishModal?.classList.contains("is-open")) {
     closeWishModal();
   }
   if (event.key === "Escape" && departureModal?.classList.contains("is-open")) {
@@ -3143,7 +3373,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-wishForm.addEventListener("submit", (event) => {
+wishForm?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(wishForm);
@@ -3167,6 +3397,32 @@ wishForm.addEventListener("submit", (event) => {
 
   wishThanks.textContent = state.thanks;
   wishForm.reset();
+});
+
+stayAroundModeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeAroundMode = button.dataset.aroundMode || "walk";
+    renderAroundExplorer();
+  });
+});
+
+stayAroundFilterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeAroundFilter = button.dataset.aroundFilter || "all";
+    renderAroundExplorer();
+  });
+});
+
+stayAroundList?.addEventListener("pointerover", (event) => {
+  const item = event.target.closest("[data-around-item]");
+  if (!item) return;
+  stayAroundMap?.querySelector(`[data-around-marker="${item.dataset.aroundItem}"]`)?.classList.add("is-linked");
+});
+
+stayAroundList?.addEventListener("pointerout", (event) => {
+  const item = event.target.closest("[data-around-item]");
+  if (!item) return;
+  stayAroundMap?.querySelector(`[data-around-marker="${item.dataset.aroundItem}"]`)?.classList.remove("is-linked");
 });
 
 const storedTheme = readStoredPreference(storageKeys.theme);

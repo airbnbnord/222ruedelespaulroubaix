@@ -34,8 +34,10 @@ class HomeModelViewer {
     this.controls.rotateSpeed = 0.7;
     this.controls.minDistance = 1.2;
     this.controls.maxDistance = 20;
-    this.controls.minPolarAngle = Math.PI / 2;
-    this.controls.maxPolarAngle = Math.PI / 2;
+    this.defaultPolar = Math.PI / 2;
+    this.polarRange = THREE.MathUtils.degToRad(28);
+    this.controls.minPolarAngle = this.defaultPolar - this.polarRange;
+    this.controls.maxPolarAngle = this.defaultPolar + this.polarRange;
 
     this.scene.add(new THREE.HemisphereLight(0xffffff, 0xc8d2c2, 2.4));
 
@@ -127,12 +129,12 @@ class HomeModelViewer {
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    const fitOffset = 1.58;
+    const fitOffset = 1.68;
     const aspect = Math.max(0.2, this.camera.aspect || 1);
     const fitHeightDistance = (size.y * fitOffset) / (2 * Math.tan(THREE.MathUtils.degToRad(this.camera.fov * 0.5)));
     const fitWidthDistance = (Math.max(size.x, size.z) * fitOffset) / (2 * Math.tan(THREE.MathUtils.degToRad(this.camera.fov * 0.5)) * aspect);
     const defaultDistance = Math.max(fitHeightDistance, fitWidthDistance, 1);
-    const defaultPolar = Math.PI / 2;
+    const defaultPolar = this.defaultPolar;
     const defaultAzimuth = -Math.PI / 2;
     const offset = new THREE.Vector3().setFromSphericalCoords(defaultDistance, defaultPolar, defaultAzimuth);
 
@@ -143,8 +145,8 @@ class HomeModelViewer {
     this.camera.updateProjectionMatrix();
     this.controls.minDistance = defaultDistance;
     this.controls.maxDistance = defaultDistance;
-    this.controls.minPolarAngle = defaultPolar;
-    this.controls.maxPolarAngle = defaultPolar;
+    this.controls.minPolarAngle = defaultPolar - this.polarRange;
+    this.controls.maxPolarAngle = defaultPolar + this.polarRange;
     this.controls.update();
   }
 
